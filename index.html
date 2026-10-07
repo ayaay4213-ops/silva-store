@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Silva</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#0b0d12;
+  color:white;
+}
+header{
+  padding:16px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #292e3a;
+  position:sticky;
+  top:0;
+  background:#0b0d12ee;
+  z-index:10;
+}
+.logo{font-size:25px;font-weight:bold}
+.cart{
+  background:#191d27;
+  color:white;
+  border:1px solid #343a48;
+  padding:10px 15px;
+  border-radius:12px;
+}
+.hero{
+  padding:70px 7%;
+  background:linear-gradient(135deg,#24143b,#0b0d12);
+}
+h1{font-size:55px;margin:0 0 10px}
+.hero p{font-size:18px;color:#c9ced9}
+.btn{
+  display:inline-block;
+  margin-top:15px;
+  padding:13px 20px;
+  border-radius:12px;
+  background:white;
+  color:#111;
+  text-decoration:none;
+  font-weight:bold;
+}
+h2{padding:25px 6% 5px}
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:16px;
+  padding:15px 6% 60px;
+}
+.card{
+  background:#141821;
+  border:1px solid #292f3b;
+  border-radius:18px;
+  overflow:hidden;
+}
+.pic{
+  height:150px;
+  display:grid;
+  place-items:center;
+  font-size:50px;
+  background:linear-gradient(135deg,#30274a,#181c26);
+}
+.info{padding:15px}
+.info p{color:#aeb5c3;min-height:40px}
+.price{font-weight:bold;font-size:19px}
+.add{
+  width:100%;
+  margin-top:12px;
+  padding:11px;
+  border:0;
+  border-radius:10px;
+  background:white;
+  color:#111;
+  font-weight:bold;
+}
+#msg{
+  position:fixed;
+  bottom:20px;
+  left:20px;
+  right:20px;
+  background:white;
+  color:#111;
+  padding:14px;
+  border-radius:12px;
+  text-align:center;
+  display:none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Silva</div>
+  <button class="cart" onclick="showCart()">
+    🛒 السلة <span id="count">0</span>
+  </button>
+</header>
+
+<section class="hero">
+  <h1>Silva</h1>
+  <p>متجرك الرقمي الراقي</p>
+  <a class="btn" href="#products">تصفح المنتجات</a>
+</section>
+
+<h2 id="products">منتجاتنا</h2>
+
+<main class="products" id="productList"></main>
+
+<div id="msg"></div>
+
+<script>
+const items=[
+["🎧","مؤثرات صوتية","مؤثرات رقمية عالية الجودة",12],
+["🎬","فيديوهات","فيديوهات رقمية جاهزة",15],
+["🧊","ملفات 3D","ملفات ثلاثية الأبعاد",20],
+["✨","إطارات","إطارات رقمية مميزة",10],
+["🎁","هدايا رقمية","هدايا رقمية أنيقة",8]
+];
+
+let count=0;
+
+document.getElementById("productList").innerHTML=items.map((x,i)=>`
+<article class="card">
+  <div class="pic">${x[0]}</div>
+  <div class="info">
+    <h3>${x[1]}</h3>
+    <p>${x[2]}</p>
+    <div class="price">$${x[3].toFixed(2)}</div>
+    <button class="add" onclick="add(${i})">أضف للسلة</button>
+  </div>
+</article>
+`).join("");
+
+function add(i){
+  count++;
+  document.getElementById("count").textContent=count;
+  show("تمت إضافة المنتج إلى السلة ✓");
+}
+
+function showCart(){
+  show(count ? "السلة تحتوي على "+count+" منتج" : "السلة فارغة");
+}
+
+function show(t){
+  const m=document.getElementById("msg");
+  m.textContent=t;
+  m.style.display="block";
+  setTimeout(()=>m.style.display="none",1800);
+}
+</script>
+
+</body>
+</html>
