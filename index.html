@@ -294,11 +294,29 @@ function closeCart(){
 document.getElementById("cartBox").classList.remove("open");
 document.getElementById("overlay").classList.remove("show");
 }
-function checkout(){
-if(cart.length===0){
-show("السلة فارغة");
-return;
-}
+  function checkout(){
+  if(cart.length===0){
+    show("السلة فارغة");
+    return;
+  }
+
+  let message="مرحبًا، أريد طلب المنتجات التالية من متجر Silva:\n\n";
+  let total=0;
+
+  cart.forEach(x=>{
+    const product=items[x.id];
+    const subtotal=product[3]*x.qty;
+    total+=subtotal;
+    message+=product[1]+" — الكمية: "+x.qty+" — $"+subtotal.toFixed(2)+"\n";
+  });
+
+  message+="\nالمجموع: $"+total.toFixed(2);
+
+  window.open(
+    "https://wa.me/213795455075?text="+encodeURIComponent(message),
+    "_blank"
+  );
+  }
 
 let message="مرحبًا، أريد طلب المنتجات التالية من متجر Silva:%0A%0A";
 let total=0;
