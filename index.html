@@ -2,96 +2,90 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Silva</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Silva | متجرك الرقمي الراقي</title>
 <style>
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#0b0d12;
-  color:white;
+margin:0;font-family:Arial,sans-serif;background:#08090d;color:#fff;
 }
 header{
-  padding:16px 6%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid #292e3a;
-  position:sticky;
-  top:0;
-  background:#0b0d12ee;
-  z-index:10;
+position:sticky;top:0;z-index:20;padding:16px 6%;
+display:flex;justify-content:space-between;align-items:center;
+background:#08090ddd;backdrop-filter:blur(14px);
+border-bottom:1px solid #262936;
 }
-.logo{font-size:25px;font-weight:bold}
+.logo{font-size:26px;font-weight:800;letter-spacing:.5px}
 .cart{
-  background:#191d27;
-  color:white;
-  border:1px solid #343a48;
-  padding:10px 15px;
-  border-radius:12px;
+border:1px solid #3a3d4c;background:#151720;color:#fff;
+padding:11px 17px;border-radius:14px;font-weight:bold;
 }
 .hero{
-  padding:70px 7%;
-  background:linear-gradient(135deg,#24143b,#0b0d12);
+padding:90px 7% 85px;
+background:
+radial-gradient(circle at 80% 20%,#5d2b8a55,transparent 35%),
+radial-gradient(circle at 20% 70%,#9b6cff22,transparent 35%),
+linear-gradient(135deg,#191024,#08090d 70%);
 }
-h1{font-size:55px;margin:0 0 10px}
-.hero p{font-size:18px;color:#c9ced9}
+.badge{
+display:inline-block;padding:8px 13px;border:1px solid #65468a;
+border-radius:30px;color:#d9b8ff;background:#241734;
+font-size:13px;margin-bottom:20px;
+}
+h1{font-size:clamp(48px,10vw,82px);margin:0 0 12px}
+.hero p{font-size:19px;color:#c4c7d2;max-width:520px;line-height:1.8}
 .btn{
-  display:inline-block;
-  margin-top:15px;
-  padding:13px 20px;
-  border-radius:12px;
-  background:white;
-  color:#111;
-  text-decoration:none;
-  font-weight:bold;
+display:inline-block;margin-top:20px;padding:14px 24px;border-radius:14px;
+background:linear-gradient(135deg,#fff,#dcd8e7);color:#111;
+text-decoration:none;font-weight:800;
+box-shadow:0 10px 35px #0008;
 }
-h2{padding:25px 6% 5px}
+.section-title{padding:35px 6% 12px}
+.section-title h2{margin:0;font-size:30px}
+.section-title p{color:#8f94a3}
 .products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:16px;
-  padding:15px 6% 60px;
+display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+gap:18px;padding:15px 6% 70px;
 }
 .card{
-  background:#141821;
-  border:1px solid #292f3b;
-  border-radius:18px;
-  overflow:hidden;
+background:linear-gradient(145deg,#171923,#101117);
+border:1px solid #292c38;border-radius:22px;overflow:hidden;
+transition:.25s;box-shadow:0 15px 35px #0004;
 }
+.card:hover{transform:translateY(-5px);border-color:#65468a}
 .pic{
-  height:150px;
-  display:grid;
-  place-items:center;
-  font-size:50px;
-  background:linear-gradient(135deg,#30274a,#181c26);
+height:175px;display:grid;place-items:center;font-size:58px;
+background:
+radial-gradient(circle,#65468a44,transparent 60%),
+linear-gradient(135deg,#282033,#11131a);
 }
-.info{padding:15px}
-.info p{color:#aeb5c3;min-height:40px}
-.price{font-weight:bold;font-size:19px}
+.info{padding:18px}
+.info h3{margin:0 0 8px;font-size:20px}
+.info p{color:#999eac;min-height:42px;line-height:1.6}
+.price{font-size:21px;font-weight:800;margin-top:12px}
 .add{
-  width:100%;
-  margin-top:12px;
-  padding:11px;
-  border:0;
-  border-radius:10px;
-  background:white;
-  color:#111;
-  font-weight:bold;
+width:100%;margin-top:14px;padding:12px;border:0;border-radius:12px;
+background:#fff;color:#111;font-weight:800;cursor:pointer;
+}
+footer{
+padding:35px 6%;text-align:center;color:#747988;
+border-top:1px solid #20232d;
 }
 #msg{
-  position:fixed;
-  bottom:20px;
-  left:20px;
-  right:20px;
-  background:white;
-  color:#111;
-  padding:14px;
-  border-radius:12px;
-  text-align:center;
-  display:none;
+position:fixed;bottom:22px;left:5%;right:5%;z-index:50;
+background:#fff;color:#111;padding:15px;border-radius:14px;
+text-align:center;font-weight:bold;display:none;
+box-shadow:0 15px 40px #0008;
+}
+@media(max-width:600px){
+header{padding:14px 5%}
+.hero{padding:65px 6%}
+.products{grid-template-columns:1fr 1fr;padding-left:5%;padding-right:5%}
+.pic{height:135px;font-size:45px}
+.info{padding:13px}
+.info h3{font-size:17px}
+.info p{font-size:13px}
 }
 </style>
 </head>
@@ -99,21 +93,28 @@ h2{padding:25px 6% 5px}
 <body>
 
 <header>
-  <div class="logo">Silva</div>
-  <button class="cart" onclick="showCart()">
-    🛒 السلة <span id="count">0</span>
-  </button>
+<div class="logo">Silva</div>
+<button class="cart" onclick="showCart()">🛒 السلة <span id="count">0</span></button>
 </header>
 
 <section class="hero">
-  <h1>Silva</h1>
-  <p>متجرك الرقمي الراقي</p>
-  <a class="btn" href="#products">تصفح المنتجات</a>
+<div class="badge">متجر رقمي مميز</div>
+<h1>Silva</h1>
+<p>متجرك الرقمي الراقي — اكتشف مجموعة مختارة من المنتجات الرقمية المصممة لتضيف لمسة مميزة إلى مشاريعك.</p>
+<a class="btn" href="#products">تصفح المنتجات</a>
 </section>
 
-<h2 id="products">منتجاتنا</h2>
-
+<section id="products">
+<div class="section-title">
+<h2>منتجاتنا</h2>
+<p>اختر ما يناسبك من مجموعتنا الرقمية</p>
+</div>
 <main class="products" id="productList"></main>
+</section>
+
+<footer>
+Silva © 2026 — متجرك الرقمي الراقي
+</footer>
 
 <div id="msg"></div>
 
@@ -130,31 +131,31 @@ let count=0;
 
 document.getElementById("productList").innerHTML=items.map((x,i)=>`
 <article class="card">
-  <div class="pic">${x[0]}</div>
-  <div class="info">
-    <h3>${x[1]}</h3>
-    <p>${x[2]}</p>
-    <div class="price">$${x[3].toFixed(2)}</div>
-    <button class="add" onclick="add(${i})">أضف للسلة</button>
-  </div>
+<div class="pic">${x[0]}</div>
+<div class="info">
+<h3>${x[1]}</h3>
+<p>${x[2]}</p>
+<div class="price">$${x[3].toFixed(2)}</div>
+<button class="add" onclick="add(${i})">أضف للسلة</button>
+</div>
 </article>
 `).join("");
 
 function add(i){
-  count++;
-  document.getElementById("count").textContent=count;
-  show("تمت إضافة المنتج إلى السلة ✓");
+count++;
+document.getElementById("count").textContent=count;
+show("تمت إضافة المنتج إلى السلة ✓");
 }
 
 function showCart(){
-  show(count ? "السلة تحتوي على "+count+" منتج" : "السلة فارغة");
+show(count ? "السلة تحتوي على "+count+" منتج" : "السلة فارغة");
 }
 
 function show(t){
-  const m=document.getElementById("msg");
-  m.textContent=t;
-  m.style.display="block";
-  setTimeout(()=>m.style.display="none",1800);
+const m=document.getElementById("msg");
+m.textContent=t;
+m.style.display="block";
+setTimeout(()=>m.style.display="none",1800);
 }
 </script>
 
