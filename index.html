@@ -8,53 +8,22 @@
 <style>
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-margin:0;font-family:Arial,sans-serif;background:#07080c;color:#fff
-}
-header{
-position:sticky;top:0;z-index:20;padding:15px 6%;
-display:flex;justify-content:space-between;align-items:center;
-background:#08090ddd;backdrop-filter:blur(16px);
-border-bottom:1px solid #292b36
-}
+body{margin:0;font-family:Arial,sans-serif;background:#07080c;color:#fff}
+header{position:sticky;top:0;z-index:20;padding:15px 6%;display:flex;justify-content:space-between;align-items:center;background:#08090ddd;backdrop-filter:blur(16px);border-bottom:1px solid #292b36}
 .logo{font-size:27px;font-weight:900}
-.cart{
-background:#171923;color:#fff;border:1px solid #414451;
-padding:11px 17px;border-radius:14px;font-weight:bold;cursor:pointer
-}
-.hero{
-padding:85px 7%;
-background:
-radial-gradient(circle at 80% 20%,#8b45d955,transparent 32%),
-radial-gradient(circle at 15% 80%,#c78cff18,transparent 30%),
-linear-gradient(135deg,#21122f,#07080c 72%)
-}
-.badge{
-display:inline-block;padding:8px 14px;border-radius:30px;
-background:#2b193d;border:1px solid #71489a;
-color:#e1c5ff;font-size:13px
-}
+.cart{background:#171923;color:#fff;border:1px solid #414451;padding:11px 17px;border-radius:14px;font-weight:bold;cursor:pointer}
+.hero{padding:85px 7%;background:radial-gradient(circle at 80% 20%,#8b45d955,transparent 32%),radial-gradient(circle at 15% 80%,#c78cff18,transparent 30%),linear-gradient(135deg,#21122f,#07080c 72%)}
+.badge{display:inline-block;padding:8px 14px;border-radius:30px;background:#2b193d;border:1px solid #71489a;color:#e1c5ff;font-size:13px}
 h1{font-size:clamp(50px,11vw,86px);margin:18px 0 8px}
 .hero p{max-width:560px;color:#c4c7d2;font-size:19px;line-height:1.9}
-.btn{
-display:inline-block;margin-top:18px;padding:14px 25px;border-radius:14px;
-background:#fff;color:#111;text-decoration:none;font-weight:900
-}
+.btn{display:inline-block;margin-top:18px;padding:14px 25px;border-radius:14px;background:#fff;color:#111;text-decoration:none;font-weight:900}
 .title{padding:38px 6% 12px}
 .title h2{margin:0;font-size:30px}
 .title p{color:#858b9b}
-.products{
-display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-gap:18px;padding:15px 6% 70px
-}
-.card{
-background:#12141b;border:1px solid #292d38;border-radius:22px;
-overflow:hidden;box-shadow:0 18px 45px #0005;transition:.25s
-}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;padding:15px 6% 70px}
+.card{background:#12141b;border:1px solid #292d38;border-radius:22px;overflow:hidden;box-shadow:0 18px 45px #0005;transition:.25s}
 .card:hover{transform:translateY(-6px);border-color:#7650a0}
-.pic{
-height:180px;display:grid;place-items:center;font-size:62px
-}
+.pic{height:180px;display:grid;place-items:center;font-size:62px}
 .sound{background:linear-gradient(135deg,#30175a,#11152a)}
 .video{background:linear-gradient(135deg,#1d4668,#11152a)}
 .three{background:linear-gradient(135deg,#174d49,#11152a)}
@@ -64,74 +33,28 @@ height:180px;display:grid;place-items:center;font-size:62px
 .info h3{margin:0 0 8px;font-size:20px}
 .info p{color:#9da2b0;line-height:1.6;min-height:42px}
 .price{font-size:21px;font-weight:900;margin-top:13px}
-.add{
-width:100%;margin-top:14px;padding:12px;border:0;border-radius:12px;
-background:#fff;color:#111;font-weight:900;cursor:pointer
-}
-footer{
-text-align:center;padding:35px 6%;border-top:1px solid #20232d;
-color:#747988
-}
+.add{width:100%;margin-top:14px;padding:12px;border:0;border-radius:12px;background:#fff;color:#111;font-weight:900;cursor:pointer}
+footer{text-align:center;padding:35px 6%;border-top:1px solid #20232d;color:#747988}
 
-/* السلة */
-.cartBox{
-position:fixed;top:0;right:-100%;width:min(420px,92%);
-height:100vh;background:#101219;z-index:100;
-box-shadow:-15px 0 50px #0009;
-transition:.3s;display:flex;flex-direction:column
-}
+.cartBox{position:fixed;top:0;right:-100%;width:min(420px,92%);height:100vh;background:#101219;z-index:100;box-shadow:-15px 0 50px #0009;transition:.3s;display:flex;flex-direction:column}
 .cartBox.open{right:0}
-.cartHead{
-padding:20px;border-bottom:1px solid #292d38;
-display:flex;justify-content:space-between;align-items:center
-}
+.cartHead{padding:20px;border-bottom:1px solid #292d38;display:flex;justify-content:space-between;align-items:center}
 .cartHead h2{margin:0}
-.close{
-background:#242732;color:#fff;border:0;border-radius:10px;
-padding:8px 12px;font-size:18px;cursor:pointer
-}
+.close{background:#242732;color:#fff;border:0;border-radius:10px;padding:8px 12px;font-size:18px;cursor:pointer}
 .cartItems{flex:1;overflow:auto;padding:15px}
 .empty{text-align:center;color:#888;margin-top:60px}
-.cartItem{
-background:#181b24;border:1px solid #292d38;
-border-radius:14px;padding:13px;margin-bottom:12px
-}
+.cartItem{background:#181b24;border:1px solid #292d38;border-radius:14px;padding:13px;margin-bottom:12px}
 .cartItem strong{display:block;margin-bottom:8px}
 .itemPrice{color:#caa7ff;font-weight:bold}
-.controls{
-display:flex;align-items:center;gap:8px;margin-top:10px
-}
-.controls button{
-width:32px;height:32px;border:0;border-radius:8px;
-background:#292d38;color:#fff;font-size:18px;cursor:pointer
-}
-.remove{
-margin-right:auto;background:#4b2027!important;color:#ffb5bd!important;
-font-size:13px!important;width:auto!important;padding:0 10px
-}
-.total{
-padding:18px;border-top:1px solid #292d38;
-background:#0c0e13
-}
-.totalRow{
-display:flex;justify-content:space-between;font-size:20px;
-font-weight:bold;margin-bottom:14px
-}
-.checkout{
-width:100%;padding:13px;border:0;border-radius:12px;
-background:#fff;color:#111;font-weight:900;cursor:pointer
-}
-.overlay{
-position:fixed;inset:0;background:#0008;z-index:90;
-display:none
-}
+.controls{display:flex;align-items:center;gap:8px;margin-top:10px}
+.controls button{width:32px;height:32px;border:0;border-radius:8px;background:#292d38;color:#fff;font-size:18px;cursor:pointer}
+.remove{margin-right:auto;background:#4b2027!important;color:#ffb5bd!important;font-size:13px!important;width:auto!important;padding:0 10px}
+.total{padding:18px;border-top:1px solid #292d38;background:#0c0e13}
+.totalRow{display:flex;justify-content:space-between;font-size:20px;font-weight:bold;margin-bottom:14px}
+.checkout{width:100%;padding:13px;border:0;border-radius:12px;background:#fff;color:#111;font-weight:900;cursor:pointer}
+.overlay{position:fixed;inset:0;background:#0008;z-index:90;display:none}
 .overlay.show{display:block}
-#msg{
-position:fixed;bottom:22px;left:5%;right:5%;z-index:120;
-background:#fff;color:#111;padding:15px;border-radius:14px;
-text-align:center;font-weight:bold;display:none;
-box-shadow:0 15px 40px #0009
-}
+#msg{position:fixed;bottom:22px;left:5%;right:5%;z-index:120;background:#fff;color:#111;padding:15px;border-radius:14px;text-align:center;font-weight:bold;display:none;box-shadow:0 15px 40px #0009}
 
 @media(max-width:600px){
 .hero{padding:65px 6%}
@@ -148,9 +71,7 @@ box-shadow:0 15px 40px #0009
 
 <header>
 <div class="logo">Silva</div>
-<button class="cart" onclick="openCart()">
-🛒 السلة <span id="count">0</span>
-</button>
+<button class="cart" onclick="openCart()">🛒 السلة <span id="count">0</span></button>
 </header>
 
 <section class="hero">
@@ -168,9 +89,7 @@ box-shadow:0 15px 40px #0009
 <main class="products" id="productList"></main>
 </section>
 
-<footer>
-Silva © 2026 — متجرك الرقمي الراقي
-</footer>
+<footer>Silva © 2026 — متجرك الرقمي الراقي</footer>
 
 <div class="overlay" id="overlay" onclick="closeCart()"></div>
 
@@ -294,51 +213,29 @@ function closeCart(){
 document.getElementById("cartBox").classList.remove("open");
 document.getElementById("overlay").classList.remove("show");
 }
-  function checkout(){
-  if(cart.length===0){
-    show("السلة فارغة");
-    return;
-  }
 
-  let message="مرحبًا، أريد طلب المنتجات التالية من متجر Silva:\n\n";
-  let total=0;
+function checkout(){
+if(cart.length===0){
+show("السلة فارغة");
+return;
+}
 
-  cart.forEach(x=>{
-    const product=items[x.id];
-    const subtotal=product[3]*x.qty;
-    total+=subtotal;
-    message+=product[1]+" — الكمية: "+x.qty+" — $"+subtotal.toFixed(2)+"\n";
-  });
-
-  message+="\nالمجموع: $"+total.toFixed(2);
-
-  window.open(
-    "https://wa.me/213795455075?text="+encodeURIComponent(message),
-    "_blank"
-  );
-  }
-
-let message="مرحبًا، أريد طلب المنتجات التالية من متجر Silva:%0A%0A";
+let message="مرحبًا، أريد طلب المنتجات التالية من متجر Silva:\n\n";
 let total=0;
 
 cart.forEach(x=>{
 const product=items[x.id];
 const subtotal=product[3]*x.qty;
 total+=subtotal;
-
-message+=`${product[1]} — الكمية: ${x.qty} — $${subtotal.toFixed(2)}%0A`;
+message+=product[1]+" — الكمية: "+x.qty+" — $"+subtotal.toFixed(2)+"\n";
 });
 
-message+=`%0Aالمجموع: $${total.toFixed(2)}`;
+message+="\nالمجموع: $"+total.toFixed(2);
 
 window.open(
-"https://wa.me/213795455075?text="+message,
+"https://wa.me/213795455075?text="+encodeURIComponent(message),
 "_blank"
 );
-}
-
-
-
 }
 
 function show(t){
