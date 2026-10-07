@@ -7,82 +7,39 @@
 <style>
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-margin:0;font-family:Arial,sans-serif;background:#08090d;color:#fff;
-}
-header{
-position:sticky;top:0;z-index:20;padding:16px 6%;
-display:flex;justify-content:space-between;align-items:center;
-background:#08090ddd;backdrop-filter:blur(14px);
-border-bottom:1px solid #262936;
-}
-.logo{font-size:26px;font-weight:800;letter-spacing:.5px}
-.cart{
-border:1px solid #3a3d4c;background:#151720;color:#fff;
-padding:11px 17px;border-radius:14px;font-weight:bold;
-}
-.hero{
-padding:90px 7% 85px;
-background:
-radial-gradient(circle at 80% 20%,#5d2b8a55,transparent 35%),
-radial-gradient(circle at 20% 70%,#9b6cff22,transparent 35%),
-linear-gradient(135deg,#191024,#08090d 70%);
-}
-.badge{
-display:inline-block;padding:8px 13px;border:1px solid #65468a;
-border-radius:30px;color:#d9b8ff;background:#241734;
-font-size:13px;margin-bottom:20px;
-}
-h1{font-size:clamp(48px,10vw,82px);margin:0 0 12px}
-.hero p{font-size:19px;color:#c4c7d2;max-width:520px;line-height:1.8}
-.btn{
-display:inline-block;margin-top:20px;padding:14px 24px;border-radius:14px;
-background:linear-gradient(135deg,#fff,#dcd8e7);color:#111;
-text-decoration:none;font-weight:800;
-box-shadow:0 10px 35px #0008;
-}
-.section-title{padding:35px 6% 12px}
-.section-title h2{margin:0;font-size:30px}
-.section-title p{color:#8f94a3}
-.products{
-display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-gap:18px;padding:15px 6% 70px;
-}
-.card{
-background:linear-gradient(145deg,#171923,#101117);
-border:1px solid #292c38;border-radius:22px;overflow:hidden;
-transition:.25s;box-shadow:0 15px 35px #0004;
-}
-.card:hover{transform:translateY(-5px);border-color:#65468a}
-.pic{
-height:175px;display:grid;place-items:center;font-size:58px;
-background:
-radial-gradient(circle,#65468a44,transparent 60%),
-linear-gradient(135deg,#282033,#11131a);
-}
+body{margin:0;font-family:Arial,sans-serif;background:#07080c;color:#fff}
+header{position:sticky;top:0;z-index:20;padding:15px 6%;display:flex;justify-content:space-between;align-items:center;background:#08090ddd;backdrop-filter:blur(16px);border-bottom:1px solid #292b36}
+.logo{font-size:27px;font-weight:900}
+.cart{background:#171923;color:#fff;border:1px solid #414451;padding:11px 17px;border-radius:14px;font-weight:bold}
+.hero{padding:85px 7%;background:radial-gradient(circle at 80% 20%,#8b45d955,transparent 32%),radial-gradient(circle at 15% 80%,#c78cff18,transparent 30%),linear-gradient(135deg,#21122f,#07080c 72%)}
+.badge{display:inline-block;padding:8px 14px;border-radius:30px;background:#2b193d;border:1px solid #71489a;color:#e1c5ff;font-size:13px}
+h1{font-size:clamp(50px,11vw,86px);margin:18px 0 8px}
+.hero p{max-width:560px;color:#c4c7d2;font-size:19px;line-height:1.9}
+.btn{display:inline-block;margin-top:18px;padding:14px 25px;border-radius:14px;background:#fff;color:#111;text-decoration:none;font-weight:900}
+.title{padding:38px 6% 12px}
+.title h2{margin:0;font-size:30px}
+.title p{color:#858b9b}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;padding:15px 6% 70px}
+.card{background:#12141b;border:1px solid #292d38;border-radius:22px;overflow:hidden;box-shadow:0 18px 45px #0005;transition:.25s}
+.card:hover{transform:translateY(-6px);border-color:#7650a0}
+.pic{height:180px;display:grid;place-items:center;font-size:62px;position:relative;overflow:hidden}
+.pic:after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;background:#ffffff12;filter:blur(25px)}
+.sound{background:linear-gradient(135deg,#30175a,#11152a)}
+.video{background:linear-gradient(135deg,#1d4668,#11152a)}
+.three{background:linear-gradient(135deg,#174d49,#11152a)}
+.frame{background:linear-gradient(135deg,#61451d,#15131a)}
+.gift{background:linear-gradient(135deg,#6a254d,#17121b)}
 .info{padding:18px}
 .info h3{margin:0 0 8px;font-size:20px}
-.info p{color:#999eac;min-height:42px;line-height:1.6}
-.price{font-size:21px;font-weight:800;margin-top:12px}
-.add{
-width:100%;margin-top:14px;padding:12px;border:0;border-radius:12px;
-background:#fff;color:#111;font-weight:800;cursor:pointer;
-}
-footer{
-padding:35px 6%;text-align:center;color:#747988;
-border-top:1px solid #20232d;
-}
-#msg{
-position:fixed;bottom:22px;left:5%;right:5%;z-index:50;
-background:#fff;color:#111;padding:15px;border-radius:14px;
-text-align:center;font-weight:bold;display:none;
-box-shadow:0 15px 40px #0008;
-}
+.info p{color:#9da2b0;line-height:1.6;min-height:42px}
+.price{font-size:21px;font-weight:900;margin-top:13px}
+.add{width:100%;margin-top:14px;padding:12px;border:0;border-radius:12px;background:#fff;color:#111;font-weight:900}
+footer{text-align:center;padding:35px 6%;border-top:1px solid #20232d;color:#747988}
+#msg{position:fixed;bottom:22px;left:5%;right:5%;z-index:50;background:#fff;color:#111;padding:15px;border-radius:14px;text-align:center;font-weight:bold;display:none;box-shadow:0 15px 40px #0009}
 @media(max-width:600px){
-header{padding:14px 5%}
 .hero{padding:65px 6%}
 .products{grid-template-columns:1fr 1fr;padding-left:5%;padding-right:5%}
-.pic{height:135px;font-size:45px}
+.pic{height:140px;font-size:48px}
 .info{padding:13px}
 .info h3{font-size:17px}
 .info p{font-size:13px}
@@ -98,17 +55,18 @@ header{padding:14px 5%}
 </header>
 
 <section class="hero">
-<div class="badge">متجر رقمي مميز</div>
+<span class="badge">✦ متجر رقمي مميز</span>
 <h1>Silva</h1>
-<p>متجرك الرقمي الراقي — اكتشف مجموعة مختارة من المنتجات الرقمية المصممة لتضيف لمسة مميزة إلى مشاريعك.</p>
+<p>متجرك الرقمي الراقي — اكتشف مجموعة مختارة من المنتجات الرقمية المميزة.</p>
 <a class="btn" href="#products">تصفح المنتجات</a>
 </section>
 
 <section id="products">
-<div class="section-title">
+<div class="title">
 <h2>منتجاتنا</h2>
-<p>اختر ما يناسبك من مجموعتنا الرقمية</p>
+<p>اختيارات رقمية مميزة لك</p>
 </div>
+
 <main class="products" id="productList"></main>
 </section>
 
@@ -120,18 +78,18 @@ Silva © 2026 — متجرك الرقمي الراقي
 
 <script>
 const items=[
-["🎧","مؤثرات صوتية","مؤثرات رقمية عالية الجودة",12],
-["🎬","فيديوهات","فيديوهات رقمية جاهزة",15],
-["🧊","ملفات 3D","ملفات ثلاثية الأبعاد",20],
-["✨","إطارات","إطارات رقمية مميزة",10],
-["🎁","هدايا رقمية","هدايا رقمية أنيقة",8]
+["🎧","مؤثرات صوتية","مؤثرات رقمية عالية الجودة",12,"sound"],
+["🎬","فيديوهات","فيديوهات رقمية جاهزة ومميزة",15,"video"],
+["🧊","ملفات 3D","ملفات ثلاثية الأبعاد للمشاريع",20,"three"],
+["✨","إطارات","إطارات رقمية بتصاميم راقية",10,"frame"],
+["🎁","هدايا رقمية","هدايا رقمية أنيقة ومميزة",8,"gift"]
 ];
 
 let count=0;
 
 document.getElementById("productList").innerHTML=items.map((x,i)=>`
 <article class="card">
-<div class="pic">${x[0]}</div>
+<div class="pic ${x[4]}">${x[0]}</div>
 <div class="info">
 <h3>${x[1]}</h3>
 <p>${x[2]}</p>
@@ -148,7 +106,7 @@ show("تمت إضافة المنتج إلى السلة ✓");
 }
 
 function showCart(){
-show(count ? "السلة تحتوي على "+count+" منتج" : "السلة فارغة");
+show(count?"السلة تحتوي على "+count+" منتج":"السلة فارغة");
 }
 
 function show(t){
