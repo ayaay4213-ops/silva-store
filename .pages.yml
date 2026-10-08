@@ -1,0 +1,101 @@
+media:
+  - name: product_media
+    label: صور وفيديوهات المنتجات
+    input: media
+    output: /media
+    categories: [image, video]
+    rename: safe
+
+content:
+  - name: products
+    label: المنتجات
+    type: file
+    path: products.json
+    format: json
+    list: true
+    fields:
+      - name: id
+        label: المعرف
+        type: number
+        readonly: true
+      - name: icon
+        label: الأيقونة
+        type: string
+      - name: name
+        label: اسم المنتج
+        type: string
+        required: true
+      - name: description
+        label: الوصف
+        type: text
+      - name: price
+        label: السعر بالدولار
+        type: number
+        required: true
+      - name: size
+        label: المقاس
+        type: string
+      - name: category
+        label: القسم
+        type: select
+        options:
+          values:
+            - إطارات متحركة
+            - صور متحركة
+            - دخوليات مخصصة
+            - مؤثرات
+            - فيديوهات
+            - ملفات 3D
+            - إطارات
+            - هدايا رقمية
+      - name: type
+        label: نوع المنتج
+        type: select
+        options:
+          values:
+            - video
+            - image
+            - icon
+      - name: media
+        label: صورة أو فيديو المنتج
+        type: file
+        options:
+          media: product_media
+          categories: [image, video]
+      - name: imagePos
+        label: موضع الصورة المصغرة
+        type: number
+
+  - name: site
+    label: إعدادات المتجر والتصميم
+    type: file
+    path: site-settings.json
+    format: json
+    fields:
+      - name: storeName
+        label: اسم المتجر
+        type: string
+      - name: tagline
+        label: وصف المتجر
+        type: string
+      - name: heroDescription
+        label: وصف الواجهة
+        type: text
+      - name: whatsapp
+        label: رقم WhatsApp
+        type: string
+      - name: theme
+        label: نمط التصميم
+        type: select
+        options:
+          values:
+            - purple
+            - blue
+            - emerald
+            - gold
+
+settings:
+  content:
+    merge: true
+  commit:
+    identity: app
