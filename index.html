@@ -505,7 +505,7 @@ footer{
   }
 
 }
-.productVideo{width:100%;height:100%;display:block;object-fit:cover;background:#08090c}.animated-frame{background:linear-gradient(135deg,#61451d,#15131a)}.animated-image{background:linear-gradient(135deg,#30175a,#11152a)}.custom-entry{background:linear-gradient(135deg,#174d49,#11152a)}.productVisual{height:180px;position:relative;overflow:hidden;background:#08090c}.productSprite{position:absolute;inset:0;background-image:url('./products/silva-sprite.jpg');background-size:200% 200%;background-repeat:no-repeat}.sprite0{background-position:0 0}.sprite1{background-position:100% 0}.sprite2{background-position:0 100%}.sprite3{background-position:100% 100%}.mediaBadge{position:absolute;top:12px;right:12px;padding:7px 10px;border-radius:10px;background:#0b1020e8;color:#fff;font-size:12px;font-weight:900;border:1px solid #3d4661}.playBadge{position:absolute;inset:0;display:grid;place-items:center;font-size:34px;color:#fff;text-shadow:0 4px 20px #000;background:radial-gradient(circle,rgba(35,91,220,.75),rgba(10,15,30,.08) 28%,transparent 55%)}@media(max-width:600px){.productVisual{height:140px}}
+.productVideo{width:100%;height:100%;display:block;object-fit:cover;background:#08090c;border:0}.videoWrap{position:relative;width:100%;height:100%;background:#08090c}.videoWrap .mediaBadge{z-index:2}.animated-frame{background:linear-gradient(135deg,#61451d,#15131a)}.animated-image{background:linear-gradient(135deg,#30175a,#11152a)}.custom-entry{background:linear-gradient(135deg,#174d49,#11152a)}.productVisual{height:180px;position:relative;overflow:hidden;background:#08090c}.productSprite{position:absolute;inset:0;background-image:url('./products/silva-sprite.jpg');background-size:200% 200%;background-repeat:no-repeat}.sprite0{background-position:0 0}.sprite1{background-position:100% 0}.sprite2{background-position:0 100%}.sprite3{background-position:100% 100%}.mediaBadge{position:absolute;top:12px;right:12px;padding:7px 10px;border-radius:10px;background:#0b1020e8;color:#fff;font-size:12px;font-weight:900;border:1px solid #3d4661}.playBadge{position:absolute;inset:0;display:grid;place-items:center;font-size:34px;color:#fff;text-shadow:0 4px 20px #000;background:radial-gradient(circle,rgba(35,91,220,.75),rgba(10,15,30,.08) 28%,transparent 55%)}@media(max-width:600px){.productVisual{height:140px}}
 </style>
 </head>
 
@@ -686,11 +686,11 @@ footer{
 /* ================= PRODUCTS DATA ================= */
 
 const items = [
-  {id:0,icon:"👑",name:"إطار النخبة الملكي",description:"إطار متحرك فاخر بلمسة ملكية",price:15,category:"إطارات متحركة",className:"animated-frame",imagePos:0},
-  {id:1,icon:"✨",name:"هوية الذهب الفاخرة",description:"صورة متحركة بتصميم ذهبي راقٍ",price:10,category:"صور متحركة",className:"animated-image",imagePos:1},
-  {id:2,icon:"🖤",name:"هوية النخبة الذهبية",description:"صورة متحركة أنيقة بطابع فاخر",price:10,category:"صور متحركة",className:"animated-image",imagePos:2},
-  {id:3,icon:"🔥",name:"VIP 8 — التاج الأسطوري",description:"إطار VIP متحرك فاخر بتصميم ملكي",price:15,category:"إطارات متحركة",className:"animated-frame",imagePos:3},
-  {id:4,icon:"🚪",name:"دخولية مخصصة",description:"دخولية مصممة خصيصًا حسب طلبك",price:20,category:"دخوليات مخصصة",className:"custom-entry",imagePos:null}
+  {id:0,icon:"👑",name:"إطار النخبة الملكي",description:"إطار متحرك فاخر بلمسة ملكية",price:15,category:"إطارات متحركة",className:"animated-frame",video:"./videos/SILVA-01.mp4",imagePos:0},
+  {id:1,icon:"✨",name:"هوية الذهب الفاخرة",description:"صورة متحركة بتصميم ذهبي راقٍ",price:10,category:"صور متحركة",className:"animated-image",video:"./videos/SILVA-02.mp4",imagePos:1},
+  {id:2,icon:"🖤",name:"هوية النخبة الذهبية",description:"صورة متحركة أنيقة بطابع فاخر",price:10,category:"صور متحركة",className:"animated-image",video:"./videos/SILVA-03.mp4",imagePos:2},
+  {id:3,icon:"🔥",name:"VIP 8 — التاج الأسطوري",description:"إطار VIP متحرك فاخر بتصميم ملكي",price:15,category:"إطارات متحركة",className:"animated-frame",video:"./videos/SILVA-04.mp4",imagePos:3},
+  {id:4,icon:"🚪",name:"دخولية مخصصة",description:"دخولية مصممة خصيصًا حسب طلبك",price:20,category:"دخوليات مخصصة",className:"custom-entry",video:null,imagePos:null}
 ]
 
 
@@ -711,7 +711,7 @@ function renderProducts(list = items){
     <article class="card">
 
       <div class="productVisual ${product.className}">
-        ${product.imagePos !== null ? `<div class="productSprite sprite${product.imagePos}"></div><span class="mediaBadge">🎬 فيديو</span><span class="playBadge">▶</span>` : `<div class="pic ${product.className}" style="height:100%;font-size:58px">${product.icon}</div>`}
+        ${product.video ? `<div class="videoWrap"><video class="productVideo" controls playsinline preload="metadata" poster="./products/silva-sprite.jpg"><source src="${product.video}" type="video/mp4"></video><span class="mediaBadge">🎬 فيديو</span></div>` : `<div class="pic ${product.className}" style="height:100%;font-size:58px">${product.icon}</div>`}
       </div>
 
       <div class="info">
@@ -725,7 +725,7 @@ function renderProducts(list = items){
         </p>
 
         <div class="price">
-          $${product.price > 0 ? "$" + product.price.toFixed(2) : "حسب الطلب"}
+          ${product.price > 0 ? "$" + product.price.toFixed(2) : "حسب الطلب"}
         </div>
 
         <button
