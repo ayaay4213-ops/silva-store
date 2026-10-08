@@ -2,67 +2,434 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Silva | متجرك الرقمي الراقي</title>
 
 <style>
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,sans-serif;background:#07080c;color:#fff}
-header{position:sticky;top:0;z-index:20;padding:15px 6%;display:flex;justify-content:space-between;align-items:center;background:#08090ddd;backdrop-filter:blur(16px);border-bottom:1px solid #292b36}
-.logo{font-size:27px;font-weight:900}
-.cart{background:#171923;color:#fff;border:1px solid #414451;padding:11px 17px;border-radius:14px;font-weight:bold;cursor:pointer}
-.hero{padding:85px 7%;background:radial-gradient(circle at 80% 20%,#8b45d955,transparent 32%),radial-gradient(circle at 15% 80%,#c78cff18,transparent 30%),linear-gradient(135deg,#21122f,#07080c 72%)}
-.badge{display:inline-block;padding:8px 14px;border-radius:30px;background:#2b193d;border:1px solid #71489a;color:#e1c5ff;font-size:13px}
-h1{font-size:clamp(50px,11vw,86px);margin:18px 0 8px}
-.hero p{max-width:560px;color:#c4c7d2;font-size:19px;line-height:1.9}
-.btn{display:inline-block;margin-top:18px;padding:14px 25px;border-radius:14px;background:#fff;color:#111;text-decoration:none;font-weight:900}
-.title{padding:38px 6% 12px}
-.title h2{margin:0;font-size:30px}
-.title p{color:#858b9b}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;padding:15px 6% 70px}
-.card{background:#12141b;border:1px solid #292d38;border-radius:22px;overflow:hidden;box-shadow:0 18px 45px #0005;transition:.25s}
-.card:hover{transform:translateY(-6px);border-color:#7650a0}
-.pic{height:180px;display:grid;place-items:center;font-size:62px}
-.sound{background:linear-gradient(135deg,#30175a,#11152a)}
-.video{background:linear-gradient(135deg,#1d4668,#11152a)}
-.three{background:linear-gradient(135deg,#174d49,#11152a)}
-.frame{background:linear-gradient(135deg,#61451d,#15131a)}
-.gift{background:linear-gradient(135deg,#6a254d,#17121b)}
-.info{padding:18px}
-.info h3{margin:0 0 8px;font-size:20px}
-.info p{color:#9da2b0;line-height:1.6;min-height:42px}
-.price{font-size:21px;font-weight:900;margin-top:13px}
-.add{width:100%;margin-top:14px;padding:12px;border:0;border-radius:12px;background:#fff;color:#111;font-weight:900;cursor:pointer}
-footer{text-align:center;padding:35px 6%;border-top:1px solid #20232d;color:#747988}
+body{
+margin:0;
+font-family:Arial,Tahoma,sans-serif;
+background:#070707;
+color:#fff
+}
+header{
+position:sticky;
+top:0;
+z-index:20;
+height:70px;
+padding:0 6%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+background:#080808ee;
+backdrop-filter:blur(18px);
+border-bottom:1px solid #3b3325
+}
+.logo{
+font-size:29px;
+font-weight:900;
+letter-spacing:2px;
+color:#d8b36a
+}
+.cart{
+border:1px solid #8e6b32;
+background:#17130c;
+color:#f4d48b;
+padding:11px 18px;
+border-radius:13px;
+font-weight:bold;
+cursor:pointer
+}
 
-.cartBox{position:fixed;top:0;right:-100%;width:min(420px,92%);height:100vh;background:#101219;z-index:100;box-shadow:-15px 0 50px #0009;transition:.3s;display:flex;flex-direction:column}
-.cartBox.open{right:0}
-.cartHead{padding:20px;border-bottom:1px solid #292d38;display:flex;justify-content:space-between;align-items:center}
-.cartHead h2{margin:0}
-.close{background:#242732;color:#fff;border:0;border-radius:10px;padding:8px 12px;font-size:18px;cursor:pointer}
-.cartItems{flex:1;overflow:auto;padding:15px}
-.empty{text-align:center;color:#888;margin-top:60px}
-.cartItem{background:#181b24;border:1px solid #292d38;border-radius:14px;padding:13px;margin-bottom:12px}
-.cartItem strong{display:block;margin-bottom:8px}
-.itemPrice{color:#caa7ff;font-weight:bold}
-.controls{display:flex;align-items:center;gap:8px;margin-top:10px}
-.controls button{width:32px;height:32px;border:0;border-radius:8px;background:#292d38;color:#fff;font-size:18px;cursor:pointer}
-.remove{margin-right:auto;background:#4b2027!important;color:#ffb5bd!important;font-size:13px!important;width:auto!important;padding:0 10px}
-.total{padding:18px;border-top:1px solid #292d38;background:#0c0e13}
-.totalRow{display:flex;justify-content:space-between;font-size:20px;font-weight:bold;margin-bottom:14px}
-.checkout{width:100%;padding:13px;border:0;border-radius:12px;background:#fff;color:#111;font-weight:900;cursor:pointer}
-.overlay{position:fixed;inset:0;background:#0008;z-index:90;display:none}
+/* HERO */
+.hero{
+min-height:600px;
+padding:80px 7%;
+display:flex;
+align-items:center;
+position:relative;
+overflow:hidden;
+background:
+radial-gradient(circle at 75% 35%,#c7973c55,transparent 25%),
+radial-gradient(circle at 20% 70%,#7c552222,transparent 30%),
+linear-gradient(135deg,#15120c,#050505 70%)
+}
+.hero:before{
+content:"";
+position:absolute;
+width:420px;
+height:420px;
+border:1px solid #c9a45d44;
+border-radius:50%;
+left:-130px;
+top:80px;
+box-shadow:0 0 100px #c9a45d18
+}
+.heroContent{
+position:relative;
+z-index:2;
+max-width:650px
+}
+.badge{
+display:inline-block;
+padding:9px 16px;
+border:1px solid #94713b;
+border-radius:30px;
+color:#e5c47e;
+background:#211a0e;
+font-size:14px
+}
+.hero h1{
+font-size:clamp(58px,12vw,105px);
+margin:18px 0 5px;
+letter-spacing:5px;
+color:#f0ce81
+}
+.hero h2{
+font-size:clamp(25px,5vw,42px);
+margin:0 0 15px
+}
+.hero p{
+color:#bbb;
+font-size:19px;
+line-height:1.9;
+max-width:570px
+}
+.btn{
+display:inline-block;
+margin-top:20px;
+padding:15px 28px;
+border-radius:14px;
+background:linear-gradient(135deg,#f0d18b,#a97829);
+color:#111;
+text-decoration:none;
+font-weight:900
+}
+
+/* decorative visual */
+.heroVisual{
+position:absolute;
+left:7%;
+bottom:-80px;
+width:370px;
+height:480px;
+border:1px solid #8c6a34;
+border-radius:190px 190px 30px 30px;
+background:
+radial-gradient(circle at 50% 27%,#e1b76522,transparent 17%),
+linear-gradient(145deg,#24201a,#0c0c0c 65%);
+box-shadow:0 0 80px #c49b4c22
+}
+.heroVisual:before{
+content:"SILVA";
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%) rotate(-90deg);
+font-size:70px;
+font-weight:900;
+color:#d0aa5d22;
+letter-spacing:8px
+}
+.heroVisual:after{
+content:"✦  ✦  ✦";
+position:absolute;
+top:35%;
+left:50%;
+transform:translateX(-50%);
+color:#d5af64;
+font-size:28px;
+white-space:nowrap
+}
+
+/* categories */
+.categories{
+display:flex;
+gap:10px;
+overflow-x:auto;
+padding:22px 6%;
+background:#0b0b0b;
+border-bottom:1px solid #28231b
+}
+.categories button{
+white-space:nowrap;
+border:1px solid #443923;
+background:#14120e;
+color:#cfc4ae;
+padding:11px 17px;
+border-radius:12px;
+cursor:pointer
+}
+.categories button.active,
+.categories button:hover{
+background:#d0a855;
+color:#111;
+border-color:#d0a855
+}
+
+/* products */
+.title{
+padding:45px 6% 15px
+}
+.title h2{
+margin:0;
+font-size:31px
+}
+.title p{
+color:#888;
+margin-top:9px
+}
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+gap:20px;
+padding:15px 6% 70px
+}
+.card{
+background:#11110f;
+border:1px solid #302a20;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 15px 40px #0008;
+transition:.25s
+}
+.card:hover{
+transform:translateY(-7px);
+border-color:#98743a
+}
+.pic{
+height:190px;
+display:grid;
+place-items:center;
+font-size:65px;
+position:relative
+}
+.sound{background:linear-gradient(135deg,#31240d,#111)}
+.video{background:linear-gradient(135deg,#30220c,#111)}
+.three{background:linear-gradient(135deg,#17332f,#111)}
+.frame{background:linear-gradient(135deg,#513816,#111)}
+.gift{background:linear-gradient(135deg,#4a172d,#111)}
+.pic:after{
+content:"SILVA";
+position:absolute;
+bottom:10px;
+right:12px;
+font-size:10px;
+letter-spacing:3px;
+color:#d2ad62aa
+}
+.info{
+padding:18px
+}
+.info h3{
+margin:0 0 8px;
+font-size:20px
+}
+.info p{
+color:#999;
+line-height:1.6;
+min-height:45px
+}
+.price{
+font-size:21px;
+font-weight:900;
+color:#e1bc70;
+margin-top:13px
+}
+.add{
+width:100%;
+margin-top:14px;
+padding:12px;
+border:1px solid #a27b3d;
+border-radius:12px;
+background:#d2aa5d;
+color:#111;
+font-weight:900;
+cursor:pointer
+}
+.add:hover{
+background:#f0cd81
+}
+
+/* footer */
+footer{
+text-align:center;
+padding:38px 6%;
+border-top:1px solid #29231b;
+color:#777
+}
+
+/* cart */
+.overlay{
+position:fixed;
+inset:0;
+background:#000b;
+z-index:90;
+display:none
+}
 .overlay.show{display:block}
-#msg{position:fixed;bottom:22px;left:5%;right:5%;z-index:120;background:#fff;color:#111;padding:15px;border-radius:14px;text-align:center;font-weight:bold;display:none;box-shadow:0 15px 40px #0009}
 
-@media(max-width:600px){
-.hero{padding:65px 6%}
-.products{grid-template-columns:1fr 1fr;padding-left:5%;padding-right:5%}
-.pic{height:140px;font-size:48px}
-.info{padding:13px}
-.info h3{font-size:17px}
-.info p{font-size:13px}
+.cartBox{
+position:fixed;
+top:0;
+right:-100%;
+width:min(430px,94%);
+height:100vh;
+background:#10100e;
+z-index:100;
+box-shadow:-15px 0 60px #000;
+transition:.3s;
+display:flex;
+flex-direction:column
+}
+.cartBox.open{right:0}
+
+.cartHead{
+padding:20px;
+border-bottom:1px solid #302a20;
+display:flex;
+align-items:center;
+justify-content:space-between
+}
+.cartHead h2{margin:0}
+.close{
+background:#27231c;
+color:#fff;
+border:0;
+border-radius:10px;
+padding:8px 13px;
+font-size:20px;
+cursor:pointer
+}
+.cartItems{
+flex:1;
+overflow:auto;
+padding:15px
+}
+.empty{
+text-align:center;
+color:#888;
+margin-top:60px
+}
+.cartItem{
+background:#181713;
+border:1px solid #322b20;
+border-radius:14px;
+padding:14px;
+margin-bottom:12px
+}
+.cartItem strong{
+display:block;
+margin-bottom:8px
+}
+.itemPrice{
+color:#d6b16a;
+font-weight:bold
+}
+.controls{
+display:flex;
+align-items:center;
+gap:8px;
+margin-top:12px
+}
+.controls button{
+width:32px;
+height:32px;
+border:0;
+border-radius:8px;
+background:#302b23;
+color:#fff;
+font-size:18px;
+cursor:pointer
+}
+.remove{
+margin-right:auto;
+width:auto!important;
+padding:0 10px!important;
+background:#4b2025!important;
+color:#ffb7bd!important;
+font-size:13px!important
+}
+.total{
+padding:18px;
+border-top:1px solid #302a20;
+background:#0a0a09
+}
+.totalRow{
+display:flex;
+justify-content:space-between;
+font-size:20px;
+font-weight:bold;
+margin-bottom:14px
+}
+.checkout{
+width:100%;
+padding:14px;
+border:0;
+border-radius:12px;
+background:#d4ad61;
+color:#111;
+font-weight:900;
+cursor:pointer
+}
+
+/* message */
+#msg{
+position:fixed;
+bottom:22px;
+left:5%;
+right:5%;
+z-index:120;
+background:#fff;
+color:#111;
+padding:15px;
+border-radius:14px;
+text-align:center;
+font-weight:bold;
+display:none;
+box-shadow:0 15px 40px #0009
+}
+
+@media(max-width:700px){
+.hero{
+min-height:540px;
+padding:65px 6%
+}
+.heroVisual{
+width:220px;
+height:300px;
+left:-60px;
+bottom:-80px;
+opacity:.45
+}
+.products{
+grid-template-columns:1fr 1fr;
+padding-left:5%;
+padding-right:5%
+}
+.pic{
+height:145px;
+font-size:48px
+}
+.info{
+padding:13px
+}
+.info h3{
+font-size:17px
+}
+.info p{
+font-size:13px;
+min-height:48px
+}
+}
+
+@media(max-width:430px){
+.products{
+grid-template-columns:1fr 1fr;
+gap:12px
+}
 }
 </style>
 </head>
@@ -70,34 +437,83 @@ footer{text-align:center;padding:35px 6%;border-top:1px solid #20232d;color:#747
 <body>
 
 <header>
-<div class="logo">Silva</div>
-<button class="cart" onclick="openCart()">🛒 السلة <span id="count">0</span></button>
+<div class="logo">SILVA</div>
+
+<button class="cart" onclick="openCart()">
+🛒 السلة <span id="count">0</span>
+</button>
 </header>
 
 <section class="hero">
+
+<div class="heroContent">
+
 <span class="badge">✦ متجر رقمي مميز</span>
-<h1>Silva</h1>
-<p>متجرك الرقمي الراقي — اكتشف مجموعة مختارة من المنتجات الرقمية المميزة.</p>
+
+<h1>SILVA</h1>
+
+<h2>متجرك الرقمي الراقي</h2>
+
+<p>
+اكتشف مجموعة مميزة من المؤثرات والفيديوهات وملفات 3D
+والإطارات والهدايا الرقمية، بتجربة عصرية وأنيقة.
+</p>
+
 <a class="btn" href="#products">تصفح المنتجات</a>
-</section>  
-  <nav style="display:flex;gap:10px;overflow-x:auto;padding:18px 6%;background:#0b0c12;border-bottom:1px solid #252832">
-    <a href="#products" onclick="filterProducts('الكل');return false;" style="white-space:nowrap;padding:10px 16px;border-radius:12px;background:#ffffff;color:#111;text-decoration:none;font-weight:bold">🏠 الكل</a>
-<a href="#products" onclick="filterProducts('مؤثرات');return false;" style="white-space:nowrap;padding:10px 16px;border-radius:12px;background:#241832;color:#e6cfff;text-decoration:none;font-weight:bold">🎧 مؤثرات</a>
-<a href="#products" onclick="filterProducts('فيديوهات');return false;" style="white-space:nowrap;padding:10px 16px;border-radius:12px;background:#151d2b;color:#b9d9ff;text-decoration:none;font-weight:bold">🎬 فيديوهات</a>
-<a href="#products" onclick="filterProducts('ملفات 3D');return false;" style="white-space:nowrap;padding:10px 16px;border-radius:12px;background:#122522;color:#aee9df;text-decoration:none;font-weight:bold">🧊 ملفات 3D</a>
-<a href="#products" onclick="filterProducts('إطارات');return false;" style="white-space:nowrap;padding:10px 16px;border-radius:12px;background:#2b2113;color:#f3d39b;text-decoration:none;font-weight:bold">✨ إطارات</a>
-<a href="#products" onclick="filterProducts('هدايا رقمية');return false;" style="white-space:nowrap;padding:10px 16px;border-radius:12px;background:#2b1724;color:#ffc0da;text-decoration:none;font-weight:bold">🎁 هدايا رقمية</a>
-  </nav>
+
+</div>
+
+<div class="heroVisual"></div>
+
+</section>
+
+<nav class="categories">
+
+<button class="active" onclick="filterProducts('all',this)">
+🏠 الكل
+</button>
+
+<button onclick="filterProducts('مؤثرات',this)">
+🎧 مؤثرات
+</button>
+
+<button onclick="filterProducts('فيديوهات',this)">
+🎬 فيديوهات
+</button>
+
+<button onclick="filterProducts('3D',this)">
+🧊 ملفات 3D
+</button>
+
+<button onclick="filterProducts('إطارات',this)">
+✨ إطارات
+</button>
+
+<button onclick="filterProducts('هدايا',this)">
+🎁 هدايا رقمية
+</button>
+
+</nav>
+
+<section id="products">
+
 <div class="title">
 <h2>منتجاتنا</h2>
 <p>اختيارات رقمية مميزة لك</p>
 </div>
+
 <main class="products" id="productList"></main>
+
 </section>
+
+<footer>
+SILVA © 2026 — متجرك الرقمي الراقي
+</footer>
 
 <div class="overlay" id="overlay" onclick="closeCart()"></div>
 
 <div class="cartBox" id="cartBox">
+
 <div class="cartHead">
 <h2>🛒 سلة المشتريات</h2>
 <button class="close" onclick="closeCart()">×</button>
@@ -106,66 +522,151 @@ footer{text-align:center;padding:35px 6%;border-top:1px solid #20232d;color:#747
 <div class="cartItems" id="cartItems"></div>
 
 <div class="total">
+
 <div class="totalRow">
 <span>المجموع</span>
 <span>$<span id="total">0.00</span></span>
 </div>
-<button class="checkout" onclick="checkout()">إتمام الطلب</button>
+
+<button class="checkout" onclick="checkout()">
+إتمام الطلب عبر واتساب
+</button>
+
 </div>
+
 </div>
 
 <div id="msg"></div>
+
 <script>
+
 const items=[
-["🎧","مؤثرات صوتية","مؤثرات رقمية عالية الجودة",12,"sound","مؤثرات"],
-["🎬","فيديوهات","فيديوهات رقمية جاهزة ومميزة",15,"video","فيديوهات"],
-["🧊","ملفات 3D","ملفات ثلاثية الأبعاد للمشاريع",20,"three","ملفات 3D"],
-["✨","إطارات","إطارات رقمية بتصاميم راقية",10,"frame","إطارات"],
-["🎁","هدايا رقمية","هدايا رقمية أنيقة ومميزة",8,"gift","هدايا رقمية"]
+
+{
+icon:"🎧",
+name:"مؤثرات صوتية",
+description:"مؤثرات رقمية عالية الجودة",
+price:12,
+category:"مؤثرات",
+className:"sound"
+},
+
+{
+icon:"🎬",
+name:"فيديوهات",
+description:"فيديوهات رقمية جاهزة ومميزة",
+price:15,
+category:"فيديوهات",
+className:"video"
+},
+
+{
+icon:"🧊",
+name:"ملفات 3D",
+description:"ملفات ثلاثية الأبعاد للمشاريع",
+price:20,
+category:"3D",
+className:"three"
+},
+
+{
+icon:"✨",
+name:"إطارات",
+description:"إطارات رقمية بتصاميم راقية",
+price:10,
+category:"إطارات",
+className:"frame"
+},
+
+{
+icon:"🎁",
+name:"هدايا رقمية",
+description:"هدايا رقمية أنيقة ومميزة",
+price:8,
+category:"هدايا",
+className:"gift"
+}
+
 ];
 
 let cart=[];
 
 function renderProducts(list=items){
-document.getElementById("productList").innerHTML=list.map((x)=>{
-const i=items.indexOf(x);
 
-return `
+const productList=document.getElementById("productList");
+
+productList.innerHTML=list.map((x,i)=>`
+
 <article class="card">
-<div class="pic ${x[4]}">${x[0]}</div>
-<div class="info">
-<h3>${x[1]}</h3>
-<p>${x[2]}</p>
-<div class="price">$${x[3].toFixed(2)}</div>
-<button class="add" onclick="add(${i})">أضف للسلة</button>
+
+<div class="pic ${x.className}">
+${x.icon}
 </div>
+
+<div class="info">
+
+<h3>${x.name}</h3>
+
+<p>${x.description}</p>
+
+<div class="price">
+$${x.price.toFixed(2)}
+</div>
+
+<button class="add" onclick="add(${items.indexOf(x)})">
+أضف للسلة
+</button>
+
+</div>
+
 </article>
-`;
-}).join("");
+
+`).join("");
+
 }
 
-function filterProducts(category){
-if(category==="الكل"){
+function filterProducts(category,button){
+
+document.querySelectorAll(".categories button")
+.forEach(b=>b.classList.remove("active"));
+
+button.classList.add("active");
+
+if(category==="all"){
 renderProducts(items);
-}else{
-renderProducts(items.filter(x=>x[5]===category));
+return;
 }
+
+renderProducts(
+items.filter(x=>x.category===category)
+);
+
+document.getElementById("products")
+.scrollIntoView({behavior:"smooth"});
+
 }
 
 function add(i){
+
 const found=cart.find(x=>x.id===i);
 
 if(found){
 found.qty++;
 }else{
-cart.push({id:i,qty:1});
+cart.push({
+id:i,
+qty:1
+});
 }
 
 updateCart();
+
 show("تمت إضافة المنتج إلى السلة ✓");
+
 }
 
 function changeQty(id,value){
+
 const item=cart.find(x=>x.id===id);
 
 if(!item)return;
@@ -177,93 +678,177 @@ cart=cart.filter(x=>x.id!==id);
 }
 
 updateCart();
+
 }
 
 function removeItem(id){
+
 cart=cart.filter(x=>x.id!==id);
+
 updateCart();
+
+show("تم حذف المنتج");
+
 }
 
 function updateCart(){
-const totalCount=cart.reduce((sum,x)=>sum+x.qty,0);
-document.getElementById("count").textContent=totalCount;
 
-const box=document.getElementById("cartItems");
+const totalCount=
+cart.reduce((sum,x)=>sum+x.qty,0);
+
+document.getElementById("count")
+.textContent=totalCount;
+
+const box=
+document.getElementById("cartItems");
 
 if(cart.length===0){
-box.innerHTML='<div class="empty">السلة فارغة 🛒</div>';
-document.getElementById("total").textContent="0.00";
+
+box.innerHTML=
+'<div class="empty">السلة فارغة 🛒</div>';
+
+document.getElementById("total")
+.textContent="0.00";
+
 return;
+
 }
 
 let total=0;
 
 box.innerHTML=cart.map(x=>{
+
 const product=items[x.id];
-const subtotal=product[3]*x.qty;
+
+const subtotal=
+product.price*x.qty;
+
 total+=subtotal;
 
 return `
+
 <div class="cartItem">
-<strong>${product[0]} ${product[1]}</strong>
-<div class="itemPrice">$${product[3].toFixed(2)} للقطعة</div>
+
+<strong>
+${product.icon} ${product.name}
+</strong>
+
+<div class="itemPrice">
+$${product.price.toFixed(2)} للقطعة
+</div>
+
 <div class="controls">
-<button onclick="changeQty(${x.id},-1)">−</button>
+
+<button onclick="changeQty(${x.id},-1)">
+−
+</button>
+
 <span>${x.qty}</span>
-<button onclick="changeQty(${x.id},1)">+</button>
-<button class="remove" onclick="removeItem(${x.id})">حذف</button>
+
+<button onclick="changeQty(${x.id},1)">
++
+</button>
+
+<button class="remove"
+onclick="removeItem(${x.id})">
+حذف
+</button>
+
 </div>
+
 </div>
+
 `;
+
 }).join("");
 
-document.getElementById("total").textContent=total.toFixed(2);
+document.getElementById("total")
+.textContent=total.toFixed(2);
+
 }
 
 function openCart(){
-document.getElementById("cartBox").classList.add("open");
-document.getElementById("overlay").classList.add("show");
+
+document.getElementById("cartBox")
+.classList.add("open");
+
+document.getElementById("overlay")
+.classList.add("show");
+
 updateCart();
+
 }
 
 function closeCart(){
-document.getElementById("cartBox").classList.remove("open");
-document.getElementById("overlay").classList.remove("show");
+
+document.getElementById("cartBox")
+.classList.remove("open");
+
+document.getElementById("overlay")
+.classList.remove("show");
+
 }
 
 function checkout(){
+
 if(cart.length===0){
+
 show("السلة فارغة");
+
 return;
+
 }
 
-let message="مرحبًا، أريد طلب المنتجات التالية من متجر Silva:\n\n";
+let message="طلب جديد من متجر SILVA%0A%0A";
+
 let total=0;
 
 cart.forEach(x=>{
+
 const product=items[x.id];
-const subtotal=product[3]*x.qty;
+
+const subtotal=
+product.price*x.qty;
+
 total+=subtotal;
-message+=product[1]+" — الكمية: "+x.qty+" — $"+subtotal.toFixed(2)+"\n";
+
+message+=
+`${product.name} × ${x.qty} = $${subtotal.toFixed(2)}%0A`;
+
 });
 
-message+="\nالمجموع: $"+total.toFixed(2);
+message+=
+`%0Aالمجموع: $${total.toFixed(2)}`;
+
+const phone="213795455075";
 
 window.open(
-"https://wa.me/213795455075?text="+encodeURIComponent(message),
+`https://wa.me/${phone}?text=${message}`,
 "_blank"
 );
+
 }
 
 function show(t){
-const m=document.getElementById("msg");
+
+const m=
+document.getElementById("msg");
+
 m.textContent=t;
+
 m.style.display="block";
-setTimeout(()=>m.style.display="none",1800);
+
+setTimeout(()=>{
+m.style.display="none";
+},1800);
+
 }
 
 renderProducts();
+
 updateCart();
+
 </script>
+
 </body>
-</html>
+  </html>
