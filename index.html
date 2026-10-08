@@ -505,6 +505,10 @@ footer{
   }
 
 }
+.productVideo{width:100%;height:100%;display:block;object-fit:cover;background:#08090c}
+.animated-frame{background:linear-gradient(135deg,#61451d,#15131a)}
+.animated-image{background:linear-gradient(135deg,#30175a,#11152a)}
+.custom-entry{background:linear-gradient(135deg,#174d49,#11152a)}
 </style>
 </head>
 
@@ -581,24 +585,16 @@ footer{
       الكل
     </button>
 
-    <button class="filter" onclick="filterProducts('مؤثرات',this)">
-      مؤثرات
+    <button class="filter" onclick="filterProducts('إطارات متحركة',this)">
+      إطارات متحركة
     </button>
 
-    <button class="filter" onclick="filterProducts('فيديوهات',this)">
-      فيديوهات
+    <button class="filter" onclick="filterProducts('صور متحركة',this)">
+      صور متحركة
     </button>
 
-    <button class="filter" onclick="filterProducts('3D',this)">
-      ملفات 3D
-    </button>
-
-    <button class="filter" onclick="filterProducts('إطارات',this)">
-      إطارات
-    </button>
-
-    <button class="filter" onclick="filterProducts('هدايا',this)">
-      هدايا رقمية
+    <button class="filter" onclick="filterProducts('دخوليات مخصصة',this)">
+      دخوليات مخصصة
     </button>
 
   </div>
@@ -693,58 +689,12 @@ footer{
 /* ================= PRODUCTS DATA ================= */
 
 const items = [
-
-  {
-    id:0,
-    icon:"🎧",
-    name:"مؤثرات صوتية",
-    description:"مؤثرات رقمية عالية الجودة",
-    price:12,
-    category:"مؤثرات",
-    className:"sound"
-  },
-
-  {
-    id:1,
-    icon:"🎬",
-    name:"فيديوهات",
-    description:"فيديوهات رقمية جاهزة ومميزة",
-    price:15,
-    category:"فيديوهات",
-    className:"video"
-  },
-
-  {
-    id:2,
-    icon:"🧊",
-    name:"ملفات 3D",
-    description:"ملفات ثلاثية الأبعاد للمشاريع",
-    price:20,
-    category:"3D",
-    className:"three"
-  },
-
-  {
-    id:3,
-    icon:"✨",
-    name:"إطارات",
-    description:"إطارات رقمية بتصاميم راقية",
-    price:10,
-    category:"إطارات",
-    className:"frame"
-  },
-
-  {
-    id:4,
-    icon:"🎁",
-    name:"هدايا رقمية",
-    description:"هدايا رقمية أنيقة ومميزة",
-    price:8,
-    category:"هدايا",
-    className:"gift"
-  }
-
-];
+  {id:0,icon:"👑",name:"إطار النخبة الملكي",description:"إطار متحرك فاخر بلمسة ملكية",price:15,category:"إطارات متحركة",className:"animated-frame",media:"products/elite-royal-frame.mp4"},
+  {id:1,icon:"✨",name:"هوية الذهب الفاخرة",description:"صورة متحركة بتصميم ذهبي راقٍ",price:10,category:"صور متحركة",className:"animated-image",media:"products/golden-luxury-identity.mp4"},
+  {id:2,icon:"🖤",name:"هوية النخبة الذهبية",description:"صورة متحركة أنيقة بطابع فاخر",price:10,category:"صور متحركة",className:"animated-image",media:"products/golden-elite-identity.mp4"},
+  {id:3,icon:"🔥",name:"VIP 8 — التاج الأسطوري",description:"إطار VIP متحرك فاخر بتصميم ملكي",price:15,category:"إطارات متحركة",className:"animated-frame",media:"products/vip8-legendary-crown.mp4"},
+  {id:4,icon:"🚪",name:"دخولية مخصصة",description:"دخولية مصممة خصيصًا حسب طلبك",price:20,category:"دخوليات مخصصة",className:"custom-entry",media:null}
+]
 
 
 /* ================= CART ================= */
@@ -764,7 +714,7 @@ function renderProducts(list = items){
     <article class="card">
 
       <div class="pic ${product.className}">
-        ${product.icon}
+        ${product.media ? `<video class="productVideo" src="${product.media}" muted loop autoplay playsinline preload="metadata"></video>` : product.icon}
       </div>
 
       <div class="info">
@@ -963,8 +913,7 @@ function updateCart(){
           </strong>
 
           <div class="itemPrice">
-            $${product.price.toFixed(2)}
-            للقطعة
+            ${product.price > 0 ? "$" + product.price.toFixed(2) + " للقطعة" : "السعر حسب الطلب"}
           </div>
 
           <div class="controls">
@@ -1088,7 +1037,7 @@ function checkout(){
 
 
     lines.push(
-      `• ${product.name} × ${item.qty} = $${subtotal.toFixed(2)}`
+      `• ${product.name} × ${item.qty} = ${product.price > 0 ? "$" + subtotal.toFixed(2) : "حسب الطلب"}`
     );
 
   });
