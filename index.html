@@ -102,6 +102,16 @@ header{height:68px;padding:9px 4%}.logo{font-size:28px}.cart{padding:10px 15px;f
  .heroContent{right:8px!important;width:65%!important;padding:12px 8px!important}
 }
 
+
+/* التصميم الكامل من العينة: لا نقص الصورة ولا نعيد تركيب عناصرها فوق بعضها */
+body:before{background-image:url("./silva-rose-banner.jpg?v=1")!important;background-position:center!important;background-size:cover!important;filter:blur(24px)!important;opacity:.92!important}
+body:after{background:rgba(49,28,18,.25)!important}
+.heroFrame{height:auto!important;aspect-ratio:3/2!important;overflow:hidden!important;border:2px solid #d9b452!important;border-radius:24px!important;background:#170e0a!important}
+.heroFrame:before,.heroFrame:after{display:none!important}
+.fullHeroArtwork{display:block!important;width:100%!important;height:100%!important;object-fit:contain!important;position:absolute!important;inset:0!important}
+.heroContent,.heroTiles,.heroStrip{display:none!important}
+@media(max-width:700px){.heroFrame{aspect-ratio:3/2!important;height:auto!important;border-radius:18px!important}.hero{padding:0 3% 18px!important}}
+
 </style>
 </head>
 <body>
@@ -113,7 +123,7 @@ header{height:68px;padding:9px 4%}.logo{font-size:28px}.cart{padding:10px 15px;f
 <div class="topMarks"><span></span><span></span><span></span></div>
 
 <section class="hero">
-  <div class="heroFrame">
+  <div class="heroFrame"><img class="fullHeroArtwork" src="./silva-rose-banner.jpg?v=1" alt="تصميم Silva الكامل بخلفية القلعة والورد والأقسام الذهبية">
     <div class="heroBrand">👑 SILVA<small>More Than a Store ... It's a Digital World</small></div>
   </div>
   <div class="heroContent">
