@@ -811,14 +811,21 @@ footer{
 
 /* ================= PRODUCTS DATA ================= */
 
-const items = [
-  {id:0,icon:"👑",name:"إطار النخبة الملكي",description:"إطار متحرك فاخر بلمسة ملكية",price:15,category:"إطارات متحركة",className:"animated-frame",video:"./VID-20261007-WA0078.mp4",imagePos:0},
-  {id:1,icon:"✨",name:"هوية الذهب الفاخرة",description:"صورة متحركة بتصميم ذهبي راقٍ",price:10,category:"صور متحركة",className:"animated-image",video:"./VID_20261004153205202.mp4",imagePos:1},
-  {id:2,icon:"🖤",name:"هوية النخبة الذهبية",description:"صورة متحركة أنيقة بطابع فاخر",price:10,category:"صور متحركة",className:"animated-image",video:"./lv_0_20261004143659.mp4",imagePos:2},
-  {id:3,icon:"🔥",name:"VIP 8 — التاج الأسطوري",description:"إطار VIP متحرك فاخر بتصميم ملكي",price:15,category:"إطارات متحركة",className:"animated-frame",video:"./lv_0_٢٠٢٦٠٩٠٧٠٣٤١٣٥.mp4",imagePos:3},
-  {id:4,icon:"🚪",name:"دخولية مخصصة",description:"دخولية مصممة خصيصًا حسب طلبك",price:20,category:"دخوليات مخصصة",className:"custom-entry",video:null,imagePos:null}
-]
+let items = [];
 
+async function loadProducts(){
+  try{
+    const response = await fetch("./products.json?v=" + Date.now());
+    if(!response.ok) throw new Error("products.json");
+    items = await response.json();
+    renderProducts();
+    updateCart();
+  }catch(error){
+    console.error("تعذر تحميل المنتجات:",error);
+    document.getElementById("productList").innerHTML =
+      '<div style="grid-column:1/-1;text-align:center;padding:40px;color:#ffb5bd">تعذر تحميل المنتجات حاليًا.</div>';
+  }
+}
 
 /* ================= CART ================= */
 
@@ -837,7 +844,7 @@ function renderProducts(list = items){
     <article class="card">
 
       <div class="productVisual ${product.className}">
-        ${product.video ? `<div class="videoPreview" onclick="openVideoModal(${product.id})" role="button" tabindex="0" aria-label="فتح فيديو ${product.name} بحجم كبير"><div class="productSprite sprite${product.imagePos ?? 0}"></div><span class="videoPreviewPlay">▶</span><span class="videoPreviewLabel">🎬 مشاهدة بحجم كبير</span></div>` : `<div class="pic ${product.className}" style="height:100%;font-size:58px">${product.icon}</div>`}
+        ${product.type === "video" && product.media ? `<div class="videoPreview" onclick="openVideoModal(${product.id})" role="button" tabindex="0" aria-label="فتح فيديو ${product.name} بحجم كبير"><div class="productSprite sprite${product.imagePos ?? 0}"></div><span class="videoPreviewPlay">▶</span><span class="videoPreviewLabel">🎬 مشاهدة بحجم كبير</span></div>` : `<div class="pic ${product.className}" style="height:100%;font-size:58px">${product.icon}</div>`}
       </div>
 
       <div class="info">
@@ -883,7 +890,7 @@ function openVideoModal(id){
   const title = document.getElementById("largeVideoTitle");
 
   title.textContent = product.name;
-  video.src = product.video;
+  video.src = product.media;
   modal.classList.add("open");
   document.body.style.overflow = "hidden";
 
