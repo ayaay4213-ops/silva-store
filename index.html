@@ -620,6 +620,7 @@ footer{
 
 }
 .productVideo{width:100%;height:100%;display:block;object-fit:cover;background:#08090c;border:0}.videoWrap{position:relative;width:100%;height:100%;background:#08090c}.videoWrap .mediaBadge{z-index:2}.animated-frame{background:linear-gradient(135deg,#61451d,#15131a)}.animated-image{background:linear-gradient(135deg,#30175a,#11152a)}.custom-entry{background:linear-gradient(135deg,#174d49,#11152a)}.productVisual{height:180px;position:relative;overflow:hidden;background:#08090c}.productSprite{position:absolute;inset:0;background-image:url('./products/silva-sprite.jpg');background-size:200% 200%;background-repeat:no-repeat}.sprite0{background-position:0 0}.sprite1{background-position:100% 0}.sprite2{background-position:0 100%}.sprite3{background-position:100% 100%}.mediaBadge{position:absolute;top:12px;right:12px;padding:7px 10px;border-radius:10px;background:#0b1020e8;color:#fff;font-size:12px;font-weight:900;border:1px solid #3d4661}.playBadge{position:absolute;inset:0;display:grid;place-items:center;font-size:34px;color:#fff;text-shadow:0 4px 20px #000;background:radial-gradient(circle,rgba(35,91,220,.75),rgba(10,15,30,.08) 28%,transparent 55%)}@media(max-width:600px){.productVisual{height:140px}}
+:root{--silva-accent:#7650a0;--silva-hero:#30175a}.filter.active{border-color:var(--silva-accent)}.card:hover{border-color:var(--silva-accent)}.badge{border-color:var(--silva-accent)}
 </style>
 </head>
 
@@ -629,14 +630,15 @@ footer{
 
 <header>
 
-  <div class="logo">
-    SILVA
-  </div>
+  <div class="logo" id="storeLogo">SILVA</div>
 
-  <button class="cart" onclick="openCart()">
+  <div style="display:flex;align-items:center;gap:10px">
+    <a id="adminLink" href="https://app.pagescms.org/" target="_blank" rel="noopener" style="color:#fff;text-decoration:none;border:1px solid #414451;background:#171923;padding:10px 13px;border-radius:12px;font-weight:bold">⚙️ إدارة</a>
+    <button class="cart" onclick="openCart()">
     🛒 السلة
     <span id="count">0</span>
   </button>
+  </div>
 
 </header>
 
@@ -651,18 +653,11 @@ footer{
       ✦ متجر رقمي مميز
     </span>
 
-    <h1>
-      SILVA
-    </h1>
+    <h1 id="heroName">SILVA</h1>
 
-    <h2>
-      متجرك الرقمي الراقي
-    </h2>
+    <h2 id="heroTagline">متجرك الرقمي الراقي</h2>
 
-    <p>
-      اكتشف مجموعة مختارة من المنتجات الرقمية المميزة
-      المصممة لإضافة لمسة احترافية وإبداعية إلى مشاريعك.
-    </p>
+    <p id="heroDescription">اكتشف مجموعة مختارة من المنتجات الرقمية المميزة المصممة لإضافة لمسة احترافية وإبداعية إلى مشاريعك.</p>
 
     <a class="btn" href="#products">
       تصفح المنتجات
@@ -720,7 +715,7 @@ footer{
 
 <footer>
 
-  Silva © 2026 — متجرك الرقمي الراقي
+  <span id="footerText">Silva © 2026 — متجرك الرقمي الراقي</span>
 
 </footer>
 
@@ -1238,8 +1233,7 @@ function checkout(){
     وبدون مسافات أو شرطات
   */
 
-  const phone =
-    "213795455075";
+  const phone = window.SILVA_SETTINGS?.whatsapp || "213795455075";
 
 
   const whatsappUrl =
@@ -1278,11 +1272,42 @@ function show(text){
 }
 
 
+/* ================= STORE SETTINGS ================= */
+
+async function loadStoreSettings(){
+  try{
+    const response = await fetch("./site-settings.json?v=" + Date.now());
+    if(!response.ok) throw new Error("site-settings.json");
+    const settings = await response.json();
+    window.SILVA_SETTINGS = settings;
+
+    document.title = (settings.storeName || "SILVA") + " | " + (settings.tagline || "متجرك الرقمي الراقي");
+    document.getElementById("storeLogo").textContent = settings.storeName || "SILVA";
+    document.getElementById("heroName").textContent = settings.storeName || "SILVA";
+    document.getElementById("heroTagline").textContent = settings.tagline || "متجرك الرقمي الراقي";
+    document.getElementById("heroDescription").textContent = settings.heroDescription || "";
+    document.getElementById("footerText").textContent = (settings.storeName || "SILVA") + " © 2026 — " + (settings.tagline || "متجرك الرقمي الراقي");
+
+    const theme = settings.theme || "purple";
+    const themes = {
+      purple: {accent:"#7650a0", button:"#ffffff", hero:"#30175a"},
+      blue: {accent:"#3b82f6", button:"#ffffff", hero:"#12345b"},
+      emerald: {accent:"#10b981", button:"#ffffff", hero:"#0d4a3c"},
+      gold: {accent:"#d4a72c", button:"#ffffff", hero:"#5b4215"}
+    };
+    const t = themes[theme] || themes.purple;
+    document.documentElement.style.setProperty("--silva-accent", t.accent);
+    document.documentElement.style.setProperty("--silva-hero", t.hero);
+  }catch(error){
+    console.warn("إعدادات المتجر الافتراضية مستخدمة:", error);
+    window.SILVA_SETTINGS = {whatsapp:"213795455075"};
+  }
+}
+
 /* ================= START ================= */
 
-renderProducts();
-
-updateCart();
+loadStoreSettings();
+loadProducts();
 
 </script>
 
