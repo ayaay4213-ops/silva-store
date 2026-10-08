@@ -1,0 +1,62 @@
+[
+  {
+    "id": 0,
+    "icon": "👑",
+    "name": "إطار النخبة الملكي",
+    "description": "إطار متحرك فاخر بلمسة ملكية",
+    "price": 15,
+    "size": "",
+    "category": "إطارات متحركة",
+    "type": "video",
+    "media": "./VID-20261007-WA0078.mp4",
+    "imagePos": 0
+  },
+  {
+    "id": 1,
+    "icon": "✨",
+    "name": "هوية الذهب الفاخرة",
+    "description": "صورة متحركة بتصميم ذهبي راقٍ",
+    "price": 10,
+    "size": "",
+    "category": "صور متحركة",
+    "type": "video",
+    "media": "./VID_20261004153205202.mp4",
+    "imagePos": 1
+  },
+  {
+    "id": 2,
+    "icon": "🖤",
+    "name": "هوية النخبة الذهبية",
+    "description": "صورة متحركة أنيقة بطابع فاخر",
+    "price": 10,
+    "size": "",
+    "category": "صور متحركة",
+    "type": "video",
+    "media": "./lv_0_20261004143659.mp4",
+    "imagePos": 2
+  },
+  {
+    "id": 3,
+    "icon": "🔥",
+    "name": "VIP 8 — التاج الأسطوري",
+    "description": "إطار VIP متحرك فاخر بتصميم ملكي",
+    "price": 15,
+    "size": "",
+    "category": "إطارات متحركة",
+    "type": "video",
+    "media": "./lv_0_٢٠٢٦٠٩٠٧٠٣٤١٣٥.mp4",
+    "imagePos": 3
+  },
+  {
+    "id": 4,
+    "icon": "🚪",
+    "name": "دخولية مخصصة",
+    "description": "دخولية مصممة خصيصًا حسب طلبك",
+    "price": 20,
+    "size": "",
+    "category": "دخوليات مخصصة",
+    "type": "icon",
+    "media": "",
+    "imagePos": null
+  }
+]
