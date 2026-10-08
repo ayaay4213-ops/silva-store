@@ -2,909 +2,1434 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Silva | متجرك الرقمي الراقي</title>
 
 <style>
-*{box-sizing:border-box}
-
-html{scroll-behavior:smooth}
-
-body{
-margin:0;
-font-family:Arial,Tahoma,sans-serif;
-background:#070707;
-color:#fff
+*{
+  box-sizing:border-box;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Tahoma,sans-serif;
+  background:#070707;
+  color:#fff;
+}
+
+/* =========================
+   HEADER
+========================= */
+
 header{
-position:sticky;
-top:0;
-z-index:50;
-height:70px;
-padding:0 6%;
-display:flex;
-align-items:center;
-justify-content:space-between;
-background:#080808ee;
-backdrop-filter:blur(18px);
-border-bottom:1px solid #3b3020
+  position:sticky;
+  top:0;
+  z-index:50;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:15px 6%;
+
+  background:rgba(8,8,10,.92);
+  backdrop-filter:blur(16px);
+
+  border-bottom:1px solid #292b36;
 }
 
 .logo{
-font-size:30px;
-font-weight:900;
-letter-spacing:3px;
-color:#e1b866
+  font-size:28px;
+  font-weight:900;
+  letter-spacing:2px;
 }
 
 .cart{
-border:1px solid #9b783b;
-background:#17120a;
-color:#f1cf82;
-padding:11px 18px;
-border-radius:13px;
-font-weight:bold;
-cursor:pointer
+  border:1px solid #4b4d58;
+  background:#171923;
+  color:#fff;
+
+  padding:11px 17px;
+  border-radius:14px;
+
+  font-weight:bold;
+  cursor:pointer;
+
+  transition:.2s;
 }
-/* HERO */
+
+.cart:hover{
+  border-color:#c49a4b;
+}
+
+/* =========================
+   HERO
+========================= */
+
 .hero{
   min-height:650px;
+
   position:relative;
   overflow:hidden;
+
   display:flex;
   align-items:center;
+
   padding:70px 7%;
 
   background:
-    linear-gradient(90deg,#050505 0%,#050505 42%,transparent 70%),
+    linear-gradient(
+      90deg,
+      #050505 0%,
+      #050505 30%,
+      rgba(5,5,5,.72) 46%,
+      rgba(5,5,5,.15) 68%,
+      rgba(5,5,5,0) 100%
+    ),
     url("./file_00000000b4608243b58dced485d619f0.png")
-    right center / 58% auto no-repeat;
+    right center / 58% auto
+    no-repeat;
 
   background-color:#050505;
 }
 
-.hero:after{
+/* تدرج سفلي ناعم */
+
+.hero::after{
   content:"";
+
   position:absolute;
   inset:0;
-  background:linear-gradient(
-    90deg,
-    #050505 0%,
-    transparent 55%
-  );
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 60%,
+      #070707 100%
+    );
+
   pointer-events:none;
 }
+
+/* =========================
+   HERO CONTENT
+========================= */
 
 .heroContent{
   position:relative;
   z-index:3;
-  max-width:620px;
-  padding:35px;
-  border-radius:25px;
-  background:rgba(5,5,5,.40);
-  backdrop-filter:blur(5px);
-  border:1px solid #c49a4b44;
-}
-.heroContent{
-position:relative;
-z-index:3;
-max-width:620px;
-padding:35px;
-border-radius:25px;
-background:#05050566;
-backdrop-filter:blur(5px);
-border:1px solid #c49a4b44
+
+  width:100%;
+  max-width:600px;
+
+  padding:32px;
+
+  border-radius:24px;
+
+  background:rgba(5,5,5,.28);
+
+  backdrop-filter:blur(2px);
+
+  border:1px solid rgba(196,154,75,.25);
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.25);
 }
 
 .badge{
-display:inline-block;
-padding:9px 16px;
-border:1px solid #c19a50;
-border-radius:30px;
-color:#f0ce85;
-background:#21170a;
-font-size:14px
+  display:inline-block;
+
+  padding:8px 14px;
+
+  border-radius:30px;
+
+  background:#241a0c;
+
+  border:1px solid #8f6d35;
+
+  color:#e6c98d;
+
+  font-size:13px;
+
+  margin-bottom:10px;
 }
 
 .hero h1{
-font-size:clamp(58px,12vw,105px);
-margin:15px 0 0;
-letter-spacing:6px;
-color:#f1cc78;
-text-shadow:0 5px 30px #000
+  margin:8px 0;
+
+  font-size:clamp(55px,10vw,88px);
+
+  line-height:.95;
+
+  letter-spacing:4px;
+
+  color:#fff;
+
+  text-shadow:
+    0 5px 30px rgba(0,0,0,.7);
 }
 
 .hero h2{
-font-size:clamp(25px,5vw,42px);
-margin:0 0 14px
+  margin:15px 0;
+
+  font-size:32px;
+
+  color:#d5b16b;
 }
 
 .hero p{
-color:#ddd;
-font-size:19px;
-line-height:1.9;
-max-width:560px
+  max-width:560px;
+
+  margin:0;
+
+  color:#c7c8ce;
+
+  font-size:18px;
+
+  line-height:1.9;
 }
+
+/* =========================
+   BUTTON
+========================= */
 
 .btn{
-display:inline-block;
-margin-top:18px;
-padding:15px 28px;
-border-radius:14px;
-background:linear-gradient(135deg,#f1d18b,#a97829);
-color:#111;
-text-decoration:none;
-font-weight:900
+  display:inline-block;
+
+  margin-top:22px;
+
+  padding:14px 26px;
+
+  border-radius:14px;
+
+  background:linear-gradient(
+    135deg,
+    #fff,
+    #e8e8e8
+  );
+
+  color:#111;
+
+  text-decoration:none;
+
+  font-weight:900;
+
+  transition:.25s;
 }
 
-/* CATEGORIES */
-.categories{
-display:flex;
-gap:10px;
-overflow-x:auto;
-padding:20px 6%;
-background:#0b0b0b;
-border-bottom:1px solid #30271b
+.btn:hover{
+  transform:translateY(-3px);
+
+  box-shadow:
+    0 12px 30px rgba(255,255,255,.15);
 }
 
-.categories button{
-white-space:nowrap;
-border:1px solid #4a3a24;
-background:#15120d;
-color:#d8c7a4;
-padding:11px 17px;
-border-radius:12px;
-cursor:pointer
-}
+/* =========================
+   SECTION TITLE
+========================= */
 
-.categories button.active,
-.categories button:hover{
-background:#d2a957;
-color:#111;
-border-color:#d2a957
-}
-
-/* PRODUCTS */
 .title{
-padding:45px 6% 15px
+  padding:45px 6% 15px;
 }
 
 .title h2{
-margin:0;
-font-size:31px
+  margin:0;
+
+  font-size:30px;
 }
 
 .title p{
-color:#888;
-margin-top:9px
+  color:#858b9b;
 }
 
+/* =========================
+   FILTERS
+========================= */
+
+.filters{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+
+  padding:10px 6% 20px;
+}
+
+.filter{
+  border:1px solid #343743;
+
+  background:#12141b;
+
+  color:#bbb;
+
+  padding:10px 15px;
+
+  border-radius:12px;
+
+  cursor:pointer;
+
+  transition:.2s;
+}
+
+.filter:hover,
+.filter.active{
+  background:#c49a4b;
+  color:#111;
+
+  border-color:#c49a4b;
+}
+
+/* =========================
+   PRODUCTS
+========================= */
+
 .products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-gap:20px;
-padding:15px 6% 70px
+  display:grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(210px,1fr));
+
+  gap:18px;
+
+  padding:15px 6% 70px;
 }
 
 .card{
-background:#11110f;
-border:1px solid #30291e;
-border-radius:20px;
-overflow:hidden;
-box-shadow:0 15px 40px #0009;
-transition:.25s
+  background:#12141b;
+
+  border:1px solid #292d38;
+
+  border-radius:22px;
+
+  overflow:hidden;
+
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.3);
+
+  transition:.25s;
 }
 
 .card:hover{
-transform:translateY(-7px);
-border-color:#aa823e
+  transform:translateY(-6px);
+
+  border-color:#7650a0;
 }
 
 .pic{
-height:190px;
-display:grid;
-place-items:center;
-font-size:65px;
-position:relative
+  height:180px;
+
+  display:grid;
+
+  place-items:center;
+
+  font-size:62px;
 }
 
-.sound{background:linear-gradient(135deg,#39270c,#101010)}
-.video{background:linear-gradient(135deg,#26384a,#101010)}
-.three{background:linear-gradient(135deg,#16433d,#101010)}
-.frame{background:linear-gradient(135deg,#5a3c15,#101010)}
-.gift{background:linear-gradient(135deg,#5a1935,#101010)}
+.sound{
+  background:
+    linear-gradient(135deg,#30175a,#11152a);
+}
 
-.pic:after{
-content:"SILVA";
-position:absolute;
-bottom:10px;
-right:12px;
-font-size:10px;
-letter-spacing:3px;
-color:#d8b56d99
+.video{
+  background:
+    linear-gradient(135deg,#1d4668,#11152a);
+}
+
+.three{
+  background:
+    linear-gradient(135deg,#174d49,#11152a);
+}
+
+.frame{
+  background:
+    linear-gradient(135deg,#61451d,#15131a);
+}
+
+.gift{
+  background:
+    linear-gradient(135deg,#6a254d,#17121b);
 }
 
 .info{
-padding:18px
+  padding:18px;
 }
 
 .info h3{
-margin:0 0 8px;
-font-size:20px
+  margin:0 0 8px;
+
+  font-size:20px;
 }
 
 .info p{
-color:#999;
-line-height:1.6;
-min-height:45px
+  color:#9da2b0;
+
+  line-height:1.6;
+
+  min-height:42px;
 }
 
 .price{
-font-size:21px;
-font-weight:900;
-color:#e1bd72;
-margin-top:13px
+  font-size:21px;
+
+  font-weight:900;
+
+  margin-top:13px;
+
+  color:#d8bb7d;
 }
 
 .add{
-width:100%;
-margin-top:14px;
-padding:12px;
-border:1px solid #a27b3d;
-border-radius:12px;
-background:#d2aa5d;
-color:#111;
-font-weight:900;
-cursor:pointer
+  width:100%;
+
+  margin-top:14px;
+
+  padding:12px;
+
+  border:0;
+
+  border-radius:12px;
+
+  background:#fff;
+
+  color:#111;
+
+  font-weight:900;
+
+  cursor:pointer;
+
+  transition:.2s;
 }
 
 .add:hover{
-background:#f1cf83
+  transform:translateY(-2px);
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
+
 footer{
-text-align:center;
-padding:38px 6%;
-border-top:1px solid #29231b;
-color:#777
+  text-align:center;
+
+  padding:35px 6%;
+
+  border-top:1px solid #20232d;
+
+  color:#747988;
 }
 
-/* CART */
-.overlay{
-position:fixed;
-inset:0;
-background:#000b;
-z-index:90;
-display:none
-}
-
-.overlay.show{
-display:block
-}
+/* =========================
+   CART
+========================= */
 
 .cartBox{
-position:fixed;
-top:0;
-right:-100%;
-width:min(430px,94%);
-height:100vh;
-background:#10100e;
-z-index:100;
-box-shadow:-15px 0 60px #000;
-transition:.3s;
-display:flex;
-flex-direction:column
+  position:fixed;
+
+  top:0;
+  right:-100%;
+
+  width:min(420px,92%);
+
+  height:100vh;
+
+  background:#101219;
+
+  z-index:100;
+
+  box-shadow:
+    -15px 0 50px rgba(0,0,0,.6);
+
+  transition:.3s;
+
+  display:flex;
+
+  flex-direction:column;
 }
 
 .cartBox.open{
-right:0
+  right:0;
 }
 
 .cartHead{
-padding:20px;
-border-bottom:1px solid #30291e;
-display:flex;
-align-items:center;
-justify-content:space-between
+  padding:20px;
+
+  border-bottom:1px solid #292d38;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
 }
 
 .cartHead h2{
-margin:0
+  margin:0;
 }
 
 .close{
-background:#29241c;
-color:#fff;
-border:0;
-border-radius:10px;
-padding:8px 13px;
-font-size:20px;
-cursor:pointer
+  background:#242732;
+
+  color:#fff;
+
+  border:0;
+
+  border-radius:10px;
+
+  padding:8px 12px;
+
+  font-size:18px;
+
+  cursor:pointer;
 }
 
 .cartItems{
-flex:1;
-overflow:auto;
-padding:15px
+  flex:1;
+
+  overflow:auto;
+
+  padding:15px;
 }
 
 .empty{
-text-align:center;
-color:#888;
-margin-top:60px
+  text-align:center;
+
+  color:#888;
+
+  margin-top:60px;
 }
 
 .cartItem{
-background:#181713;
-border:1px solid #322b20;
-border-radius:14px;
-padding:14px;
-margin-bottom:12px
+  background:#181b24;
+
+  border:1px solid #292d38;
+
+  border-radius:14px;
+
+  padding:13px;
+
+  margin-bottom:12px;
 }
 
 .cartItem strong{
-display:block;
-margin-bottom:8px
+  display:block;
+
+  margin-bottom:8px;
 }
 
 .itemPrice{
-color:#d6b16a;
-font-weight:bold
+  color:#caa7ff;
+
+  font-weight:bold;
 }
 
 .controls{
-display:flex;
-align-items:center;
-gap:8px;
-margin-top:12px
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  margin-top:10px;
 }
 
 .controls button{
-width:32px;
-height:32px;
-border:0;
-border-radius:8px;
-background:#302b23;
-color:#fff;
-font-size:18px;
-cursor:pointer
+  width:32px;
+  height:32px;
+
+  border:0;
+
+  border-radius:8px;
+
+  background:#292d38;
+
+  color:#fff;
+
+  font-size:18px;
+
+  cursor:pointer;
 }
 
 .remove{
-margin-right:auto;
-width:auto!important;
-padding:0 10px!important;
-background:#4b2025!important;
-color:#ffb7bd!important;
-font-size:13px!important
+  margin-right:auto;
+
+  background:#4b2027!important;
+
+  color:#ffb5bd!important;
+
+  font-size:13px!important;
+
+  width:auto!important;
+
+  padding:0 10px;
 }
 
+/* =========================
+   TOTAL
+========================= */
+
 .total{
-padding:18px;
-border-top:1px solid #30291e;
-background:#0a0a09
+  padding:18px;
+
+  border-top:1px solid #292d38;
+
+  background:#0c0e13;
 }
 
 .totalRow{
-display:flex;
-justify-content:space-between;
-font-size:20px;
-font-weight:bold;
-margin-bottom:14px
+  display:flex;
+
+  justify-content:space-between;
+
+  font-size:20px;
+
+  font-weight:bold;
+
+  margin-bottom:14px;
 }
 
 .checkout{
-width:100%;
-padding:14px;
-border:0;
-border-radius:12px;
-background:#d4ad61;
-color:#111;
-font-weight:900;
-cursor:pointer
+  width:100%;
+
+  padding:13px;
+
+  border:0;
+
+  border-radius:12px;
+
+  background:#fff;
+
+  color:#111;
+
+  font-weight:900;
+
+  cursor:pointer;
 }
+
+/* =========================
+   OVERLAY
+========================= */
+
+.overlay{
+  position:fixed;
+
+  inset:0;
+
+  background:rgba(0,0,0,.55);
+
+  z-index:90;
+
+  display:none;
+}
+
+.overlay.show{
+  display:block;
+}
+
+/* =========================
+   MESSAGE
+========================= */
 
 #msg{
-position:fixed;
-bottom:22px;
-left:5%;
-right:5%;
-z-index:120;
-background:#fff;
-color:#111;
-padding:15px;
-border-radius:14px;
-text-align:center;
-font-weight:bold;
-display:none;
-box-shadow:0 15px 40px #0009
+  position:fixed;
+
+  bottom:22px;
+
+  left:5%;
+  right:5%;
+
+  z-index:120;
+
+  background:#fff;
+
+  color:#111;
+
+  padding:15px;
+
+  border-radius:14px;
+
+  text-align:center;
+
+  font-weight:bold;
+
+  display:none;
+
+  box-shadow:
+    0 15px 40px rgba(0,0,0,.6);
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
+
 @media(max-width:700px){
 
-.hero{
-min-height:590px;
-padding:55px 5%;
+  header{
+    padding:13px 5%;
+  }
+
+  .logo{
+    font-size:24px;
+  }
+
+  .cart{
+    padding:9px 12px;
+  }
+
+  .hero{
+    min-height:680px;
+
+    padding:35px 5%;
+
+    align-items:flex-end;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(5,5,5,.02) 0%,
+        rgba(5,5,5,.12) 35%,
+        rgba(5,5,5,.45) 58%,
+        #050505 90%
+      ),
+      url("./file_00000000b4608243b58dced485d619f0.png")
+      center top / 100% auto
+      no-repeat;
+
+    background-color:#050505;
+  }
+
+  .hero::after{
+    background:
+      linear-gradient(
+        180deg,
+        transparent 50%,
+        #070707 100%
+      );
+  }
+
+  .heroContent{
+    width:100%;
+
+    max-width:none;
+
+    padding:22px;
+
+    border-radius:20px;
+
+    background:rgba(5,5,5,.40);
+
+    backdrop-filter:blur(3px);
+  }
+
+  .hero h1{
+    font-size:58px;
+  }
+
+  .hero h2{
+    font-size:27px;
+  }
+
+  .hero p{
+    font-size:16px;
+
+    line-height:1.8;
+  }
+
+  .products{
+    grid-template-columns:1fr 1fr;
+
+    padding-left:5%;
+    padding-right:5%;
+
+    gap:12px;
+  }
+
+  .pic{
+    height:140px;
+
+    font-size:48px;
+  }
+
+  .info{
+    padding:13px;
+  }
+
+  .info h3{
+    font-size:17px;
+  }
+
+  .info p{
+    font-size:13px;
+  }
+
+  .price{
+    font-size:18px;
+  }
 }
 
-.heroContent{
-padding:25px;
-background:#05050577
-}
+/* =========================
+   SMALL PHONES
+========================= */
 
-.products{
-grid-template-columns:1fr 1fr;
-padding-left:5%;
-padding-right:5%;
-gap:12px
-}
+@media(max-width:420px){
 
-.pic{
-height:145px;
-font-size:48px
-}
+  .products{
+    grid-template-columns:1fr;
+  }
 
-.info{
-padding:13px
-}
+  .hero{
+    min-height:650px;
+  }
 
-.info h3{
-font-size:17px
-}
+  .hero h1{
+    font-size:52px;
+  }
 
-.info p{
-font-size:13px;
-min-height:48px
-}
+  .hero h2{
+    font-size:24px;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
 
-<div class="logo">SILVA</div>
+  <div class="logo">
+    SILVA
+  </div>
 
-<button class="cart" onclick="openCart()">
-🛒 السلة <span id="count">0</span>
-</button>
+  <button
+    class="cart"
+    onclick="openCart()"
+  >
+    🛒 السلة
+    <span id="count">0</span>
+  </button>
 
 </header>
 
+
+<!-- =========================
+     HERO
+========================= -->
+
 <section class="hero">
 
-<div class="heroContent">
+  <div class="heroContent">
 
-<span class="badge">✦ متجر رقمي مميز</span>
+    <span class="badge">
+      ✦ متجر رقمي مميز
+    </span>
 
-<h1>SILVA</h1>
+    <h1>
+      SILVA
+    </h1>
 
-<h2>متجرك الرقمي الراقي</h2>
+    <h2>
+      متجرك الرقمي الراقي
+    </h2>
 
-<p>
-اكتشف مجموعة مميزة من المؤثرات والفيديوهات وملفات 3D
-والإطارات والهدايا الرقمية، بتجربة عصرية وأنيقة.
-</p>
+    <p>
+      اكتشف مجموعة مميزة من المؤثرات والفيديوهات
+      وملفات 3D والإطارات والهدايا الرقمية،
+      بتجربة عصرية وأنيقة.
+    </p>
 
-<a class="btn" href="#products">تصفح المنتجات</a>
+    <a
+      class="btn"
+      href="#products"
+    >
+      تصفح المنتجات
+    </a>
 
-</div>
+  </div>
 
 </section>
 
-<nav class="categories">
 
-<button class="active" onclick="filterProducts('all',this)">
-🏠 الكل
-</button>
-
-<button onclick="filterProducts('مؤثرات',this)">
-🎧 مؤثرات
-</button>
-
-<button onclick="filterProducts('فيديوهات',this)">
-🎬 فيديوهات
-</button>
-
-<button onclick="filterProducts('3D',this)">
-🧊 ملفات 3D
-</button>
-
-<button onclick="filterProducts('إطارات',this)">
-✨ إطارات
-</button>
-
-<button onclick="filterProducts('هدايا',this)">
-🎁 هدايا رقمية
-</button>
-
-</nav>
+<!-- =========================
+     PRODUCTS
+========================= -->
 
 <section id="products">
 
-<div class="title">
+  <div class="title">
 
-<h2>منتجاتنا</h2>
+    <h2>
+      منتجاتنا
+    </h2>
 
-<p>اختيارات رقمية مميزة لك</p>
+    <p>
+      اختيارات رقمية مميزة لك
+    </p>
 
-</div>
+  </div>
 
-<main class="products" id="productList"></main>
+
+  <div class="filters">
+
+    <button
+      class="filter active"
+      onclick="filterProducts('all',this)"
+    >
+      الكل
+    </button>
+
+    <button
+      class="filter"
+      onclick="filterProducts('sound',this)"
+    >
+      مؤثرات
+    </button>
+
+    <button
+      class="filter"
+      onclick="filterProducts('video',this)"
+    >
+      فيديوهات
+    </button>
+
+    <button
+      class="filter"
+      onclick="filterProducts('three',this)"
+    >
+      ملفات 3D
+    </button>
+
+    <button
+      class="filter"
+      onclick="filterProducts('frame',this)"
+    >
+      إطارات
+    </button>
+
+    <button
+      class="filter"
+      onclick="filterProducts('gift',this)"
+    >
+      هدايا رقمية
+    </button>
+
+  </div>
+
+
+  <main
+    class="products"
+    id="productList"
+  ></main>
 
 </section>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
-SILVA © 2026 — متجرك الرقمي الراقي
+
+  SILVA © 2026
+  —
+  متجرك الرقمي الراقي
+
 </footer>
 
-<div class="overlay" id="overlay" onclick="closeCart()"></div>
 
-<div class="cartBox" id="cartBox">
+<!-- =========================
+     CART
+========================= -->
 
-<div class="cartHead">
+<div
+  class="overlay"
+  id="overlay"
+  onclick="closeCart()"
+></div>
 
-<h2>🛒 سلة المشتريات</h2>
 
-<button class="close" onclick="closeCart()">×</button>
+<div
+  class="cartBox"
+  id="cartBox"
+>
+
+  <div class="cartHead">
+
+    <h2>
+      🛒 سلة المشتريات
+    </h2>
+
+    <button
+      class="close"
+      onclick="closeCart()"
+    >
+      ×
+    </button>
+
+  </div>
+
+
+  <div
+    class="cartItems"
+    id="cartItems"
+  ></div>
+
+
+  <div class="total">
+
+    <div class="totalRow">
+
+      <span>
+        المجموع
+      </span>
+
+      <span>
+        $
+        <span id="total">
+          0.00
+        </span>
+      </span>
+
+    </div>
+
+    <button
+      class="checkout"
+      onclick="checkout()"
+    >
+      إتمام الطلب
+    </button>
+
+  </div>
 
 </div>
 
-<div class="cartItems" id="cartItems"></div>
 
-<div class="total">
-
-<div class="totalRow">
-
-<span>المجموع</span>
-
-<span>
-$<span id="total">0.00</span>
-</span>
-
-</div>
-
-<button class="checkout" onclick="checkout()">
-إتمام الطلب عبر واتساب
-</button>
-
-</div>
-
-</div>
+<!-- =========================
+     MESSAGE
+========================= -->
 
 <div id="msg"></div>
 
+
 <script>
 
-const items=[
+/* =========================
+   PRODUCTS DATA
+========================= */
 
-{
-icon:"🎧",
-name:"مؤثرات صوتية",
-description:"مؤثرات رقمية عالية الجودة",
-price:12,
-category:"مؤثرات",
-className:"sound"
-},
+const items = [
 
-{
-icon:"🎬",
-name:"فيديوهات",
-description:"فيديوهات رقمية جاهزة ومميزة",
-price:15,
-category:"فيديوهات",
-className:"video"
-},
+  {
+    icon:"🎧",
+    name:"مؤثرات صوتية",
+    description:"مؤثرات رقمية عالية الجودة",
+    price:12,
+    category:"sound"
+  },
 
-{
-icon:"🧊",
-name:"ملفات 3D",
-description:"ملفات ثلاثية الأبعاد للمشاريع",
-price:20,
-category:"3D",
-className:"three"
-},
+  {
+    icon:"🎬",
+    name:"فيديوهات",
+    description:"فيديوهات رقمية جاهزة ومميزة",
+    price:15,
+    category:"video"
+  },
 
-{
-icon:"✨",
-name:"إطارات",
-description:"إطارات رقمية بتصاميم راقية",
-price:10,
-category:"إطارات",
-className:"frame"
-},
+  {
+    icon:"🧊",
+    name:"ملفات 3D",
+    description:"ملفات ثلاثية الأبعاد للمشاريع",
+    price:20,
+    category:"three"
+  },
 
-{
-icon:"🎁",
-name:"هدايا رقمية",
-description:"هدايا رقمية أنيقة ومميزة",
-price:8,
-category:"هدايا",
-className:"gift"
-}
+  {
+    icon:"✨",
+    name:"إطارات",
+    description:"إطارات رقمية بتصاميم راقية",
+    price:10,
+    category:"frame"
+  },
+
+  {
+    icon:"🎁",
+    name:"هدايا رقمية",
+    description:"هدايا رقمية أنيقة ومميزة",
+    price:8,
+    category:"gift"
+  }
 
 ];
 
-let cart=[];
 
-function renderProducts(list=items){
+/* =========================
+   CART
+========================= */
 
-document.getElementById("productList").innerHTML=
+let cart = [];
 
-list.map(x=>`
 
-<article class="card">
+/* =========================
+   DISPLAY PRODUCTS
+========================= */
 
-<div class="pic ${x.className}">
-${x.icon}
-</div>
+function displayProducts(list){
 
-<div class="info">
+  const productList =
+    document.getElementById("productList");
 
-<h3>${x.name}</h3>
+  productList.innerHTML = list.map((product,index)=>`
 
-<p>${x.description}</p>
+    <article class="card">
 
-<div class="price">
-$${x.price.toFixed(2)}
-</div>
+      <div class="pic ${product.category}">
+        ${product.icon}
+      </div>
 
-<button class="add"
-onclick="add(${items.indexOf(x)})">
-أضف للسلة
-</button>
+      <div class="info">
 
-</div>
+        <h3>
+          ${product.name}
+        </h3>
 
-</article>
+        <p>
+          ${product.description}
+        </p>
 
-`).join("");
+        <div class="price">
+          $${product.price.toFixed(2)}
+        </div>
 
+        <button
+          class="add"
+          onclick="add(${items.indexOf(product)})"
+        >
+          أضف للسلة
+        </button>
+
+      </div>
+
+    </article>
+
+  `).join("");
 }
+
+
+/* =========================
+   FILTER
+========================= */
 
 function filterProducts(category,button){
 
-document
-.querySelectorAll(".categories button")
-.forEach(b=>b.classList.remove("active"));
+  document
+    .querySelectorAll(".filter")
+    .forEach(btn=>{
+      btn.classList.remove("active");
+    });
 
-button.classList.add("active");
+  button.classList.add("active");
 
-if(category==="all"){
 
-renderProducts(items);
-return;
+  if(category==="all"){
 
+    displayProducts(items);
+
+    return;
+  }
+
+
+  const filtered =
+    items.filter(
+      product =>
+      product.category === category
+    );
+
+  displayProducts(filtered);
 }
 
-renderProducts(
-items.filter(x=>x.category===category)
-);
 
-document
-.getElementById("products")
-.scrollIntoView({behavior:"smooth"});
+/* =========================
+   ADD TO CART
+========================= */
 
+function add(index){
+
+  const found =
+    cart.find(
+      item => item.id === index
+    );
+
+
+  if(found){
+
+    found.qty++;
+
+  }else{
+
+    cart.push({
+      id:index,
+      qty:1
+    });
+
+  }
+
+
+  updateCart();
+
+  show(
+    "تمت إضافة المنتج إلى السلة ✓"
+  );
 }
 
-function add(i){
 
-const found=cart.find(x=>x.id===i);
-
-if(found){
-
-found.qty++;
-
-}else{
-
-cart.push({
-id:i,
-qty:1
-});
-
-}
-
-updateCart();
-
-show("تمت إضافة المنتج إلى السلة ✓");
-
-}
+/* =========================
+   CHANGE QUANTITY
+========================= */
 
 function changeQty(id,value){
 
-const item=cart.find(x=>x.id===id);
+  const item =
+    cart.find(
+      product => product.id === id
+    );
 
-if(!item)return;
 
-item.qty+=value;
+  if(!item){
+    return;
+  }
 
-if(item.qty<=0){
 
-cart=cart.filter(x=>x.id!==id);
+  item.qty += value;
 
+
+  if(item.qty <= 0){
+
+    cart =
+      cart.filter(
+        product => product.id !== id
+      );
+
+  }
+
+
+  updateCart();
 }
 
-updateCart();
 
-}
+/* =========================
+   REMOVE
+========================= */
 
 function removeItem(id){
 
-cart=cart.filter(x=>x.id!==id);
+  cart =
+    cart.filter(
+      item => item.id !== id
+    );
 
-updateCart();
-
-show("تم حذف المنتج");
-
+  updateCart();
 }
+
+
+/* =========================
+   UPDATE CART
+========================= */
 
 function updateCart(){
 
-const totalCount=
-cart.reduce((sum,x)=>sum+x.qty,0);
+  const totalCount =
+    cart.reduce(
+      (sum,item) =>
+      sum + item.qty,
+      0
+    );
 
-document.getElementById("count").textContent=
-totalCount;
 
-const box=
-document.getElementById("cartItems");
+  document
+    .getElementById("count")
+    .textContent = totalCount;
 
-if(cart.length===0){
 
-box.innerHTML=
-'<div class="empty">السلة فارغة 🛒</div>';
+  const box =
+    document.getElementById("cartItems");
 
-document.getElementById("total").textContent=
-"0.00";
 
-return;
+  if(cart.length === 0){
 
+    box.innerHTML =
+      '<div class="empty">السلة فارغة 🛒</div>';
+
+    document
+      .getElementById("total")
+      .textContent = "0.00";
+
+    return;
+  }
+
+
+  let total = 0;
+
+
+  box.innerHTML =
+    cart.map(item=>{
+
+      const product =
+        items[item.id];
+
+
+      const subtotal =
+        product.price * item.qty;
+
+
+      total += subtotal;
+
+
+      return `
+
+        <div class="cartItem">
+
+          <strong>
+            ${product.icon}
+            ${product.name}
+          </strong>
+
+          <div class="itemPrice">
+            $${product.price.toFixed(2)}
+            للقطعة
+          </div>
+
+          <div class="controls">
+
+            <button
+              onclick="changeQty(${item.id},-1)"
+            >
+              −
+            </button>
+
+            <span>
+              ${item.qty}
+            </span>
+
+            <button
+              onclick="changeQty(${item.id},1)"
+            >
+              +
+            </button>
+
+            <button
+              class="remove"
+              onclick="removeItem(${item.id})"
+            >
+              حذف
+            </button>
+
+          </div>
+
+        </div>
+
+      `;
+
+    }).join("");
+
+
+  document
+    .getElementById("total")
+    .textContent =
+    total.toFixed(2);
 }
 
-let total=0;
 
-box.innerHTML=
-
-cart.map(x=>{
-
-const product=items[x.id];
-
-const subtotal=
-product.price*x.qty;
-
-total+=subtotal;
-
-return `
-
-<div class="cartItem">
-
-<strong>
-${product.icon} ${product.name}
-</strong>
-
-<div class="itemPrice">
-$${product.price.toFixed(2)} للقطعة
-</div>
-
-<div class="controls">
-
-<button onclick="changeQty(${x.id},-1)">
-−
-</button>
-
-<span>${x.qty}</span>
-
-<button onclick="changeQty(${x.id},1)">
-+
-</button>
-
-<button class="remove"
-onclick="removeItem(${x.id})">
-حذف
-</button>
-
-</div>
-
-</div>
-
-`;
-
-}).join("");
-
-document.getElementById("total").textContent=
-total.toFixed(2);
-
-}
+/* =========================
+   OPEN CART
+========================= */
 
 function openCart(){
 
-document
-.getElementById("cartBox")
-.classList.add("open");
+  document
+    .getElementById("cartBox")
+    .classList.add("open");
 
-document
-.getElementById("overlay")
-.classList.add("show");
 
-updateCart();
+  document
+    .getElementById("overlay")
+    .classList.add("show");
 
+
+  updateCart();
 }
+
+
+/* =========================
+   CLOSE CART
+========================= */
 
 function closeCart(){
 
-document
-.getElementById("cartBox")
-.classList.remove("open");
+  document
+    .getElementById("cartBox")
+    .classList.remove("open");
 
-document
-.getElementById("overlay")
-.classList.remove("show");
 
+  document
+    .getElementById("overlay")
+    .classList.remove("show");
 }
+
+
+/* =========================
+   CHECKOUT
+========================= */
 
 function checkout(){
 
-if(cart.length===0){
+  if(cart.length === 0){
 
-show("السلة فارغة");
+    show("السلة فارغة");
 
-return;
+    return;
+  }
 
+
+  show(
+    "تم تجهيز طلبك ✓"
+  );
 }
 
-let message=
-"طلب جديد من متجر SILVA%0A%0A";
 
-let total=0;
+/* =========================
+   MESSAGE
+========================= */
 
-cart.forEach(x=>{
+function show(message){
 
-const product=items[x.id];
+  const msg =
+    document.getElementById("msg");
 
-const subtotal=
-product.price*x.qty;
 
-total+=subtotal;
+  msg.textContent = message;
 
-message+=
-`${product.name} × ${x.qty} = $${subtotal.toFixed(2)}%0A`;
+  msg.style.display = "block";
 
-});
 
-message+=
-`%0Aالمجموع: $${total.toFixed(2)}`;
+  setTimeout(()=>{
 
-const phone="213795455075";
+    msg.style.display = "none";
 
-window.open(
-`https://wa.me/${phone}?text=${message}`,
-"_blank"
-);
-
+  },1800);
 }
 
-function show(t){
 
-const m=
-document.getElementById("msg");
+/* =========================
+   START
+========================= */
 
-m.textContent=t;
-
-m.style.display="block";
-
-setTimeout(()=>{
-
-m.style.display="none";
-
-},1800);
-
-}
-
-renderProducts();
+displayProducts(items);
 
 updateCart();
 
