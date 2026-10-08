@@ -142,6 +142,52 @@ body:after{background:rgba(35,20,15,.24)!important}
 .add{background:linear-gradient(135deg,#f9f0df,#d6b57a)!important;border-color:#b58b4e!important;color:#25170d!important}
 .title h2{color:#fff!important}
 
+
+/* إصلاح فعلي للواجهة: الصورة كاملة، والمحتوى والأقسام ظاهرة أسفلها */
+.heroFrame{
+  height:auto!important;
+  aspect-ratio:auto!important;
+  overflow:hidden!important;
+  position:relative!important;
+}
+.fullHeroArtwork{
+  display:block!important;
+  position:relative!important;
+  inset:auto!important;
+  width:100%!important;
+  height:auto!important;
+  object-fit:contain!important;
+  filter:sepia(.12) saturate(.94) brightness(.98)!important;
+}
+.heroContent{
+  display:flex!important;
+  position:relative!important;
+  inset:auto!important;
+  width:min(720px,100%)!important;
+  margin:18px auto 14px!important;
+  padding:20px!important;
+  background:rgba(20,12,9,.88)!important;
+}
+.heroTiles{
+  display:grid!important;
+  position:relative!important;
+  inset:auto!important;
+  width:100%!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  margin:14px 0 0!important;
+}
+.heroTile{min-height:110px!important}
+.heroStrip{display:flex!important}
+@media(max-width:700px){
+  .hero{padding:0 3% 18px!important}
+  .heroFrame{aspect-ratio:auto!important}
+  .heroContent{width:100%!important;margin:12px auto!important;padding:14px 10px!important}
+  .heroTiles{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+  .heroTile{min-height:95px!important}
+  .heroStrip{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:7px!important}
+  .stripItem{min-width:0!important;font-size:11px!important;padding:9px 4px!important}
+}
+
 </style>
 </head>
 <body>
