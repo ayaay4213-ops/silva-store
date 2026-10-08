@@ -844,7 +844,7 @@ function renderProducts(list = items){
     <article class="card">
 
       <div class="productVisual ${product.className}">
-        ${product.type === "video" && product.media ? `<div class="videoPreview" onclick="openVideoModal(${product.id})" role="button" tabindex="0" aria-label="فتح فيديو ${product.name} بحجم كبير"><div class="productSprite sprite${product.imagePos ?? 0}"></div><span class="videoPreviewPlay">▶</span><span class="videoPreviewLabel">🎬 مشاهدة بحجم كبير</span></div>` : `<div class="pic ${product.className}" style="height:100%;font-size:58px">${product.icon}</div>`}
+        ${product.type === "video" && product.media ? `<div class="videoPreview" onclick="openVideoModal(${product.id})" role="button" tabindex="0" aria-label="فتح فيديو ${product.name} بحجم كبير"><div class="productSprite sprite${product.imagePos ?? 0}"></div><span class="videoPreviewPlay">▶</span><span class="videoPreviewLabel">🎬 مشاهدة بحجم كبير</span></div>` : product.type === "image" && product.media ? `<div class="videoPreview"><img src="${product.media}" alt="${product.name}" style="width:100%;height:100%;object-fit:cover"></div>` : `<div class="pic ${product.className}" style="height:100%;font-size:58px">${product.icon}</div>`}
       </div>
 
       <div class="info">
@@ -855,6 +855,7 @@ function renderProducts(list = items){
 
         <p>
           ${product.description}
+          ${product.size ? `<br>📐 الحجم: ${product.size}` : ""}
         </p>
 
         <div class="price">
@@ -883,7 +884,7 @@ function renderProducts(list = items){
 
 function openVideoModal(id){
   const product = items.find(item => item.id === id);
-  if(!product || !product.video) return;
+  if(!product || product.type !== "video" || !product.media) return;
 
   const modal = document.getElementById("videoModal");
   const video = document.getElementById("largeVideo");
