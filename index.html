@@ -126,7 +126,11 @@ const items=[
 
 let cart=[];
 
-document.getElementById("productList").innerHTML=items.map((x,i)=>`
+function renderProducts(list=items){
+document.getElementById("productList").innerHTML=list.map((x)=>{
+const i=items.indexOf(x);
+
+return `
 <article class="card">
 <div class="pic ${x[4]}">${x[0]}</div>
 <div class="info">
@@ -136,7 +140,17 @@ document.getElementById("productList").innerHTML=items.map((x,i)=>`
 <button class="add" onclick="add(${i})">أضف للسلة</button>
 </div>
 </article>
-`).join("");
+`;
+}).join("");
+}
+
+function filterProducts(category){
+if(category==="الكل"){
+renderProducts(items);
+}else{
+renderProducts(items.filter(x=>x[5]===category));
+}
+}
 
 function add(i){
 const found=cart.find(x=>x.id===i);
@@ -248,8 +262,8 @@ m.style.display="block";
 setTimeout(()=>m.style.display="none",1800);
 }
 
+renderProducts();
 updateCart();
 </script>
-
 </body>
 </html>
