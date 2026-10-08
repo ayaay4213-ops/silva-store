@@ -104,7 +104,7 @@ header{height:68px;padding:9px 4%}.logo{font-size:28px}.cart{padding:10px 15px;f
 
 
 /* التصميم الكامل من العينة: لا نقص الصورة ولا نعيد تركيب عناصرها فوق بعضها */
-body:before{background-image:url("./silva-rose-banner.jpg?v=1")!important;background-position:center!important;background-size:cover!important;filter:blur(24px)!important;opacity:.92!important}
+body:before{background-image:url("./silva-rose-banner.jpg?v=3")!important;background-position:center!important;background-size:cover!important;filter:blur(24px)!important;opacity:.92!important}
 body:after{background:rgba(49,28,18,.25)!important}
 .heroFrame{height:auto!important;aspect-ratio:3/2!important;overflow:hidden!important;border:2px solid #d9b452!important;border-radius:24px!important;background:#170e0a!important}
 .heroFrame:before,.heroFrame:after{display:none!important}
@@ -192,7 +192,7 @@ body:after{background:rgba(35,20,15,.24)!important}
 /* تصحيح اللون الأخضر بقوة: درجات بنية وذهبية مع إبقاء الورد واضحًا */
 body{background:#170d0b!important}
 body:before{
-  background-image:linear-gradient(rgba(43,18,14,.42),rgba(30,15,11,.48)),url("./silva-rose-banner.jpg?v=2")!important;
+  background-image:linear-gradient(rgba(43,18,14,.42),rgba(30,15,11,.48)),url("./silva-rose-banner.jpg?v=3")!important;
   filter:blur(24px) sepia(.72) saturate(1.18) hue-rotate(330deg) brightness(.72)!important;
   opacity:.72!important;
 }
@@ -216,7 +216,7 @@ header{background:rgba(29,15,11,.76)!important}
 <div class="topMarks"><span></span><span></span><span></span></div>
 
 <section class="hero">
-  <div class="heroFrame"><img class="fullHeroArtwork" src="./silva-rose-banner.jpg?v=1" alt="تصميم Silva الكامل بخلفية القلعة والورد والأقسام الذهبية">
+  <div class="heroFrame"><img class="fullHeroArtwork" src="./silva-rose-banner.jpg?v=3" alt="تصميم Silva الكامل بخلفية القلعة والورد والأقسام الذهبية">
     <div class="heroBrand">👑 SILVA<small>More Than a Store ... It's a Digital World</small></div>
   </div>
   <div class="heroContent">
@@ -272,13 +272,7 @@ header{background:rgba(29,15,11,.76)!important}
 
 <script>
 
-// نقل البطاقات والنص إلى داخل الإطار حتى لا تظهر كأقسام منفصلة أو متداخلة عشوائيًا
-(function arrangeHero(){
- const frame=document.querySelector(".heroFrame");
- const content=document.querySelector(".heroContent");
- const tiles=document.querySelector(".heroTiles");
- if(frame&&content&&tiles){frame.appendChild(content);frame.appendChild(tiles);}
-})();
+// تُترك عناصر النص والأقسام في ترتيب الصفحة الطبيعي لتجنب تداخلها فوق صورة الواجهة.
 
 let items=[];
 let cart=[];
