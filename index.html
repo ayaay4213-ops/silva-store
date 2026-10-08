@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <title>Silva | متجرك الرقمي الراقي</title>
 
 <style>
@@ -18,68 +17,49 @@ html{
 body{
   margin:0;
   font-family:Arial,Tahoma,sans-serif;
-  background:#070707;
+  background:#07080c;
   color:#fff;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* ================= HEADER ================= */
 
 header{
   position:sticky;
   top:0;
-  z-index:50;
-
+  z-index:20;
+  padding:15px 6%;
   display:flex;
   justify-content:space-between;
   align-items:center;
-
-  padding:15px 6%;
-
-  background:rgba(8,8,10,.92);
+  background:#08090ddd;
   backdrop-filter:blur(16px);
-
   border-bottom:1px solid #292b36;
 }
 
 .logo{
-  font-size:28px;
+  font-size:27px;
   font-weight:900;
-  letter-spacing:2px;
+  letter-spacing:1px;
 }
 
 .cart{
-  border:1px solid #4b4d58;
   background:#171923;
   color:#fff;
-
+  border:1px solid #414451;
   padding:11px 17px;
   border-radius:14px;
-
   font-weight:bold;
   cursor:pointer;
-
-  transition:.2s;
 }
 
-.cart:hover{
-  border-color:#c49a4b;
-}
-
-/* =========================
-   HERO
-========================= */
+/* ================= HERO ================= */
 
 .hero{
   min-height:650px;
-
   position:relative;
   overflow:hidden;
-
   display:flex;
   align-items:center;
-
   padding:70px 7%;
 
   background:
@@ -98,11 +78,8 @@ header{
   background-color:#050505;
 }
 
-/* تدرج سفلي ناعم */
-
 .hero::after{
   content:"";
-
   position:absolute;
   inset:0;
 
@@ -116,130 +93,59 @@ header{
   pointer-events:none;
 }
 
-/* =========================
-   HERO CONTENT
-========================= */
-
 .heroContent{
   position:relative;
-  z-index:3;
-
-  width:100%;
-  max-width:600px;
-
-  padding:32px;
-
-  border-radius:24px;
-
-  background:rgba(5,5,5,.28);
-
-  backdrop-filter:blur(2px);
-
-  border:1px solid rgba(196,154,75,.25);
-
-  box-shadow:
-    0 20px 60px rgba(0,0,0,.25);
+  z-index:2;
+  max-width:580px;
 }
 
 .badge{
   display:inline-block;
-
   padding:8px 14px;
-
   border-radius:30px;
-
-  background:#241a0c;
-
-  border:1px solid #8f6d35;
-
-  color:#e6c98d;
-
+  background:#2b193d;
+  border:1px solid #71489a;
+  color:#e1c5ff;
   font-size:13px;
-
-  margin-bottom:10px;
 }
 
 .hero h1{
-  margin:8px 0;
-
-  font-size:clamp(55px,10vw,88px);
-
-  line-height:.95;
-
-  letter-spacing:4px;
-
-  color:#fff;
-
-  text-shadow:
-    0 5px 30px rgba(0,0,0,.7);
+  font-size:clamp(50px,11vw,86px);
+  margin:18px 0 8px;
+  line-height:1;
 }
 
 .hero h2{
-  margin:15px 0;
-
-  font-size:32px;
-
-  color:#d5b16b;
+  margin:0 0 12px;
+  font-size:clamp(24px,4vw,38px);
 }
 
 .hero p{
   max-width:560px;
-
-  margin:0;
-
-  color:#c7c8ce;
-
-  font-size:18px;
-
+  color:#c4c7d2;
+  font-size:19px;
   line-height:1.9;
 }
 
-/* =========================
-   BUTTON
-========================= */
-
 .btn{
   display:inline-block;
-
-  margin-top:22px;
-
-  padding:14px 26px;
-
+  margin-top:18px;
+  padding:14px 25px;
   border-radius:14px;
-
-  background:linear-gradient(
-    135deg,
-    #fff,
-    #e8e8e8
-  );
-
+  background:#fff;
   color:#111;
-
   text-decoration:none;
-
   font-weight:900;
-
-  transition:.25s;
 }
 
-.btn:hover{
-  transform:translateY(-3px);
-
-  box-shadow:
-    0 12px 30px rgba(255,255,255,.15);
-}
-
-/* =========================
-   SECTION TITLE
-========================= */
+/* ================= PRODUCTS ================= */
 
 .title{
-  padding:45px 6% 15px;
+  padding:38px 6% 12px;
 }
 
 .title h2{
   margin:0;
-
   font-size:30px;
 }
 
@@ -247,111 +153,73 @@ header{
   color:#858b9b;
 }
 
-/* =========================
-   FILTERS
-========================= */
-
 .filters{
   display:flex;
-  flex-wrap:wrap;
   gap:10px;
-
-  padding:10px 6% 20px;
+  flex-wrap:wrap;
+  padding:10px 6% 15px;
 }
 
 .filter{
-  border:1px solid #343743;
-
-  background:#12141b;
-
-  color:#bbb;
-
-  padding:10px 15px;
-
+  border:1px solid #353945;
+  background:#13151c;
+  color:#fff;
   border-radius:12px;
-
+  padding:10px 15px;
   cursor:pointer;
-
-  transition:.2s;
 }
 
-.filter:hover,
 .filter.active{
-  background:#c49a4b;
+  background:#fff;
   color:#111;
-
-  border-color:#c49a4b;
 }
-
-/* =========================
-   PRODUCTS
-========================= */
 
 .products{
   display:grid;
-
-  grid-template-columns:
-    repeat(auto-fit,minmax(210px,1fr));
-
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
   gap:18px;
-
   padding:15px 6% 70px;
 }
 
 .card{
   background:#12141b;
-
   border:1px solid #292d38;
-
   border-radius:22px;
-
   overflow:hidden;
-
-  box-shadow:
-    0 18px 45px rgba(0,0,0,.3);
-
+  box-shadow:0 18px 45px #0005;
   transition:.25s;
 }
 
 .card:hover{
   transform:translateY(-6px);
-
   border-color:#7650a0;
 }
 
 .pic{
   height:180px;
-
   display:grid;
-
   place-items:center;
-
   font-size:62px;
 }
 
 .sound{
-  background:
-    linear-gradient(135deg,#30175a,#11152a);
+  background:linear-gradient(135deg,#30175a,#11152a);
 }
 
 .video{
-  background:
-    linear-gradient(135deg,#1d4668,#11152a);
+  background:linear-gradient(135deg,#1d4668,#11152a);
 }
 
 .three{
-  background:
-    linear-gradient(135deg,#174d49,#11152a);
+  background:linear-gradient(135deg,#174d49,#11152a);
 }
 
 .frame{
-  background:
-    linear-gradient(135deg,#61451d,#15131a);
+  background:linear-gradient(135deg,#61451d,#15131a);
 }
 
 .gift{
-  background:
-    linear-gradient(135deg,#6a254d,#17121b);
+  background:linear-gradient(135deg,#6a254d,#17121b);
 }
 
 .info{
@@ -360,93 +228,55 @@ header{
 
 .info h3{
   margin:0 0 8px;
-
   font-size:20px;
 }
 
 .info p{
   color:#9da2b0;
-
   line-height:1.6;
-
   min-height:42px;
 }
 
 .price{
   font-size:21px;
-
   font-weight:900;
-
   margin-top:13px;
-
-  color:#d8bb7d;
 }
 
 .add{
   width:100%;
-
   margin-top:14px;
-
   padding:12px;
-
   border:0;
-
   border-radius:12px;
-
   background:#fff;
-
   color:#111;
-
   font-weight:900;
-
   cursor:pointer;
-
-  transition:.2s;
 }
 
-.add:hover{
-  transform:translateY(-2px);
-}
-
-/* =========================
-   FOOTER
-========================= */
+/* ================= FOOTER ================= */
 
 footer{
   text-align:center;
-
   padding:35px 6%;
-
   border-top:1px solid #20232d;
-
   color:#747988;
 }
 
-/* =========================
-   CART
-========================= */
+/* ================= CART ================= */
 
 .cartBox{
   position:fixed;
-
   top:0;
   right:-100%;
-
   width:min(420px,92%);
-
   height:100vh;
-
   background:#101219;
-
   z-index:100;
-
-  box-shadow:
-    -15px 0 50px rgba(0,0,0,.6);
-
+  box-shadow:-15px 0 50px #0009;
   transition:.3s;
-
   display:flex;
-
   flex-direction:column;
 }
 
@@ -456,13 +286,9 @@ footer{
 
 .cartHead{
   padding:20px;
-
   border-bottom:1px solid #292d38;
-
   display:flex;
-
   justify-content:space-between;
-
   align-items:center;
 }
 
@@ -472,156 +298,102 @@ footer{
 
 .close{
   background:#242732;
-
   color:#fff;
-
   border:0;
-
   border-radius:10px;
-
   padding:8px 12px;
-
   font-size:18px;
-
   cursor:pointer;
 }
 
 .cartItems{
   flex:1;
-
   overflow:auto;
-
   padding:15px;
 }
 
 .empty{
   text-align:center;
-
   color:#888;
-
   margin-top:60px;
 }
 
 .cartItem{
   background:#181b24;
-
   border:1px solid #292d38;
-
   border-radius:14px;
-
   padding:13px;
-
   margin-bottom:12px;
 }
 
 .cartItem strong{
   display:block;
-
   margin-bottom:8px;
 }
 
 .itemPrice{
   color:#caa7ff;
-
   font-weight:bold;
 }
 
 .controls{
   display:flex;
-
   align-items:center;
-
   gap:8px;
-
   margin-top:10px;
 }
 
 .controls button{
   width:32px;
   height:32px;
-
   border:0;
-
   border-radius:8px;
-
   background:#292d38;
-
   color:#fff;
-
   font-size:18px;
-
   cursor:pointer;
 }
 
 .remove{
   margin-right:auto;
-
   background:#4b2027!important;
-
   color:#ffb5bd!important;
-
   font-size:13px!important;
-
   width:auto!important;
-
   padding:0 10px;
 }
 
-/* =========================
-   TOTAL
-========================= */
-
 .total{
   padding:18px;
-
   border-top:1px solid #292d38;
-
   background:#0c0e13;
 }
 
 .totalRow{
   display:flex;
-
   justify-content:space-between;
-
   font-size:20px;
-
   font-weight:bold;
-
   margin-bottom:14px;
 }
 
 .checkout{
   width:100%;
-
   padding:13px;
-
   border:0;
-
   border-radius:12px;
-
-  background:#fff;
-
-  color:#111;
-
+  background:#25D366;
+  color:#fff;
   font-weight:900;
-
   cursor:pointer;
+  font-size:16px;
 }
-
-/* =========================
-   OVERLAY
-========================= */
 
 .overlay{
   position:fixed;
-
   inset:0;
-
-  background:rgba(0,0,0,.55);
-
+  background:#0008;
   z-index:90;
-
   display:none;
 }
 
@@ -629,61 +401,35 @@ footer{
   display:block;
 }
 
-/* =========================
-   MESSAGE
-========================= */
+/* ================= MESSAGE ================= */
 
 #msg{
   position:fixed;
-
   bottom:22px;
-
   left:5%;
   right:5%;
-
   z-index:120;
-
   background:#fff;
-
   color:#111;
-
   padding:15px;
-
   border-radius:14px;
-
   text-align:center;
-
   font-weight:bold;
-
   display:none;
-
-  box-shadow:
-    0 15px 40px rgba(0,0,0,.6);
+  box-shadow:0 15px 40px #0009;
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* ================= MOBILE ================= */
 
-@media(max-width:700px){
+@media(max-width:600px){
 
   header{
     padding:13px 5%;
   }
 
-  .logo{
-    font-size:24px;
-  }
-
-  .cart{
-    padding:9px 12px;
-  }
-
   .hero{
     min-height:680px;
-
     padding:35px 5%;
-
     align-items:flex-end;
 
     background:
@@ -712,44 +458,21 @@ footer{
 
   .heroContent{
     width:100%;
-
-    max-width:none;
-
-    padding:22px;
-
-    border-radius:20px;
-
-    background:rgba(5,5,5,.40);
-
-    backdrop-filter:blur(3px);
-  }
-
-  .hero h1{
-    font-size:58px;
-  }
-
-  .hero h2{
-    font-size:27px;
   }
 
   .hero p{
     font-size:16px;
-
     line-height:1.8;
   }
 
   .products{
     grid-template-columns:1fr 1fr;
-
     padding-left:5%;
     padding-right:5%;
-
-    gap:12px;
   }
 
   .pic{
     height:140px;
-
     font-size:48px;
   }
 
@@ -768,38 +491,26 @@ footer{
   .price{
     font-size:18px;
   }
+
+  .filters{
+    padding-left:5%;
+    padding-right:5%;
+  }
 }
 
-/* =========================
-   SMALL PHONES
-========================= */
-
-@media(max-width:420px){
+@media(max-width:390px){
 
   .products{
     grid-template-columns:1fr;
   }
 
-  .hero{
-    min-height:650px;
-  }
-
-  .hero h1{
-    font-size:52px;
-  }
-
-  .hero h2{
-    font-size:24px;
-  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- =========================
-     HEADER
-========================= -->
+<!-- ================= HEADER ================= -->
 
 <header>
 
@@ -807,10 +518,7 @@ footer{
     SILVA
   </div>
 
-  <button
-    class="cart"
-    onclick="openCart()"
-  >
+  <button class="cart" onclick="openCart()">
     🛒 السلة
     <span id="count">0</span>
   </button>
@@ -818,9 +526,7 @@ footer{
 </header>
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- ================= HERO ================= -->
 
 <section class="hero">
 
@@ -839,15 +545,11 @@ footer{
     </h2>
 
     <p>
-      اكتشف مجموعة مميزة من المؤثرات والفيديوهات
-      وملفات 3D والإطارات والهدايا الرقمية،
-      بتجربة عصرية وأنيقة.
+      اكتشف مجموعة مختارة من المنتجات الرقمية المميزة
+      المصممة لإضافة لمسة احترافية وإبداعية إلى مشاريعك.
     </p>
 
-    <a
-      class="btn"
-      href="#products"
-    >
+    <a class="btn" href="#products">
       تصفح المنتجات
     </a>
 
@@ -856,9 +558,7 @@ footer{
 </section>
 
 
-<!-- =========================
-     PRODUCTS
-========================= -->
+<!-- ================= PRODUCTS ================= -->
 
 <section id="products">
 
@@ -877,87 +577,59 @@ footer{
 
   <div class="filters">
 
-    <button
-      class="filter active"
-      onclick="filterProducts('all',this)"
-    >
+    <button class="filter active" onclick="filterProducts('all',this)">
       الكل
     </button>
 
-    <button
-      class="filter"
-      onclick="filterProducts('sound',this)"
-    >
+    <button class="filter" onclick="filterProducts('مؤثرات',this)">
       مؤثرات
     </button>
 
-    <button
-      class="filter"
-      onclick="filterProducts('video',this)"
-    >
+    <button class="filter" onclick="filterProducts('فيديوهات',this)">
       فيديوهات
     </button>
 
-    <button
-      class="filter"
-      onclick="filterProducts('three',this)"
-    >
+    <button class="filter" onclick="filterProducts('3D',this)">
       ملفات 3D
     </button>
 
-    <button
-      class="filter"
-      onclick="filterProducts('frame',this)"
-    >
+    <button class="filter" onclick="filterProducts('إطارات',this)">
       إطارات
     </button>
 
-    <button
-      class="filter"
-      onclick="filterProducts('gift',this)"
-    >
+    <button class="filter" onclick="filterProducts('هدايا',this)">
       هدايا رقمية
     </button>
 
   </div>
 
 
-  <main
-    class="products"
-    id="productList"
-  ></main>
+  <main class="products" id="productList"></main>
 
 </section>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
-  SILVA © 2026
-  —
-  متجرك الرقمي الراقي
+  Silva © 2026 — متجرك الرقمي الراقي
 
 </footer>
 
 
-<!-- =========================
-     CART
-========================= -->
+<!-- ================= CART ================= -->
 
 <div
   class="overlay"
   id="overlay"
-  onclick="closeCart()"
-></div>
+  onclick="closeCart()">
+</div>
 
 
 <div
   class="cartBox"
-  id="cartBox"
->
+  id="cartBox">
 
   <div class="cartHead">
 
@@ -967,8 +639,7 @@ footer{
 
     <button
       class="close"
-      onclick="closeCart()"
-    >
+      onclick="closeCart()">
       ×
     </button>
 
@@ -977,8 +648,8 @@ footer{
 
   <div
     class="cartItems"
-    id="cartItems"
-  ></div>
+    id="cartItems">
+  </div>
 
 
   <div class="total">
@@ -998,11 +669,13 @@ footer{
 
     </div>
 
+
     <button
       class="checkout"
-      onclick="checkout()"
-    >
-      إتمام الطلب
+      onclick="checkout()">
+
+      🟢 إتمام الطلب عبر واتساب
+
     </button>
 
   </div>
@@ -1010,85 +683,87 @@ footer{
 </div>
 
 
-<!-- =========================
-     MESSAGE
-========================= -->
+<!-- ================= MESSAGE ================= -->
 
 <div id="msg"></div>
 
 
 <script>
 
-/* =========================
-   PRODUCTS DATA
-========================= */
+/* ================= PRODUCTS DATA ================= */
 
 const items = [
 
   {
+    id:0,
     icon:"🎧",
     name:"مؤثرات صوتية",
     description:"مؤثرات رقمية عالية الجودة",
     price:12,
-    category:"sound"
+    category:"مؤثرات",
+    className:"sound"
   },
 
   {
+    id:1,
     icon:"🎬",
     name:"فيديوهات",
     description:"فيديوهات رقمية جاهزة ومميزة",
     price:15,
-    category:"video"
+    category:"فيديوهات",
+    className:"video"
   },
 
   {
+    id:2,
     icon:"🧊",
     name:"ملفات 3D",
     description:"ملفات ثلاثية الأبعاد للمشاريع",
     price:20,
-    category:"three"
+    category:"3D",
+    className:"three"
   },
 
   {
+    id:3,
     icon:"✨",
     name:"إطارات",
     description:"إطارات رقمية بتصاميم راقية",
     price:10,
-    category:"frame"
+    category:"إطارات",
+    className:"frame"
   },
 
   {
+    id:4,
     icon:"🎁",
     name:"هدايا رقمية",
     description:"هدايا رقمية أنيقة ومميزة",
     price:8,
-    category:"gift"
+    category:"هدايا",
+    className:"gift"
   }
 
 ];
 
 
-/* =========================
-   CART
-========================= */
+/* ================= CART ================= */
 
 let cart = [];
 
 
-/* =========================
-   DISPLAY PRODUCTS
-========================= */
+/* ================= DISPLAY PRODUCTS ================= */
 
-function displayProducts(list){
+function renderProducts(list = items){
 
   const productList =
     document.getElementById("productList");
 
-  productList.innerHTML = list.map((product,index)=>`
+  productList.innerHTML = list.map(product => `
 
     <article class="card">
 
-      <div class="pic ${product.category}">
+      <div class="pic ${product.className}">
         ${product.icon}
       </div>
 
@@ -1108,9 +783,10 @@ function displayProducts(list){
 
         <button
           class="add"
-          onclick="add(${items.indexOf(product)})"
-        >
+          onclick="add(${product.id})">
+
           أضف للسلة
+
         </button>
 
       </div>
@@ -1118,27 +794,26 @@ function displayProducts(list){
     </article>
 
   `).join("");
+
 }
 
 
-/* =========================
-   FILTER
-========================= */
+/* ================= FILTER ================= */
 
 function filterProducts(category,button){
 
   document
     .querySelectorAll(".filter")
-    .forEach(btn=>{
+    .forEach(btn => {
       btn.classList.remove("active");
     });
 
   button.classList.add("active");
 
 
-  if(category==="all"){
+  if(category === "all"){
 
-    displayProducts(items);
+    renderProducts(items);
 
     return;
   }
@@ -1146,24 +821,20 @@ function filterProducts(category,button){
 
   const filtered =
     items.filter(
-      product =>
-      product.category === category
+      product => product.category === category
     );
 
-  displayProducts(filtered);
+  renderProducts(filtered);
+
 }
 
 
-/* =========================
-   ADD TO CART
-========================= */
+/* ================= ADD ================= */
 
-function add(index){
+function add(id){
 
   const found =
-    cart.find(
-      item => item.id === index
-    );
+    cart.find(item => item.id === id);
 
 
   if(found){
@@ -1173,7 +844,7 @@ function add(index){
   }else{
 
     cart.push({
-      id:index,
+      id:id,
       qty:1
     });
 
@@ -1182,22 +853,17 @@ function add(index){
 
   updateCart();
 
-  show(
-    "تمت إضافة المنتج إلى السلة ✓"
-  );
+  show("تمت إضافة المنتج إلى السلة ✓");
+
 }
 
 
-/* =========================
-   CHANGE QUANTITY
-========================= */
+/* ================= CHANGE QUANTITY ================= */
 
 function changeQty(id,value){
 
   const item =
-    cart.find(
-      product => product.id === id
-    );
+    cart.find(item => item.id === id);
 
 
   if(!item){
@@ -1212,19 +878,18 @@ function changeQty(id,value){
 
     cart =
       cart.filter(
-        product => product.id !== id
+        item => item.id !== id
       );
 
   }
 
 
   updateCart();
+
 }
 
 
-/* =========================
-   REMOVE
-========================= */
+/* ================= REMOVE ================= */
 
 function removeItem(id){
 
@@ -1234,25 +899,22 @@ function removeItem(id){
     );
 
   updateCart();
+
 }
 
 
-/* =========================
-   UPDATE CART
-========================= */
+/* ================= UPDATE CART ================= */
 
 function updateCart(){
 
   const totalCount =
     cart.reduce(
-      (sum,item) =>
-      sum + item.qty,
+      (sum,item) => sum + item.qty,
       0
     );
 
 
-  document
-    .getElementById("count")
+  document.getElementById("count")
     .textContent = totalCount;
 
 
@@ -1265,8 +927,7 @@ function updateCart(){
     box.innerHTML =
       '<div class="empty">السلة فارغة 🛒</div>';
 
-    document
-      .getElementById("total")
+    document.getElementById("total")
       .textContent = "0.00";
 
     return;
@@ -1277,10 +938,12 @@ function updateCart(){
 
 
   box.innerHTML =
-    cart.map(item=>{
+    cart.map(item => {
 
       const product =
-        items[item.id];
+        items.find(
+          product => product.id === item.id
+        );
 
 
       const subtotal =
@@ -1307,8 +970,7 @@ function updateCart(){
           <div class="controls">
 
             <button
-              onclick="changeQty(${item.id},-1)"
-            >
+              onclick="changeQty(${product.id},-1)">
               −
             </button>
 
@@ -1317,16 +979,16 @@ function updateCart(){
             </span>
 
             <button
-              onclick="changeQty(${item.id},1)"
-            >
+              onclick="changeQty(${product.id},1)">
               +
             </button>
 
             <button
               class="remove"
-              onclick="removeItem(${item.id})"
-            >
+              onclick="removeItem(${product.id})">
+
               حذف
+
             </button>
 
           </div>
@@ -1338,16 +1000,13 @@ function updateCart(){
     }).join("");
 
 
-  document
-    .getElementById("total")
-    .textContent =
-    total.toFixed(2);
+  document.getElementById("total")
+    .textContent = total.toFixed(2);
+
 }
 
 
-/* =========================
-   OPEN CART
-========================= */
+/* ================= OPEN CART ================= */
 
 function openCart(){
 
@@ -1362,12 +1021,11 @@ function openCart(){
 
 
   updateCart();
+
 }
 
 
-/* =========================
-   CLOSE CART
-========================= */
+/* ================= CLOSE CART ================= */
 
 function closeCart(){
 
@@ -1379,61 +1037,140 @@ function closeCart(){
   document
     .getElementById("overlay")
     .classList.remove("show");
+
 }
 
 
-/* =========================
-   CHECKOUT
-========================= */
+/* ================= WHATSAPP CHECKOUT ================= */
 
 function checkout(){
 
   if(cart.length === 0){
 
-    show("السلة فارغة");
+    show("السلة فارغة 🛒");
 
     return;
   }
 
 
-  show(
-    "تم تجهيز طلبك ✓"
+  let lines = [];
+
+
+  lines.push(
+    "🛍️ طلب جديد من متجر SILVA"
   );
+
+
+  lines.push("");
+
+
+  lines.push(
+    "📦 المنتجات:"
+  );
+
+
+  let total = 0;
+
+
+  cart.forEach(item => {
+
+    const product =
+      items.find(
+        product => product.id === item.id
+      );
+
+
+    const subtotal =
+      product.price * item.qty;
+
+
+    total += subtotal;
+
+
+    lines.push(
+      `• ${product.name} × ${item.qty} = $${subtotal.toFixed(2)}`
+    );
+
+  });
+
+
+  lines.push("");
+
+
+  lines.push(
+    `💰 المجموع: $${total.toFixed(2)}`
+  );
+
+
+  lines.push("");
+
+
+  lines.push(
+    "أريد إتمام هذا الطلب."
+  );
+
+
+  const message =
+    encodeURIComponent(
+      lines.join("\n")
+    );
+
+
+  /*
+    رقم واتساب:
+    213795455075
+
+    بصيغة دولية بدون +
+    وبدون مسافات أو شرطات
+  */
+
+  const phone =
+    "213795455075";
+
+
+  const whatsappUrl =
+    `https://wa.me/${phone}?text=${message}`;
+
+
+  window.location.href =
+    whatsappUrl;
+
 }
 
 
-/* =========================
-   MESSAGE
-========================= */
+/* ================= MESSAGE ================= */
 
-function show(message){
+function show(text){
 
-  const msg =
+  const message =
     document.getElementById("msg");
 
 
-  msg.textContent = message;
+  message.textContent =
+    text;
 
-  msg.style.display = "block";
+
+  message.style.display =
+    "block";
 
 
-  setTimeout(()=>{
+  setTimeout(() => {
 
-    msg.style.display = "none";
+    message.style.display =
+      "none";
 
   },1800);
+
 }
 
 
-/* =========================
-   START
-========================= */
+/* ================= START ================= */
 
-displayProducts(items);
+renderProducts();
 
 updateCart();
 
 </script>
 
 </body>
-</html>
+  </html>
