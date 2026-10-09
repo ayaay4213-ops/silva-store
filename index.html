@@ -192,13 +192,13 @@ body:after{background:rgba(35,20,15,.24)!important}
 /* تصحيح نهائي للصبغة الخضراء: إزالة تدوير الألوان وتحويل الصورة إلى درجات دافئة */
 body{background:#170d0b!important}
 body:before{
-  background-image:linear-gradient(rgba(45,20,13,.48),rgba(29,14,9,.52)),url("./silva-rose-banner.jpg?v=4")!important;
-  filter:blur(24px) sepia(1) saturate(1.25) brightness(.62)!important;
+  background-image:linear-gradient(rgba(20,8,8,.35),rgba(12,5,6,.48)),url("./silva-rose-banner.jpg?v=4")!important;
+  filter:blur(24px)!important;
   opacity:.78!important;
 }
 body:after{background:rgba(39,18,12,.28)!important}
 .fullHeroArtwork{
-  filter:grayscale(.35) sepia(1) saturate(1.25) brightness(.94) contrast(1.05)!important;
+  filter:none!important;
 }
 .heroFrame{background:#1b0e0b!important;border-color:#d6ad62!important}
 header{background:rgba(29,15,11,.82)!important}
@@ -347,61 +347,3 @@ loadStoreSettings();loadProducts();
 </script>
 </body>
 </html>
-
-/* SILVA — إصلاح واجهة البطلة والصورة دون فلاتر تشوّه تفاصيل الفستان */
-body:before{
-  background-image:linear-gradient(rgba(24,5,8,.38),rgba(14,5,7,.56)),url("./silva-new-hero.jpg?v=5")!important;
-  background-position:center!important;
-  background-size:cover!important;
-  filter:blur(18px)!important;
-  opacity:.82!important;
-}
-body:after{background:rgba(18,4,7,.22)!important}
-.heroFrame{
-  position:relative!important;
-  height:clamp(350px,52vw,560px)!important;
-  aspect-ratio:auto!important;
-  overflow:hidden!important;
-  border:1px solid rgba(225,180,80,.88)!important;
-  border-radius:24px!important;
-  background:#160609 url("./silva-new-hero.jpg?v=5") center 35%/cover no-repeat!important;
-  box-shadow:0 18px 55px #0009,inset 0 0 0 1px #fff2!important;
-}
-.heroFrame:before{
-  display:block!important;
-  content:""!important;
-  position:absolute!important;
-  inset:0!important;
-  background:linear-gradient(90deg,rgba(10,2,5,.48),rgba(10,2,5,.04) 58%,rgba(10,2,5,.15))!important;
-  filter:none!important;
-  opacity:1!important;
-}
-.heroFrame:after{display:block!important;content:""!important;position:absolute!important;inset:0!important;background:linear-gradient(0deg,rgba(10,2,5,.4),transparent 42%)!important}
-.fullHeroArtwork{display:none!important;filter:none!important}
-.heroBrand{z-index:7!important;color:#f4d17a!important;text-shadow:0 2px 12px #000!important}
-.heroContent{
-  position:relative!important;right:auto!important;bottom:auto!important;
-  width:min(720px,100%)!important;max-width:720px!important;
-  margin:18px auto 14px!important;padding:22px 20px!important;
-  background:rgba(16,5,8,.84)!important;
-  border:1px solid rgba(225,180,80,.72)!important;
-}
-.heroTiles{
-  position:relative!important;left:auto!important;top:auto!important;
-  width:100%!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
-  margin:14px 0 0!important;gap:12px!important;
-}
-.heroTile{min-height:116px!important}
-.heroStrip{display:flex!important;position:relative!important;margin:14px auto 0!important}
-header{background:rgba(24,5,8,.72)!important}
-.cart{background:linear-gradient(135deg,#4a101a,#18070a)!important}
-.card{background:rgba(18,5,8,.91)!important;border-color:#85522d!important}
-@media(max-width:700px){
- .heroFrame{height:390px!important;border-radius:18px!important;background-position:62% center!important}
- .heroFrame:before{background:linear-gradient(90deg,rgba(10,2,5,.25),rgba(10,2,5,.03) 60%,rgba(10,2,5,.2))!important}
- .heroBrand{top:12px!important;right:12px!important}
- .heroContent{width:100%!important;margin:12px auto!important;padding:16px 12px!important}
- .heroTiles{position:relative!important;left:auto!important;top:auto!important;width:100%!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
- .heroTile{min-height:100px!important}
- .heroStrip{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:7px!important}
-}
