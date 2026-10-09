@@ -87,13 +87,22 @@ body:before{background-image:url("./silva-new-hero.jpg")!important;background-po
 body:after{background:rgba(25,10,10,.32)!important}
 @media(max-width:700px){.heroFrame{height:270px!important;border-radius:18px!important;background-position:38% center!important}.heroContent{width:100%!important;margin:12px auto!important;padding:15px 12px!important}.heroTiles{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}.heroTile{min-height:95px!important}.heroStrip{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:7px!important}.stripItem{min-width:0!important;font-size:11px!important;padding:9px 4px!important}}
 @media(max-width:390px){.heroFrame{height:235px!important}.heroTiles{gap:6px!important}.heroTile{min-height:90px!important}}
+
+.topActions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.controlLink{display:inline-flex;align-items:center;justify-content:center;padding:10px 12px;border:1px solid var(--gold,#d8b35a);border-radius:12px;color:#f5d889;text-decoration:none;font-weight:800;font-size:13px;background:#17120d}
+.controlLink:hover{background:#302214}
+@media(max-width:520px){header{padding:12px 4%;gap:8px}.logo{font-size:22px}.topActions{gap:5px}.controlLink{font-size:11px;padding:9px 8px}.productsLink{display:none}.cart{padding:9px 10px}}
 </style>
 </head>
 <body>
 <header>
   <div class="logo" id="storeLogo">SILVA</div>
   <a href="./dashboard.html" style="display:inline-block;padding:10px 13px;border:1px solid #d8b35a;border-radius:13px;background:#21180f;color:#f5d889;text-decoration:none;font-weight:900;font-size:13px">⚙️ لوحة التحكم</a>
-  <button class="cart" onclick="openCart()">🛒 السلة <span id="count">0</span></button>
+  <nav class="topActions" aria-label="روابط المتجر">
+    <a class="controlLink" href="./settings.html">⚙️ لوحة التحكم</a>
+    <a class="controlLink productsLink" href="./products-admin.html">＋ إضافة المنتجات</a>
+    <button class="cart" onclick="openCart()">🛒 السلة <span id="count">0</span></button>
+  </nav>
 </header>
 
 <div class="topMarks"><span></span><span></span><span></span></div>
