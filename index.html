@@ -74,52 +74,158 @@ header{height:68px;padding:9px 4%}.logo{font-size:28px}.cart{padding:10px 15px;f
 
 
 /* SILVA — واجهة مرتبة: صورة واحدة بالأعلى، ثم النص والأقسام دون تداخل */
-.heroFrame{
-  height:clamp(270px,42vw,470px)!important;
-  aspect-ratio:auto!important;
-  position:relative!important;
-  overflow:hidden!important;
-  border:2px solid #d8b35a!important;
-  border-radius:24px!important;
-  background:#180c0b url("./silva-new-hero.jpg?v=6") center 38%/cover no-repeat!important;
-}
-.heroFrame:before{
-  content:""!important;display:block!important;position:absolute!important;inset:0!important;
-  background:linear-gradient(90deg,rgba(10,4,5,.08),rgba(10,4,5,.02) 45%,rgba(10,4,5,.48))!important;
-  filter:none!important;opacity:1!important;
-}
+.heroFrame{height:clamp(270px,42vw,470px)!important;aspect-ratio:auto!important;position:relative!important;overflow:hidden!important;border:2px solid #d8b35a!important;border-radius:24px!important;background:#180c0b url("./silva-new-hero.jpg?v=6") center 38%/cover no-repeat!important}
+.heroFrame:before{content:""!important;display:block!important;position:absolute!important;inset:0!important;background:linear-gradient(90deg,rgba(10,4,5,.08),rgba(10,4,5,.02) 45%,rgba(10,4,5,.48))!important;filter:none!important;opacity:1!important}
 .heroFrame:after{display:block!important;position:absolute!important;inset:0!important;background:linear-gradient(0deg,rgba(9,5,5,.28),transparent 55%)!important}
-.fullHeroArtwork{display:none!important}
+.fullHeroArtwork{display:none!important;filter:none!important}
 .heroBrand{z-index:4!important}
-.heroContent{
-  display:flex!important;position:relative!important;inset:auto!important;right:auto!important;bottom:auto!important;
-  width:min(720px,100%)!important;margin:18px auto 14px!important;padding:22px 20px!important;
-  background:rgba(15,9,8,.88)!important;border-radius:20px!important;
-}
-.heroTiles{
-  display:grid!important;position:relative!important;inset:auto!important;left:auto!important;top:auto!important;
-  width:100%!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px!important;margin:14px 0 0!important;
-}
+.heroContent{display:flex!important;position:relative!important;inset:auto!important;right:auto!important;bottom:auto!important;width:min(720px,100%)!important;margin:18px auto 14px!important;padding:22px 20px!important;background:rgba(15,9,8,.88)!important;border-radius:20px!important}
+.heroTiles{display:grid!important;position:relative!important;inset:auto!important;left:auto!important;top:auto!important;width:100%!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px!important;margin:14px 0 0!important}
 .heroTile{min-height:110px!important}
 .heroStrip{display:flex!important;position:relative!important;margin:14px auto 0!important}
-body:before{
-  background-image:url("./silva-new-hero.jpg")!important;background-position:center!important;background-size:cover!important;
-  filter:blur(22px)!important;transform:scale(1.08)!important;opacity:.75!important;
-}
+body:before{background-image:url("./silva-new-hero.jpg")!important;background-position:center!important;background-size:cover!important;filter:blur(22px)!important;transform:scale(1.08)!important;opacity:.75!important}
 body:after{background:rgba(25,10,10,.32)!important}
-.fullHeroArtwork{filter:none!important}
-@media(max-width:700px){
-  .heroFrame{height:270px!important;border-radius:18px!important;background-position:38% center!important}
-  .heroContent{width:100%!important;margin:12px auto!important;padding:15px 12px!important}
-  .heroTiles{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
-  .heroTile{min-height:95px!important}
-  .heroStrip{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:7px!important}
-  .stripItem{min-width:0!important;font-size:11px!important;padding:9px 4px!important}
-}
-@media(max-width:390px){
-  .heroFrame{height:235px!important}
-  .heroTiles{gap:6px!important}
-  .heroTile{min-height:90px!important}
-}
+@media(max-width:700px){.heroFrame{height:270px!important;border-radius:18px!important;background-position:38% center!important}.heroContent{width:100%!important;margin:12px auto!important;padding:15px 12px!important}.heroTiles{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}.heroTile{min-height:95px!important}.heroStrip{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:7px!important}.stripItem{min-width:0!important;font-size:11px!important;padding:9px 4px!important}}
+@media(max-width:390px){.heroFrame{height:235px!important}.heroTiles{gap:6px!important}.heroTile{min-height:90px!important}}
 </style>
 </head>
+<body>
+<header>
+  <div class="logo" id="storeLogo">SILVA</div>
+  <button class="cart" onclick="openCart()">🛒 السلة <span id="count">0</span></button>
+</header>
+
+<div class="topMarks"><span></span><span></span><span></span></div>
+
+<section class="hero">
+  <div class="heroFrame"><img class="fullHeroArtwork" src="./silva-new-hero.jpg?v=6" alt="خلفية Silva الحمراء الفاخرة">
+    <div class="heroBrand">👑 SILVA<small>More Than a Store ... It's a Digital World</small></div>
+  </div>
+  <div class="heroContent">
+    <span class="badge">✦ متجر رقمي مميز</span>
+    <h1 id="heroName">SILVA</h1>
+    <h2 id="heroTagline">متجرك الرقمي الراقي</h2>
+    <p id="heroDescription">اكتشف مجموعة مختارة من المنتجات الرقمية المميزة المصممة لإضافة لمسة احترافية وإبداعية إلى مشاريعك.</p>
+    <a class="btn" href="#products">تصفح المنتجات</a>
+  </div>
+  <div class="heroTiles">
+    <div class="heroTile" onclick="filterProducts('مؤثرات',this)"><span class="tileIcon">🎧</span><b>مؤثرات</b></div>
+    <div class="heroTile" onclick="filterProducts('هدايا رقمية',this)"><span class="tileIcon">🎁</span><b>هدايا</b></div>
+    <div class="heroTile" onclick="filterProducts('فيديوهات',this)"><span class="tileIcon">🎬</span><b>فيديوهات</b></div>
+    <div class="heroTile" onclick="filterProducts('ملفات 3D',this)"><span class="tileIcon">🧊</span><b>ملفات ثلاثية الأبعاد</b></div>
+    <div class="heroTile" onclick="filterProducts('إطارات متحركة',this)"><span class="tileIcon">👑</span><b>إطارات</b></div>
+    <div class="heroTile" onclick="filterProducts('برامج الصوت والبرامج',this)"><span class="tileIcon">🎙️</span><b>برامج الصوت والدردشة</b></div>
+  </div>
+  <div class="heroStrip">
+    <div class="stripItem">⭐ الأكثر مبيعًا</div><div class="stripItem">✨ جديد</div><div class="stripItem">💎 خدمات مميزة</div><div class="stripItem">🔥 عروض خاصة</div><div class="stripItem">🔒 دفع آمن</div>
+  </div>
+</section>
+
+<section id="products">
+  <div class="title"><div><h2>منتجاتنا</h2><p>اختيارات رقمية مميزة لك</p></div></div>
+  <div class="filters">
+    <button class="filter active" onclick="filterProducts('all',this)">الكل</button>
+    <button class="filter" onclick="filterProducts('مؤثرات',this)">🎧 مؤثرات</button>
+    <button class="filter" onclick="filterProducts('فيديوهات',this)">🎬 فيديوهات</button>
+    <button class="filter" onclick="filterProducts('ملفات 3D',this)">🧊 ملفات 3D</button>
+    <button class="filter" onclick="filterProducts('إطارات متحركة',this)">👑 إطارات</button>
+    <button class="filter" onclick="filterProducts('هدايا رقمية',this)">🎁 هدايا</button>
+  </div>
+  <main class="products" id="productList"></main>
+</section>
+
+<footer><span id="footerText">Silva © 2026 — متجرك الرقمي الراقي</span></footer>
+
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+<div class="cartBox" id="cartBox">
+  <div class="cartHead"><h2>🛒 سلة المشتريات</h2><button class="close" onclick="closeCart()">×</button></div>
+  <div class="cartItems" id="cartItems"></div>
+  <div class="total"><div class="totalRow"><span>المجموع</span><span>$<span id="total">0.00</span></span></div><button class="checkout" onclick="checkout()">🟢 إتمام الطلب عبر واتساب</button></div>
+</div>
+
+<div class="videoModal" id="videoModal" onclick="closeVideoModal(event)">
+  <div class="videoModalBox" onclick="event.stopPropagation()">
+    <button class="videoModalClose" onclick="closeVideoModal()">×</button>
+    <video id="largeVideo" controls playsinline preload="metadata"></video>
+    <div class="videoModalTitle" id="largeVideoTitle"></div>
+  </div>
+</div>
+<div id="msg"></div>
+
+<script>
+
+// تُترك عناصر النص والأقسام في ترتيب الصفحة الطبيعي لتجنب تداخلها فوق صورة الواجهة.
+
+let items=[];
+let cart=[];
+async function loadProducts(){
+ try{
+  const r=await fetch("./products.json?v="+Date.now());
+  if(!r.ok)throw new Error("products.json");
+  items=await r.json();renderProducts();updateCart();
+ }catch(e){
+  console.error(e);
+  document.getElementById("productList").innerHTML='<div style="grid-column:1/-1;text-align:center;padding:40px;color:#ffb5bd">تعذر تحميل المنتجات حاليًا.</div>';
+ }
+}
+function renderProducts(list=items){
+ document.getElementById("productList").innerHTML=list.map(p=>`
+  <article class="card">
+   <div class="productVisual">
+    ${p.type==="video"&&p.media?`<div class="videoPreview" onclick="openVideoModal(${p.id})"><div class="productSprite sprite${p.imagePos??0}"></div><span class="videoPreviewPlay">▶</span><span class="videoPreviewLabel">🎬 مشاهدة</span></div>`:p.type==="image"&&p.media?`<div class="videoPreview"><img src="${p.media}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover"></div>`:`<div class="pic">${p.icon||"✨"}</div>`}
+   </div>
+   <div class="info"><h3>${p.name}</h3><p>${p.description}${p.size?`<br>📐 الحجم: ${p.size}`:""}</p><div class="price">${p.price>0?"$"+p.price.toFixed(2):"حسب الطلب"}</div><button class="add" onclick="add(${p.id})">أضف للسلة</button></div>
+  </article>`).join("");
+}
+function openVideoModal(id){
+ const p=items.find(x=>x.id===id);if(!p||p.type!=="video"||!p.media)return;
+ const m=document.getElementById("videoModal"),v=document.getElementById("largeVideo");
+ document.getElementById("largeVideoTitle").textContent=p.name;v.src=p.media;m.classList.add("open");document.body.style.overflow="hidden";v.currentTime=0;v.play().catch(()=>{});
+}
+function closeVideoModal(e){
+ if(e&&e.target&&e.target.id!=="videoModal")return;
+ const m=document.getElementById("videoModal"),v=document.getElementById("largeVideo");v.pause();v.removeAttribute("src");v.load();m.classList.remove("open");document.body.style.overflow="";
+}
+function filterProducts(category,button){
+ document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));
+ if(button&&button.classList.contains("filter"))button.classList.add("active");
+ renderProducts(category==="all"?items:items.filter(p=>p.category===category));
+}
+function add(id){const f=cart.find(x=>x.id===id);f?f.qty++:cart.push({id,qty:1});updateCart();show("تمت إضافة المنتج إلى السلة ✓");}
+function changeQty(id,value){const x=cart.find(i=>i.id===id);if(!x)return;x.qty+=value;if(x.qty<=0)cart=cart.filter(i=>i.id!==id);updateCart();}
+function removeItem(id){cart=cart.filter(i=>i.id!==id);updateCart();}
+function updateCart(){
+ const c=cart.reduce((s,i)=>s+i.qty,0);document.getElementById("count").textContent=c;
+ const box=document.getElementById("cartItems");
+ if(!cart.length){box.innerHTML='<div class="empty">السلة فارغة 🛒</div>';document.getElementById("total").textContent="0.00";return}
+ let total=0;
+ box.innerHTML=cart.map(i=>{const p=items.find(x=>x.id===i.id);const sub=p.price*i.qty;total+=sub;return`<div class="cartItem"><strong>${p.icon||"✨"} ${p.name}</strong><div class="itemPrice">${p.price>0?"$"+p.price.toFixed(2)+" للقطعة":"السعر حسب الطلب"}</div><div class="controls"><button onclick="changeQty(${p.id},-1)">−</button><span>${i.qty}</span><button onclick="changeQty(${p.id},1)">+</button><button class="remove" onclick="removeItem(${p.id})">حذف</button></div></div>`}).join("");
+ document.getElementById("total").textContent=total.toFixed(2);
+}
+function openCart(){document.getElementById("cartBox").classList.add("open");document.getElementById("overlay").classList.add("show");updateCart();}
+function closeCart(){document.getElementById("cartBox").classList.remove("open");document.getElementById("overlay").classList.remove("show");}
+function checkout(){
+ if(!cart.length){show("السلة فارغة 🛒");return}
+ let lines=["🛍️ طلب جديد من متجر SILVA","","📦 المنتجات:"];let total=0;
+ cart.forEach(i=>{const p=items.find(x=>x.id===i.id),sub=p.price*i.qty;total+=sub;lines.push(`• ${p.name} × ${i.qty} = ${p.price>0?"$"+sub.toFixed(2):"حسب الطلب"}`)});
+ lines.push("",`💰 المجموع: $${total.toFixed(2)}`,"","أريد إتمام هذا الطلب.");
+ const phone=window.SILVA_SETTINGS?.whatsapp||"213795455075";
+ window.location.href=`https://wa.me/${phone}?text=${encodeURIComponent(lines.join("\n"))}`;
+}
+function show(t){const m=document.getElementById("msg");m.textContent=t;m.style.display="block";setTimeout(()=>m.style.display="none",1800)}
+async function loadStoreSettings(){
+ try{
+  const r=await fetch("./site-settings.json?v="+Date.now());if(!r.ok)throw new Error("settings");
+  const s=await r.json();window.SILVA_SETTINGS=s;
+  document.title=(s.storeName||"SILVA")+" | "+(s.tagline||"متجرك الرقمي الراقي");
+  document.getElementById("storeLogo").textContent=s.storeName||"SILVA";
+  document.getElementById("heroName").textContent=s.storeName||"SILVA";
+  document.getElementById("heroTagline").textContent=s.tagline||"متجرك الرقمي الراقي";
+  document.getElementById("heroDescription").textContent=s.heroDescription||"";
+  document.getElementById("footerText").textContent=(s.storeName||"SILVA")+" © 2026 — "+(s.tagline||"متجرك الرقمي الراقي");
+ }catch(e){window.SILVA_SETTINGS={whatsapp:"213795455075"}}
+}
+loadStoreSettings();loadProducts();
+</script>
+</body>
+</html>
