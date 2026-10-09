@@ -1,16 +1,16 @@
 {
-  "storeName": "SILVA",
-  "tagline": "متجرك الرقمي الراقي",
-  "heroDescription": "اكتشف مجموعة مختارة من المنتجات الرقمية المميزة المصممة لإضافة لمسة احترافية وإبداعية إلى مشاريعك.",
-  "whatsapp": "213795455075",
-  "theme": "custom",
-  "heroImage": "./silva-custom-hero.jpg",
-  "backgroundImage": "./silva-custom-background.jpg",
-  "colors": {
-    "accent": "#ffbf75",
-    "accentLight": "#f5d889",
-    "background": "#100c18",
-    "card": "#000000",
-    "text": "#ffffff"
-  }
+"storeName": "SILVA",
+"tagline": "متجرك الرقمي الراقي",
+"heroDescription": "اكتشف مجموعة مختارة من المنتجات الرقمية المميزة المصممة لإضافة لمسة احترافية وإبداعية إلى مشاريعك.",
+"whatsapp": "213795455075",
+"theme": "custom",
+"heroImage": "./Picsart_26-10-09_17-08-34-938.png",
+"backgroundImage": "./Picsart_26-10-09_17-08-46-348.png",
+"colors": {
+"accent": "#ffbf75",
+"accentLight": "#f5d889",
+"background": "#100c18",
+"card": "#000000",
+"text": "#ffffff"
+}
 }
