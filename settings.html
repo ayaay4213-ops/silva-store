@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Silva Studio | لوحة تخصيص المتجر</title>
+<style>
+:root{--bg:#0e0a13;--panel:#1a1422;--line:#3a2b49;--accent:#bd78ff;--txt:#fff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0,#342047,var(--bg) 50%);font-family:Arial,Tahoma,sans-serif;color:var(--txt)}
+header{padding:22px 5%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);background:#0e0a13cc;position:sticky;top:0;backdrop-filter:blur(14px);z-index:4}
+.logo{font-size:25px;font-weight:900;letter-spacing:1px}.logo span{color:var(--accent)}.pill{border:1px solid var(--line);border-radius:30px;padding:8px 12px;color:#d8c4e8;font-size:12px}
+main{max-width:1200px;margin:26px auto;padding:0 16px}.intro{margin-bottom:22px}.intro h1{font-size:clamp(28px,5vw,42px);margin:0 0 8px}.intro p{color:#c4b9cf;line-height:1.8;margin:0}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}.panel{background:#17111fdd;border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 18px 50px #0003}.panel h2{font-size:19px;margin:0 0 18px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}label{font-size:13px;color:#d6c8e2}input[type=text],input[type=url]{width:100%;border:1px solid #493756;background:#0d0912;color:white;border-radius:11px;padding:12px;font:inherit;direction:ltr}input[type=color]{width:100%;height:44px;padding:4px;border:1px solid #493756;background:#0d0912;border-radius:11px}input[type=file]{width:100%;padding:13px;border:1px dashed #6d5380;border-radius:12px;background:#0d0912;color:#d9cce3}small,.hint{color:#a99bb5;font-size:12px;line-height:1.7}.preview{border-radius:18px;overflow:hidden;border:1px solid #594367;background:#100b15}.previewHero{height:230px;background-position:center;background-size:cover;display:flex;align-items:flex-end;padding:20px;position:relative}.previewHero:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#000b,transparent)}.previewHero h3{position:relative;font-size:30px;margin:0;text-shadow:0 2px 10px #000}.previewBody{padding:15px}.previewCard{border-radius:14px;padding:14px;margin-bottom:12px}.previewButton{display:block;text-align:center;padding:12px;border-radius:12px;font-weight:bold}.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}.btn{border:0;border-radius:12px;padding:13px 12px;font:inherit;font-weight:800;cursor:pointer}.primary{background:var(--accent);color:#170d20}.secondary{background:#292033;color:white;border:1px solid #493756}.notice{margin-top:15px;border-radius:12px;padding:12px;background:#211a2c;color:#d8c9e4;font-size:13px;line-height:1.8}.status{margin-top:10px;min-height:22px;color:#c6a5ff;font-size:13px}.steps{padding-right:20px;color:#d0c3db;line-height:2}.steps strong{color:white}
+@media(max-width:760px){header{padding:16px 4%}.layout{grid-template-columns:1fr}.panel{padding:16px}.previewHero{height:190px}.fields{gap:10px}.actions{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="logo">SILVA <span>STUDIO</span></div><div class="pill">لوحة تخصيص الواجهة</div></header>
+<main>
+<section class="intro"><h1>غيّري واجهة متجرك بنفسك</h1><p>اختاري الألوان وارْفعي صورة من هاتفك وشاهدي المعاينة مباشرة قبل تنزيل إعداداتك.</p></section>
+<div class="layout">
+<section class="panel">
+<h2>✦ إعدادات التصميم</h2>
+<div class="fields">
+<div class="field"><label for="accent">لون الأزرار والإطارات</label><input id="accent" type="color" value="#bd78ff"></div>
+<div class="field"><label for="accentLight">لون العناوين</label><input id="accentLight" type="color" value="#f5d889"></div>
+<div class="field"><label for="bg">خلفية المتجر</label><input id="bg" type="color" value="#100c18"></div>
+<div class="field"><label for="card">خلفية البطاقات</label><input id="card" type="color" value="#21172e"></div>
+<div class="field full"><label for="heroFile">صورة الواجهة الرئيسية (من الهاتف)</label><input id="heroFile" type="file" accept="image/jpeg,image/png,image/webp"><small>يفضّل JPG أو WebP. سيتم تنزيل الصورة باسم silva-custom-hero.jpg.</small></div>
+<div class="field full"><label for="bgFile">صورة خلفية المتجر (اختياري، من الهاتف)</label><input id="bgFile" type="file" accept="image/jpeg,image/png,image/webp"><small>إذا تركتِها فارغة، تُستخدم صورة الواجهة كخلفية.</small></div>
+</div>
+<div class="actions"><button class="btn primary" id="downloadSettings">تنزيل إعدادات التصميم</button><button class="btn secondary" id="reset">إرجاع الألوان الأصلية</button></div>
+<div class="actions"><button class="btn secondary" id="downloadHero">تنزيل صورة الواجهة</button><button class="btn secondary" id="downloadBg">تنزيل صورة الخلفية</button></div>
+<div id="status" class="status" role="status"></div>
+<div class="notice"><strong>ملاحظة مهمة:</strong> هذه اللوحة آمنة للمعاينة وتجهيز الملفات، لكنها لا تنشر تلقائيًا إلى الموقع؛ لا نضع رمز GitHub السري في صفحة عامة. بعد التنزيل، ارفعي الصور وملف site-settings.json إلى مستودع الموقع حتى تظهر التغييرات للجميع.</div>
+</section>
+<section class="panel">
+<h2>◉ معاينة مباشرة</h2>
+<div class="preview">
+<div class="previewHero" id="previewHero"><h3>SILVA</h3></div>
+<div class="previewBody" id="previewBody">
+<div class="previewCard" id="previewCard"><b>متجرك الرقمي الراقي</b><p style="color:#cfc4da;font-size:13px;line-height:1.7">اختيارات رقمية مميزة لك</p><div class="previewButton" id="previewButton">تصفح المنتجات</div></div>
+<div class="previewCard" id="previewProduct"><b>🎁 هدايا رقمية</b><p style="color:#cfc4da;font-size:13px">تصاميم رقمية أنيقة ومميزة</p></div>
+</div></div>
+<div class="notice">بعد تنزيل الملفات، افتحي مستودع GitHub ثم ارفعي الصور إلى المجلد الرئيسي، واستبدلي ملف site-settings.json بالإعدادات الجديدة. لا ترفعي ملفات HTML أو SVG كصور.</div>
+</section>
+</div>
+<section class="panel" style="margin-top:18px"><h2>طريقة نشر التعديلات على المتجر</h2><ol class="steps"><li>اضغطي <strong>تنزيل صورة الواجهة</strong> و/أو صورة الخلفية.</li><li>اضغطي <strong>تنزيل إعدادات التصميم</strong> لحفظ ملف JSON.</li><li>في GitHub افتحي مستودع <strong>silva-store</strong> واختاري Add file ثم Upload files، وارفعي الصور إلى المجلد الرئيسي.</li><li>افتحي site-settings.json واستبدلي محتواه بمحتوى الملف الذي نزّلتيه، ثم احفظي التغييرات.</li><li>انتظري تحديث GitHub Pages وافتحي الموقع من جديد.</li></ol></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+let heroData="",bgData="",heroName="silva-custom-hero.jpg",bgName="silva-custom-background.jpg";
+function paint(){const a=$("accent").value,al=$("accentLight").value,b=$("bg").value,c=$("card").value;document.documentElement.style.setProperty("--accent",a);$("previewHero").style.backgroundImage="linear-gradient(0deg,#0008,transparent),url('"+(heroData||"./silva-new-hero.jpg")+"')";$("previewHero").style.backgroundColor=b;$("previewBody").style.background=b;$("previewCard").style.background=c;$("previewProduct").style.background=c;$("previewButton").style.background=a;$("previewButton").style.color="#17101e";$("previewHero").style.borderBottom="3px solid "+a;$("previewHero").querySelector("h3").style.color=al;$("status").textContent="تم تحديث المعاينة. نزّلي الإعدادات لحفظ اختياراتك."}
+["accent","accentLight","bg","card"].forEach(id=>$(id).addEventListener("input",paint));
+function readFile(input,which){const file=input.files&&input.files[0];if(!file)return;if(!/^image\/(jpeg|png|webp)$/.test(file.type)){input.value="";$("status").textContent="اختاري صورة JPG أو PNG أو WebP.";return}if(file.size>8*1024*1024){input.value="";$("status").textContent="حجم الصورة أكبر من 8 ميغابايت. اختاري صورة أصغر.";return}const reader=new FileReader();reader.onload=()=>{if(which==="hero")heroData=reader.result;else bgData=reader.result;paint();if(which==="bg"&&bgData)$("previewBody").style.backgroundImage="linear-gradient(#100b1588,#100b1588),url('"+bgData+"')"};reader.readAsDataURL(file)}
+$("heroFile").addEventListener("change",()=>readFile($("heroFile"),"hero"));$("bgFile").addEventListener("change",()=>readFile($("bgFile"),"bg"));
+function saveBlob(blob,name){const url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1200)}
+function downloadImage(data,name){if(!data){$("status").textContent="اختاري صورة من الهاتف أولًا.";return}fetch(data).then(r=>r.blob()).then(b=>saveBlob(b,name))}
+$("downloadHero").onclick=()=>downloadImage(heroData,heroName);$("downloadBg").onclick=()=>downloadImage(bgData,bgName);
+$("downloadSettings").onclick=()=>{const settings={storeName:"SILVA",tagline:"متجرك الرقمي الراقي",heroDescription:"اكتشف مجموعة مختارة من المنتجات الرقمية المميزة المصممة لإضافة لمسة احترافية وإبداعية إلى مشاريعك.",whatsapp:"213795455075",theme:"custom",heroImage:heroData?"./"+heroName:"./silva-new-hero.jpg",backgroundImage:bgData?"./"+bgName:(heroData?"./"+heroName:"./silva-new-hero.jpg"),colors:{accent:$("accent").value,accentLight:$("accentLight").value,background:$("bg").value,card:$("card").value,text:"#ffffff"}};saveBlob(new Blob([JSON.stringify(settings,null,2)],{type:"application/json;charset=utf-8"}),"site-settings.json");$("status").textContent="تم تنزيل site-settings.json. ارفعي الصور المختارة أيضًا إلى مستودع الموقع."};
+$("reset").onclick=()=>{$("accent").value="#bd78ff";$("accentLight").value="#f5d889";$("bg").value="#100c18";$("card").value="#21172e";heroData="";bgData="";$("heroFile").value="";$("bgFile").value="";paint();$("previewBody").style.backgroundImage="none"};
+paint();
+</script>
+</body></html>
