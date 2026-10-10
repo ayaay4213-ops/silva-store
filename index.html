@@ -9,7 +9,7 @@
 html{scroll-behavior:smooth}
 :root{--gold:#ffbf75;--gold2:#f5d889;--ink:#090909;--panel:#17120d}
 body{margin:0;font-family:Arial,Tahoma,sans-serif;color:#fff;background:#100c18;position:relative;isolation:isolate}
-body:before{content:"";position:fixed;inset:0;z-index:-2;background:url("./Picsart_26-10-09_18-20-21-118.png") center/cover no-repeat;filter:none;transform:none;opacity:1;pointer-events:none}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:url("./Picsart_26-10-09_18-20-21-118.png") center/cover no-repeat;pointer-events:none}
 body:after{content:"";position:fixed;inset:0;z-index:-1;background:rgba(15,8,12,.16);pointer-events:none}
 button,a{font-family:inherit}
 header{position:sticky;top:0;z-index:50;min-height:68px;padding:10px 4%;display:flex;align-items:center;justify-content:space-between;gap:10px;background:rgba(24,17,12,.30);border-bottom:1px solid rgba(235,198,101,.35)}
@@ -161,12 +161,13 @@ header{padding:9px 3%;gap:7px}
   </div>
 
   <div class="heroTiles">
-    <div class="heroTile" onclick="filterProducts('مؤثرات',this)"><span class="tileIcon">🎧</span><b>مؤثرات</b></div>
-    <div class="heroTile" onclick="filterProducts('هدايا رقمية',this)"><span class="tileIcon">🎁</span><b>هدايا</b></div>
+    <div class="heroTile" onclick="filterProducts('إطارات متحركة',this)"><span class="tileIcon">👑</span><b>إطارات متحركة</b></div>
+    <div class="heroTile" onclick="filterProducts('إطارات ثابتة',this)"><span class="tileIcon">🖼️</span><b>إطارات ثابتة</b></div>
     <div class="heroTile" onclick="filterProducts('فيديوهات',this)"><span class="tileIcon">🎬</span><b>فيديوهات</b></div>
+    <div class="heroTile" onclick="filterProducts('دخوليات مشاهير',this)"><span class="tileIcon">🚪</span><b>دخوليات مشاهير</b></div>
+    <div class="heroTile" onclick="filterProducts('مؤثرات',this)"><span class="tileIcon">✨</span><b>مؤثرات</b></div>
+    <div class="heroTile" onclick="filterProducts('هدايا رقمية',this)"><span class="tileIcon">🎁</span><b>هدايا رقمية</b></div>
     <div class="heroTile" onclick="filterProducts('ملفات 3D',this)"><span class="tileIcon">🧊</span><b>ملفات ثلاثية الأبعاد</b></div>
-    <div class="heroTile" onclick="filterProducts('إطارات متحركة',this)"><span class="tileIcon">👑</span><b>إطارات</b></div>
-    <div class="heroTile" onclick="filterProducts('برامج الصوت والبرامج',this)"><span class="tileIcon">🎙️</span><b>برامج الصوت والدردشة</b></div>
   </div>
 
   <div class="heroStrip">
@@ -188,11 +189,13 @@ header{padding:9px 3%;gap:7px}
 
   <div class="filters">
     <button class="filter active" onclick="filterProducts('all',this)">الكل</button>
-    <button class="filter" onclick="filterProducts('مؤثرات',this)">🎧 مؤثرات</button>
+    <button class="filter" onclick="filterProducts('إطارات متحركة',this)">👑 إطارات متحركة</button>
+    <button class="filter" onclick="filterProducts('إطارات ثابتة',this)">🖼️ إطارات ثابتة</button>
     <button class="filter" onclick="filterProducts('فيديوهات',this)">🎬 فيديوهات</button>
+    <button class="filter" onclick="filterProducts('دخوليات مشاهير',this)">🚪 دخوليات مشاهير</button>
+    <button class="filter" onclick="filterProducts('مؤثرات',this)">✨ مؤثرات</button>
+    <button class="filter" onclick="filterProducts('هدايا رقمية',this)">🎁 هدايا رقمية</button>
     <button class="filter" onclick="filterProducts('ملفات 3D',this)">🧊 ملفات 3D</button>
-    <button class="filter" onclick="filterProducts('إطارات متحركة',this)">👑 إطارات</button>
-    <button class="filter" onclick="filterProducts('هدايا رقمية',this)">🎁 هدايا</button>
   </div>
 
   <main class="products" id="productList"></main>
@@ -395,9 +398,6 @@ async function loadStoreSettings(){
       document.documentElement.style.setProperty("--gold",s.colors.accent||"#d8b35a");
       document.documentElement.style.setProperty("--gold2",s.colors.accentLight||"#f5d889");
     }
-
-    /* لا نغيّر صورة الواجهة من الإعدادات؛ تبقى صورة Picsart المحددة في CSS.
-       نستخدم إعدادات الموقع لتحديث النصوص فقط، والخلفية تبقى صورة القصر المحددة في CSS. */
 
     document.title=(s.storeName||"SILVA")+" | "+(s.tagline||"متجرك الرقمي الراقي");
     document.getElementById("storeLogo").textContent=s.storeName||"SILVA";
