@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SILVA | متجرك الرقمي الراقي</title>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{--gold:#ffbf75;--gold2:#f5d889;--ink:#090909;--panel:#17120d}
+body{margin:0;font-family:Arial,Tahoma,sans-serif;color:#fff;background:#100c18;position:relative;isolation:isolate}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:url("./Picsart_26-10-09_18-20-21-118.png") center/cover no-repeat;pointer-events:none}
+body:after{content:"";position:fixed;inset:0;z-index:-1;background:rgba(15,8,12,.16);pointer-events:none}
+button,a{font-family:inherit}
+header{position:sticky;top:0;z-index:50;min-height:68px;padding:10px 4%;display:flex;align-items:center;justify-content:space-between;gap:10px;background:rgba(24,17,12,.30);border-bottom:1px solid rgba(235,198,101,.35)}
+.logo{font-size:28px;font-weight:900;letter-spacing:1px;text-shadow:0 2px 12px #000}
+.cart{border:1px solid var(--gold);background:linear-gradient(135deg,#1e1731cc,#252c62cc);color:#fff;border-radius:15px;padding:10px 16px;font-weight:900;font-size:15px;box-shadow:0 8px 25px #0006;cursor:pointer}
+.topActions{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.controlLink{display:inline-flex;align-items:center;justify-content:center;padding:9px 11px;border:1px solid var(--gold);border-radius:12px;color:#f5d889;text-decoration:none;font-weight:800;font-size:12px;background:rgba(23,18,13,.55)}
+.topMarks{height:45px;display:flex;align-items:center;justify-content:center;gap:14px;font-size:34px;font-weight:900;color:#fff;filter:drop-shadow(0 3px 8px #000)}
+.topMarks span{display:block;width:48px;height:8px;background:#fff;border-radius:99px;transform:rotate(-7deg)}
+.topMarks span:nth-child(2){width:38px;transform:rotate(-4deg)}
+.topMarks span:nth-child(3){width:28px;transform:rotate(-7deg)}
+.hero{padding:0 4.5% 26px;max-width:1180px;margin:0 auto}
+.heroFrame{position:relative;overflow:hidden;height:clamp(250px,43vw,470px);border:2px solid rgba(220,181,76,.9);border-radius:25px;background:#180c0b url("./Picsart_26-10-09_18-20-36-786.png") center/contain no-repeat;box-shadow:0 18px 55px #0007,inset 0 0 0 1px #fff2}
+.heroFrame:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,3,2,.02),rgba(5,4,3,.02) 55%,rgba(5,4,3,.16));pointer-events:none}
+.heroFrame:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(9,5,5,.12),transparent 55%);pointer-events:none}
+.heroBrand{position:absolute;top:18px;right:20px;z-index:4;font-weight:900;font-size:clamp(20px,3vw,30px);color:#f5d889;text-shadow:0 2px 8px #000}
+.heroBrand small{display:block;font-size:clamp(10px,1.5vw,14px);color:#fff;margin-top:4px}
+.heroContent{position:relative;z-index:5;margin:18px auto 14px;max-width:720px;display:flex;flex-direction:column;align-items:center;text-align:center;padding:22px 20px;background:rgba(13,9,7,.42);border:1px solid rgba(222,181,76,.65);border-radius:20px;box-shadow:0 12px 32px #0005}
+.badge{display:inline-flex;align-items:center;gap:7px;padding:8px 15px;border-radius:30px;background:rgba(37,27,16,.58);border:1px solid var(--gold);color:#f5d889;font-weight:900;font-size:13px}
+.hero h1{font-size:clamp(36px,7vw,62px);margin:10px 0 3px;line-height:1;text-shadow:0 5px 20px #000}
+.hero h2{font-size:clamp(21px,3.5vw,30px);margin:0 0 8px}
+.hero p{max-width:560px;margin:0;color:#fff;font-size:17px;line-height:1.8;text-shadow:0 2px 5px #000}
+.btn{margin-top:16px;display:inline-block;padding:13px 28px;border-radius:15px;background:#fff;color:#16120d;text-decoration:none;font-weight:900;box-shadow:0 8px 25px #0007}
+.heroTiles{position:relative;z-index:5;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0 0}
+.heroTile{min-height:110px;border:1px solid #e6bd56;border-radius:16px;overflow:hidden;background:rgba(12,8,20,.42);box-shadow:0 0 0 1px #fff2 inset,0 9px 22px #0007;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;cursor:pointer;transition:transform .2s,border-color .2s}
+.heroTile .tileIcon{font-size:42px;line-height:1;margin:auto 0 7px;filter:drop-shadow(0 0 10px #4c9dff)}
+.heroTile b{width:100%;padding:11px 5px;background:rgba(16,12,8,.55);color:#f8e2a0;font-size:15px;border-top:1px solid #c99a3b}
+.heroTile:hover{transform:translateY(-3px);border-color:#ffe39b}
+.heroStrip{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px auto 0;max-width:800px}
+.stripItem{min-width:120px;padding:11px 16px;border:1px solid #a57b2d;border-radius:13px;background:rgba(15,12,10,.40);color:#f6df9c;font-weight:900;font-size:13px}
+.title{padding:28px 6% 8px;display:flex;justify-content:space-between;align-items:end;gap:20px}
+.title h2{margin:0;font-size:31px;text-shadow:0 3px 12px #000}
+.title p{margin:0;color:#fff;text-shadow:0 2px 5px #000}
+.filters{display:flex;gap:10px;flex-wrap:wrap;padding:10px 6% 16px}
+.filter{border:1px solid #a9843a;background:rgba(28,21,14,.60);color:#fff;border-radius:15px;padding:11px 17px;cursor:pointer;font-weight:900;box-shadow:0 6px 15px #0004}
+.filter.active{background:rgba(255,255,255,.90);color:#2a1c0b;border-color:#fff}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;padding:10px 6% 70px}
+.card{background:rgba(18,14,11,.42);border:1px solid #b18a4a;border-radius:20px;overflow:hidden;box-shadow:0 15px 38px #0006;transition:.25s;backdrop-filter:none}
+.card:hover{transform:translateY(-4px);border-color:#e0bd61}
+.productVisual{height:190px;position:relative;overflow:hidden;background:rgba(9,10,13,.35)}
+.royalCoverVisual{height:220px;background:rgba(9,10,13,.35)}
+.royalGallery{padding:12px;background:rgba(10,8,15,.50);border-top:1px solid #b18a4a}
+.royalGalleryTitle{text-align:center;color:#f5d889;font-weight:900;font-size:14px;padding:5px 4px 12px}
+.royalGalleryGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.royalGalleryItem{min-width:0;display:block;text-decoration:none;color:#f5d889;background:rgba(18,14,11,.7);border:1px solid #b18a4a;border-radius:12px;overflow:hidden;text-align:center}
+.royalGalleryItem img{display:block;width:100%;height:155px;object-fit:contain;background:rgba(5,5,8,.4);padding:5px}
+.royalGalleryItem span{display:block;padding:7px 3px;font-size:11px;font-weight:800}
+@media(max-width:390px){.royalCoverVisual{height:200px}.royalGallery{padding:8px}.royalGalleryGrid{gap:6px}.royalGalleryItem img{height:125px}}
+.productSprite{position:absolute;inset:0;background-image:url('./products/silva-sprite.jpg');background-size:200% 200%;background-repeat:no-repeat}
+.sprite0{background-position:0 0}.sprite1{background-position:100% 0}.sprite2{background-position:0 100%}.sprite3{background-position:100% 100%}
+.videoPreview{width:100%;height:100%;position:relative;cursor:pointer;background:rgba(8,9,12,.35);overflow:hidden}
+.videoPreviewPlay{position:absolute;inset:0;display:grid;place-items:center;font-size:42px;text-shadow:0 4px 20px #000;background:radial-gradient(circle,rgba(210,160,35,.25),transparent 55%)}
+.videoPreviewLabel{position:absolute;bottom:10px;right:10px;padding:6px 9px;border-radius:9px;background:rgba(11,10,8,.78);border:1px solid #80652f;font-size:11px;font-weight:900}
+.pic{height:100%;display:grid;place-items:center;font-size:60px}
+.info{padding:16px;background:transparent}
+.info h3{margin:0 0 7px;font-size:19px;text-shadow:0 1px 4px #000}
+.info p{color:#fff;line-height:1.6;min-height:43px;text-shadow:0 1px 4px #000}
+.price{font-size:21px;font-weight:900;color:#f4d47c;margin-top:12px;text-shadow:0 1px 4px #000}
+.add{width:100%;margin-top:13px;padding:12px;border:1px solid #d4ad50;border-radius:12px;background:linear-gradient(135deg,#fff,#eadbb7);color:#16120d;font-weight:900;cursor:pointer}
+footer{text-align:center;padding:34px 6%;border-top:1px solid #5d4825;color:#fff;background:rgba(10,8,7,.30)}
+.cartBox{position:fixed;top:0;right:-100%;width:min(420px,92%);height:100vh;background:rgba(18,15,12,.94);z-index:100;box-shadow:-15px 0 50px #0009;transition:.3s;display:flex;flex-direction:column;border-left:1px solid #a17b35}
+.cartBox.open{right:0}
+.cartHead{padding:20px;border-bottom:1px solid #5d4825;display:flex;justify-content:space-between;align-items:center}
+.cartHead h2{margin:0}
+.close{background:#2b2115;color:#fff;border:1px solid #80652f;border-radius:10px;padding:8px 12px;font-size:18px;cursor:pointer}
+.cartItems{flex:1;overflow:auto;padding:15px}
+.empty{text-align:center;color:#ddd;margin-top:60px}
+.cartItem{background:rgba(28,23,17,.78);border:1px solid #574421;border-radius:14px;padding:13px;margin-bottom:12px}
+.cartItem strong{display:block;margin-bottom:8px}
+.itemPrice{color:#efd27d;font-weight:bold}
+.controls{display:flex;align-items:center;gap:8px;margin-top:10px}
+.controls button{width:32px;height:32px;border:0;border-radius:8px;background:#332717;color:#fff;font-size:18px;cursor:pointer}
+.remove{margin-right:auto;background:#4b2027!important;color:#ffb5bd!important;font-size:13px!important;width:auto!important;padding:0 10px}
+.total{padding:18px;border-top:1px solid #5d4825;background:rgba(13,11,9,.88)}
+.totalRow{display:flex;justify-content:space-between;font-size:20px;font-weight:bold;margin-bottom:14px}
+.checkout{width:100%;padding:13px;border:0;border-radius:12px;background:#25D366;color:#fff;font-weight:900;cursor:pointer;font-size:16px}
+.overlay{position:fixed;inset:0;background:#0008;z-index:90;display:none}
+.overlay.show{display:block}
+#msg{position:fixed;bottom:22px;left:5%;right:5%;z-index:120;background:#fff;color:#111;padding:15px;border-radius:14px;text-align:center;font-weight:bold;display:none;box-shadow:0 15px 40px #0009}
+.videoModal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(0,0,0,.9)}
+.videoModal.open{display:flex}
+.videoModalBox{width:min(960px,96vw);max-height:94vh;background:#0d0f15;border:1px solid #80652f;border-radius:20px;overflow:hidden;box-shadow:0 25px 80px #000;position:relative}
+.videoModal video{display:block;width:100%;max-height:82vh;background:#000;object-fit:contain}
+.videoModalClose{position:absolute;top:10px;left:10px;z-index:3;width:42px;height:42px;border:1px solid #ffffff44;border-radius:50%;background:#111827dd;color:#fff;font-size:26px;cursor:pointer}
+.videoModalTitle{padding:13px 18px;font-weight:900;color:#fff}
+@media(max-width:700px){
+header{padding:9px 3%;gap:7px}
+.logo{font-size:23px}
+.cart{padding:9px 10px;font-size:13px}
+.controlLink{font-size:10px;padding:8px 7px}
+.topMarks{height:40px;gap:10px}
+.topMarks span{width:43px;height:8px}
+.topMarks span:nth-child(2){width:34px}
+.topMarks span:nth-child(3){width:26px}
+.hero{padding:0 3% 18px}
+.heroFrame{height:270px;border-radius:18px;background-position:center center}
+.heroBrand{top:12px;right:12px;font-size:19px}
+.heroBrand small{font-size:10px}
+.heroContent{margin:12px auto;padding:16px 12px;border-radius:16px}
+.hero h1{font-size:34px;margin:7px 0 3px}
+.hero h2{font-size:20px;margin-bottom:5px}
+.hero p{font-size:14px;line-height:1.6}
+.btn{margin-top:11px;padding:11px 20px}
+.heroTiles{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}
+.heroTile{min-height:100px;border-radius:12px}
+.heroTile .tileIcon{font-size:34px}
+.heroTile b{font-size:12px;padding:8px 4px}
+.heroStrip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:10px}
+.stripItem{min-width:0;padding:9px 5px;font-size:11px;text-align:center}
+.title{padding:24px 5% 8px;display:block}
+.title h2{font-size:28px}
+.title p{margin-top:5px}
+.filters{padding:9px 5% 15px;gap:7px;overflow:auto;flex-wrap:nowrap}
+.filter{white-space:nowrap;padding:9px 13px;font-size:12px}
+.products{grid-template-columns:1fr 1fr;padding:8px 4% 55px;gap:11px}
+.productVisual{height:145px}
+.info{padding:12px}
+.info h3{font-size:16px}
+.info p{font-size:12px;min-height:38px}
+.price{font-size:18px}
+.add{padding:10px;font-size:13px}
+}
+@media(max-width:390px){
+.heroFrame{height:235px}
+.heroTiles{gap:6px}
+.heroTile{min-height:90px}
+.heroContent{padding:14px 10px}
+.hero p{font-size:13px}
+.products{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo" id="storeLogo">SILVA</div>
+  <nav class="topActions" aria-label="روابط المتجر">
+    <button class="cart" onclick="openCart()">🛒 السلة <span id="count">0</span></button>
+  </nav>
+</header>
+
+<div class="topMarks"><span></span><span></span><span></span></div>
+
+<section class="hero">
+  <div class="heroFrame">
+    <div class="heroBrand">👑 SILVA<small>More Than a Store ... It's a Digital World</small></div>
+  </div>
+
+  <div class="heroContent">
+    <span class="badge">✦ متجر رقمي مميز</span>
+    <h1 id="heroName">SILVA</h1>
+    <h2 id="heroTagline">متجرك الرقمي الراقي</h2>
+    <p id="heroDescription">اكتشف مجموعة مختارة من المنتجات الرقمية المميزة المصممة لإضافة لمسة احترافية وإبداعية إلى مشاريعك.</p>
+    <a class="btn" href="#products">تصفح المنتجات</a>
+  </div>
+
+  <div class="heroTiles">
+    <div class="heroTile" onclick="filterProducts('إطارات متحركة',this)"><span class="tileIcon">👑</span><b>إطارات متحركة</b></div>
+    <div class="heroTile" onclick="filterProducts('إطارات ثابتة',this)"><span class="tileIcon">🖼️</span><b>إطارات ثابتة</b></div>
+    <div class="heroTile" onclick="filterProducts('فيديوهات',this)"><span class="tileIcon">🎬</span><b>فيديوهات</b></div>
+    <div class="heroTile" onclick="filterProducts('دخوليات مشاهير',this)"><span class="tileIcon">🚪</span><b>دخوليات مشاهير</b></div>
+    <div class="heroTile" onclick="filterProducts('مؤثرات',this)"><span class="tileIcon">✨</span><b>مؤثرات</b></div>
+    <div class="heroTile" onclick="filterProducts('هدايا رقمية',this)"><span class="tileIcon">🎁</span><b>هدايا رقمية</b></div>
+    <div class="heroTile" onclick="filterProducts('ملفات 3D',this)"><span class="tileIcon">🧊</span><b>ملفات ثلاثية الأبعاد</b></div>
+  </div>
+
+  <div class="heroStrip">
+    <div class="stripItem">⭐ الأكثر مبيعًا</div>
+    <div class="stripItem">✨ جديد</div>
+    <div class="stripItem">💎 خدمات مميزة</div>
+    <div class="stripItem">🔥 عروض خاصة</div>
+    <div class="stripItem">🔒 دفع آمن</div>
+  </div>
+</section>
+
+<section id="products">
+  <div class="title">
+    <div>
+      <h2>منتجاتنا</h2>
+      <p>اختيارات رقمية مميزة لك</p>
+    </div>
+  </div>
+
+  <div class="filters">
+    <button class="filter active" onclick="filterProducts('all',this)">الكل</button>
+    <button class="filter" onclick="filterProducts('إطارات متحركة',this)">👑 إطارات متحركة</button>
+    <button class="filter" onclick="filterProducts('إطارات ثابتة',this)">🖼️ إطارات ثابتة</button>
+    <button class="filter" onclick="filterProducts('فيديوهات',this)">🎬 فيديوهات</button>
+    <button class="filter" onclick="filterProducts('دخوليات مشاهير',this)">🚪 دخوليات مشاهير</button>
+    <button class="filter" onclick="filterProducts('مؤثرات',this)">✨ مؤثرات</button>
+    <button class="filter" onclick="filterProducts('هدايا رقمية',this)">🎁 هدايا رقمية</button>
+    <button class="filter" onclick="filterProducts('ملفات 3D',this)">🧊 ملفات 3D</button>
+  </div>
+
+  <main class="products" id="productList"></main>
+</section>
+
+<footer>
+  <span id="footerText">SILVA © 2026 — متجرك الرقمي الراقي</span>
+  <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:14px">
+    <a href="./products-admin.html" style="color:#f5d889">إدارة المنتجات</a>
+    <a href="./settings.html" style="color:#f5d889">تخصيص الواجهة والخلفية</a>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+<div class="cartBox" id="cartBox">
+  <div class="cartHead">
+    <h2>🛒 سلة المشتريات</h2>
+    <button class="close" onclick="closeCart()">×</button>
+  </div>
+  <div class="cartItems" id="cartItems"></div>
+  <div class="total">
+    <div class="totalRow"><span>المجموع</span><span>$<span id="total">0.00</span></span></div>
+    <button class="checkout" onclick="checkout()">🟢 إتمام الطلب عبر واتساب</button>
+  </div>
+</div>
+
+<div class="videoModal" id="videoModal" onclick="closeVideoModal(event)">
+  <div class="videoModalBox" onclick="event.stopPropagation()">
+    <button class="videoModalClose" onclick="closeVideoModal()">×</button>
+    <video id="largeVideo" controls playsinline preload="metadata"></video>
+    <div class="videoModalTitle" id="largeVideoTitle"></div>
+  </div>
+</div>
+
+<div id="msg"></div>
+
+<script>
+let items=[];
+let cart=[];
+
+async function loadProducts(){
+  try{
+    const r=await fetch("./products.json?v="+Date.now());
+    if(!r.ok)throw new Error("products.json");
+    items=await r.json();
+    renderProducts();
+    updateCart();
+  }catch(e){
+    console.error(e);
+    document.getElementById("productList").innerHTML='<div style="grid-column:1/-1;text-align:center;padding:40px;color:#ffb5bd">تعذر تحميل المنتجات حاليًا.</div>';
+  }
+}
+
+function renderProducts(list=items){
+  const royalVipGallery = [
+    "./products/file_00000000dab881f48060e98f73e80c14.png",
+    "./products/file_00000000d84081f4bb77929d94833490.png",
+    "./products/file_00000000d3ec81f480fd9638414d767f.png",
+    "./products/file_00000000c52c82438cfd41fd65fc12b4.png",
+    "./products/file_00000000805881f4aaa3154397eee089.png",
+    "./products/file_000000007da481f4ac9893a8ad9a2354.png",
+    "./products/file_000000007a2081f4af61b2befe6db8b5.png",
+    "./products/file_0000000069e881f4844ea2ec9f0172c5.png"
+  ];
+
+  document.getElementById("productList").innerHTML=list.map(p=>{
+    const gallery = p.id === 5 ? royalVipGallery : (Array.isArray(p.gallery) ? p.gallery : []);
+    const imageGallery = gallery.length ? `
+      <div class="royalGallery">
+        <div class="royalGalleryTitle">✨ محتويات مجموعة Royal VIP — 8 صور</div>
+        <div class="royalGalleryGrid">
+          ${gallery.map((src,index)=>`
+            <a class="royalGalleryItem" href="${src}" target="_blank" rel="noopener">
+              <img src="${src}" alt="${p.name} — صورة ${index+1}" loading="lazy">
+              <span>عرض الصورة ${index+1}</span>
+            </a>
+          `).join("")}
+        </div>
+      </div>` : "";
+
+    return `
+    <article class="card">
+      <div class="productVisual ${p.id===5 ? "royalCoverVisual" : ""}">
+        ${p.type==="video"&&p.media?`<div class="videoPreview" onclick="openVideoModal(${p.id})"><div class="productSprite sprite${p.imagePos??0}"></div><span class="videoPreviewPlay">▶</span><span class="videoPreviewLabel">🎬 مشاهدة</span></div>`:p.type==="image"&&p.media?`<div class="videoPreview"><img src="${p.media}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;padding:8px"></div>`:`<div class="pic">${p.icon||"✨"}</div>`}
+      </div>
+      ${imageGallery}
+      <div class="info">
+        <h3>${p.name}</h3>
+        <p>${p.description||""}${p.size?`<br>📐 الحجم: ${p.size}`:""}</p>
+        <div class="price">${p.price>0?"$"+p.price.toFixed(2):"حسب الطلب"}</div>
+        <button class="add" onclick="add(${p.id})">أضف للسلة</button>
+      </div>
+    </article>`;
+  }).join("");
+}
+
+function openVideoModal(id){
+  const p=items.find(x=>x.id===id);
+  if(!p||p.type!=="video"||!p.media)return;
+  const m=document.getElementById("videoModal");
+  const v=document.getElementById("largeVideo");
+  document.getElementById("largeVideoTitle").textContent=p.name;
+  v.src=p.media;
+  m.classList.add("open");
+  document.body.style.overflow="hidden";
+  v.currentTime=0;
+  v.play().catch(()=>{});
+}
+
+function closeVideoModal(e){
+  if(e&&e.target&&e.target.id!=="videoModal")return;
+  const m=document.getElementById("videoModal");
+  const v=document.getElementById("largeVideo");
+  v.pause();
+  v.removeAttribute("src");
+  v.load();
+  m.classList.remove("open");
+  document.body.style.overflow="";
+}
+
+function filterProducts(category,button){
+  document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));
+  if(button&&button.classList.contains("filter"))button.classList.add("active");
+  renderProducts(category==="all"?items:items.filter(p=>p.category===category));
+}
+
+function add(id){
+  const f=cart.find(x=>x.id===id);
+  f?f.qty++:cart.push({id,qty:1});
+  updateCart();
+  show("تمت إضافة المنتج إلى السلة ✓");
+}
+
+function changeQty(id,value){
+  const x=cart.find(i=>i.id===id);
+  if(!x)return;
+  x.qty+=value;
+  if(x.qty<=0)cart=cart.filter(i=>i.id!==id);
+  updateCart();
+}
+
+function removeItem(id){
+  cart=cart.filter(i=>i.id!==id);
+  updateCart();
+}
+
+function updateCart(){
+  const c=cart.reduce((s,i)=>s+i.qty,0);
+  document.getElementById("count").textContent=c;
+  const box=document.getElementById("cartItems");
+
+  if(!cart.length){
+    box.innerHTML='<div class="empty">السلة فارغة 🛒</div>';
+    document.getElementById("total").textContent="0.00";
+    return;
+  }
+
+  let total=0;
+  box.innerHTML=cart.map(i=>{
+    const p=items.find(x=>x.id===i.id);
+    if(!p)return "";
+    const sub=(Number(p.price)||0)*i.qty;
+    total+=sub;
+    return`<div class="cartItem">
+      <strong>${p.icon||"✨"} ${p.name}</strong>
+      <div class="itemPrice">${p.price>0?"$"+p.price.toFixed(2)+" للقطعة":"السعر حسب الطلب"}</div>
+      <div class="controls">
+        <button onclick="changeQty(${p.id},-1)">−</button>
+        <span>${i.qty}</span>
+        <button onclick="changeQty(${p.id},1)">+</button>
+        <button class="remove" onclick="removeItem(${p.id})">حذف</button>
+      </div>
+    </div>`;
+  }).join("");
+
+  document.getElementById("total").textContent=total.toFixed(2);
+}
+
+function openCart(){
+  document.getElementById("cartBox").classList.add("open");
+  document.getElementById("overlay").classList.add("show");
+  updateCart();
+}
+
+function closeCart(){
+  document.getElementById("cartBox").classList.remove("open");
+  document.getElementById("overlay").classList.remove("show");
+}
+
+function checkout(){
+  if(!cart.length){
+    show("السلة فارغة 🛒");
+    return;
+  }
+
+  let lines=["🛍️ طلب جديد من متجر SILVA","","📦 المنتجات:"];
+  let total=0;
+
+  cart.forEach(i=>{
+    const p=items.find(x=>x.id===i.id);
+    if(!p)return;
+    const sub=(Number(p.price)||0)*i.qty;
+    total+=sub;
+    lines.push(`• ${p.name} × ${i.qty} = ${p.price>0?"$"+sub.toFixed(2):"حسب الطلب"}`);
+  });
+
+  lines.push("","💰 المجموع: $"+total.toFixed(2),"","أريد إتمام هذا الطلب.");
+  const phone=window.SILVA_SETTINGS?.whatsapp||"213795455075";
+  window.location.href=`https://wa.me/${phone}?text=${encodeURIComponent(lines.join("\n"))}`;
+}
+
+function show(t){
+  const m=document.getElementById("msg");
+  m.textContent=t;
+  m.style.display="block";
+  setTimeout(()=>m.style.display="none",1800);
+}
+
+async function loadStoreSettings(){
+  try{
+    const r=await fetch("./site-settings.json?v="+Date.now());
+    if(!r.ok)throw new Error("settings");
+    const s=await r.json();
+    window.SILVA_SETTINGS=s;
+
+    if(s.colors){
+      document.documentElement.style.setProperty("--gold",s.colors.accent||"#d8b35a");
+      document.documentElement.style.setProperty("--gold2",s.colors.accentLight||"#f5d889");
+    }
+
+    document.title=(s.storeName||"SILVA")+" | "+(s.tagline||"متجرك الرقمي الراقي");
+    document.getElementById("storeLogo").textContent=s.storeName||"SILVA";
+    document.getElementById("heroName").textContent=s.storeName||"SILVA";
+    document.getElementById("heroTagline").textContent=s.tagline||"متجرك الرقمي الراقي";
+    document.getElementById("heroDescription").textContent=s.heroDescription||"";
+    document.getElementById("footerText").textContent=(s.storeName||"SILVA")+" © 2026 — "+(s.tagline||"متجرك الرقمي الراقي");
+  }catch(e){
+    window.SILVA_SETTINGS={whatsapp:"213795455075"};
+    console.warn("تعذر تحميل إعدادات المتجر:",e);
+  }
+}
+
+loadStoreSettings();
+loadProducts();
+</script>
+</body>
+</html>
