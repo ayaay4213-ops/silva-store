@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#08050d"/><stop offset=".52" stop-color="#24102d"/><stop offset="1" stop-color="#09060e"/></linearGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0a8"/><stop offset=".45" stop-color="#d5a33d"/><stop offset="1" stop-color="#8b4d17"/></linearGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <radialGradient id="shine"><stop stop-color="#8c4ac5" stop-opacity=".36"/><stop offset="1" stop-color="#140b1b" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1200" height="760" rx="34" fill="url(#bg)"/><rect width="1200" height="760" rx="34" fill="url(#shine)"/>
+<rect x="20" y="20" width="1160" height="720" rx="26" fill="none" stroke="url(#gold)" stroke-width="3"/>
+<path d="M65 150 Q600 20 1135 150 M65 610 Q600 740 1135 610" fill="none" stroke="#d4a442" stroke-opacity=".5" stroke-width="2"/>
+<text x="600" y="78" text-anchor="middle" fill="#f5d889" font-family="Georgia,serif" font-size="25" letter-spacing="9">SILVA DIGITAL STORE</text>
+<text x="600" y="145" text-anchor="middle" fill="url(#gold)" font-family="Arial,sans-serif" font-size="50" font-weight="bold">مجموعة الإطارات الملكية النادرة</text>
+<text x="600" y="190" text-anchor="middle" fill="#f3d6a0" font-family="Georgia,serif" font-size="30" font-style="italic">Royal Frames Collection</text>
+<g fill="none" stroke="url(#gold)" stroke-width="4" filter="url(#glow)">
+ <circle cx="145" cy="330" r="68"/><circle cx="145" cy="330" r="54"/>
+ <path d="M93 283 Q65 242 103 220 L126 267 L145 218 L164 267 L188 220 Q224 246 196 283"/>
+ <path d="M207 310 Q265 260 276 306 Q250 342 213 356 M83 310 Q25 260 14 306 Q40 342 77 356"/>
+ <circle cx="1055" cy="330" r="68"/><circle cx="1055" cy="330" r="54"/>
+ <path d="M1003 283 Q975 242 1013 220 L1036 267 L1055 218 L1074 267 L1098 220 Q1134 246 1106 283"/>
+ <path d="M1117 310 Q1175 260 1186 306 Q1160 342 1123 356 M993 310 Q935 260 924 306 Q950 342 987 356"/>
+</g>
+<g transform="translate(600 330)" fill="none" stroke="url(#gold)" stroke-width="3">
+ <circle r="88"/><circle r="72"/><path d="M-57 -57 Q-84 -96 -44 -105 L-22 -75 L0 -124 L22 -75 L44 -105 Q84 -96 57 -57"/>
+ <path d="M-83 20 Q-126 -8 -116 -42 Q-83 -31 -66 0 M83 20 Q126 -8 116 -42 Q83 -31 66 0"/>
+ <path d="M-62 62 Q0 95 62 62 M-35 76 L-24 104 L0 85 L24 104 L35 76"/>
+ <path d="M-15 -10 L0 -29 L15 -10 L0 12 Z" fill="#c62049" stroke="#ffe6a2" stroke-width="2"/>
+</g>
+<g font-family="Arial,sans-serif" font-weight="bold" font-size="23" fill="#f8df9d" text-anchor="middle">
+ <text x="330" y="275">أجنحة ملكية</text><text x="330" y="310">👑  ✨  👑</text>
+ <text x="870" y="275">ورود وقلوب</text><text x="870" y="310">🌹  💎  🌹</text>
+ <text x="330" y="435">إطارات نارية</text><text x="330" y="470">🔥  🔥  🔥</text>
+ <text x="870" y="435">كريستال وجليد</text><text x="870" y="470">❄  💠  ❄</text>
+</g>
+<g fill="none" stroke="#d7a746" stroke-width="2" opacity=".8">
+ <rect x="265" y="235" width="130" height="170" rx="18"/><rect x="805" y="235" width="130" height="170" rx="18"/>
+ <rect x="265" y="395" width="130" height="120" rx="18"/><rect x="805" y="395" width="130" height="120" rx="18"/>
+</g>
+<rect x="450" y="535" width="300" height="92" rx="22" fill="#170d1a" stroke="url(#gold)" stroke-width="3"/>
+<text x="600" y="572" text-anchor="middle" fill="#fff0b4" font-family="Arial,sans-serif" font-size="20">المجموعة الكاملة</text>
+<text x="600" y="612" text-anchor="middle" fill="url(#gold)" font-family="Georgia,serif" font-size="42" font-weight="bold">$10 USD</text>
+<text x="600" y="682" text-anchor="middle" fill="#f5d889" font-family="Arial,sans-serif" font-size="23">إطارات • تيجان • خلفيات • بنرات كوينزات • ملحقات</text>
+</svg>
