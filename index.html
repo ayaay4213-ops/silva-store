@@ -50,6 +50,14 @@ header{position:sticky;top:0;z-index:50;min-height:68px;padding:10px 4%;display:
 .card{background:rgba(18,14,11,.42);border:1px solid #b18a4a;border-radius:20px;overflow:hidden;box-shadow:0 15px 38px #0006;transition:.25s;backdrop-filter:none}
 .card:hover{transform:translateY(-4px);border-color:#e0bd61}
 .productVisual{height:190px;position:relative;overflow:hidden;background:rgba(9,10,13,.35)}
+.royalCoverVisual{height:220px;background:rgba(9,10,13,.35)}
+.royalGallery{padding:12px;background:rgba(10,8,15,.50);border-top:1px solid #b18a4a}
+.royalGalleryTitle{text-align:center;color:#f5d889;font-weight:900;font-size:14px;padding:5px 4px 12px}
+.royalGalleryGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.royalGalleryItem{min-width:0;display:block;text-decoration:none;color:#f5d889;background:rgba(18,14,11,.7);border:1px solid #b18a4a;border-radius:12px;overflow:hidden;text-align:center}
+.royalGalleryItem img{display:block;width:100%;height:155px;object-fit:contain;background:rgba(5,5,8,.4);padding:5px}
+.royalGalleryItem span{display:block;padding:7px 3px;font-size:11px;font-weight:800}
+@media(max-width:390px){.royalCoverVisual{height:200px}.royalGallery{padding:8px}.royalGalleryGrid{gap:6px}.royalGalleryItem img{height:125px}}
 .productSprite{position:absolute;inset:0;background-image:url('./products/silva-sprite.jpg');background-size:200% 200%;background-repeat:no-repeat}
 .sprite0{background-position:0 0}.sprite1{background-position:100% 0}.sprite2{background-position:0 100%}.sprite3{background-position:100% 100%}
 .videoPreview{width:100%;height:100%;position:relative;cursor:pointer;background:rgba(8,9,12,.35);overflow:hidden}
@@ -248,18 +256,46 @@ async function loadProducts(){
 }
 
 function renderProducts(list=items){
-  document.getElementById("productList").innerHTML=list.map(p=>`
+  const royalVipGallery = [
+    "./products/file_00000000dab881f48060e98f73e80c14.png",
+    "./products/file_00000000d84081f4bb77929d94833490.png",
+    "./products/file_00000000d3ec81f480fd9638414d767f.png",
+    "./products/file_00000000c52c82438cfd41fd65fc12b4.png",
+    "./products/file_00000000805881f4aaa3154397eee089.png",
+    "./products/file_000000007da481f4ac9893a8ad9a2354.png",
+    "./products/file_000000007a2081f4af61b2befe6db8b5.png",
+    "./products/file_0000000069e881f4844ea2ec9f0172c5.png"
+  ];
+
+  document.getElementById("productList").innerHTML=list.map(p=>{
+    const gallery = p.id === 5 ? royalVipGallery : (Array.isArray(p.gallery) ? p.gallery : []);
+    const imageGallery = gallery.length ? `
+      <div class="royalGallery">
+        <div class="royalGalleryTitle">✨ محتويات مجموعة Royal VIP — 8 صور</div>
+        <div class="royalGalleryGrid">
+          ${gallery.map((src,index)=>`
+            <a class="royalGalleryItem" href="${src}" target="_blank" rel="noopener">
+              <img src="${src}" alt="${p.name} — صورة ${index+1}" loading="lazy">
+              <span>عرض الصورة ${index+1}</span>
+            </a>
+          `).join("")}
+        </div>
+      </div>` : "";
+
+    return `
     <article class="card">
-      <div class="productVisual">
-        ${p.type==="video"&&p.media?`<div class="videoPreview" onclick="openVideoModal(${p.id})"><div class="productSprite sprite${p.imagePos??0}"></div><span class="videoPreviewPlay">▶</span><span class="videoPreviewLabel">🎬 مشاهدة</span></div>`:p.type==="image"&&p.media?`<div class="videoPreview"><img src="${p.media}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover"></div>`:`<div class="pic">${p.icon||"✨"}</div>`}
+      <div class="productVisual ${p.id===5 ? "royalCoverVisual" : ""}">
+        ${p.type==="video"&&p.media?`<div class="videoPreview" onclick="openVideoModal(${p.id})"><div class="productSprite sprite${p.imagePos??0}"></div><span class="videoPreviewPlay">▶</span><span class="videoPreviewLabel">🎬 مشاهدة</span></div>`:p.type==="image"&&p.media?`<div class="videoPreview"><img src="${p.media}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;padding:8px"></div>`:`<div class="pic">${p.icon||"✨"}</div>`}
       </div>
+      ${imageGallery}
       <div class="info">
         <h3>${p.name}</h3>
-        <p>${p.description}${p.size?`<br>📐 الحجم: ${p.size}`:""}</p>
+        <p>${p.description||""}${p.size?`<br>📐 الحجم: ${p.size}`:""}</p>
         <div class="price">${p.price>0?"$"+p.price.toFixed(2):"حسب الطلب"}</div>
         <button class="add" onclick="add(${p.id})">أضف للسلة</button>
       </div>
-    </article>`).join("");
+    </article>`;
+  }).join("");
 }
 
 function openVideoModal(id){
