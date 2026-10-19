@@ -70,5 +70,18 @@
     "type": "image",
     "media": "./products/royal-vip-cover.svg",
     "imagePos": null
+  },
+  {
+    "id": 6,
+    "icon": "👑",
+    "name": "تصاميم حسب الطلب",
+    "description": "مجموعة خاصة لعرض البنرات المصممة حسب ذوقك. أرسل فكرتك أو الصورة المرجعية عبر واتساب لتحديد التفاصيل والسعر.",
+    "price": 0,
+    "size": "حسب الطلب",
+    "category": "تصاميم حسب الطلب",
+    "type": "icon",
+    "media": "",
+    "imagePos": null,
+    "gallery": []
   }
 ]
