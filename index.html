@@ -51,6 +51,11 @@ header{position:sticky;top:0;z-index:50;min-height:68px;padding:10px 4%;display:
 .card:hover{transform:translateY(-4px);border-color:#e0bd61}
 .productVisual{height:190px;position:relative;overflow:hidden;background:rgba(9,10,13,.35)}
 .royalCoverVisual{height:220px;background:rgba(9,10,13,.35)}
+.customDesignCover{height:220px;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:radial-gradient(ellipse at 50% 20%,#6e2a85 0,#24102e 38%,#08070b 78%);border-bottom:1px solid #d8ad4e}
+.customDesignCover:before{content:"";position:absolute;inset:10px;border:1px solid #d8ad4e;border-radius:12px;box-shadow:inset 0 0 22px #a65cff55,0 0 16px #d8ad4e55}
+.customDesignCover .customCrown{font-size:45px;filter:drop-shadow(0 0 10px #f4c75e);z-index:1}
+.customDesignCover strong{z-index:1;color:#f5d889;font-size:clamp(22px,5vw,30px);text-shadow:0 2px 12px #000}
+.customDesignCover span{z-index:1;color:#fff;font-size:13px;margin-top:8px;text-shadow:0 2px 6px #000}
 .royalGallery{padding:12px;background:rgba(10,8,15,.50);border-top:1px solid #b18a4a}
 .royalGalleryTitle{text-align:center;color:#f5d889;font-weight:900;font-size:14px;padding:5px 4px 12px}
 .royalGalleryGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
@@ -168,6 +173,7 @@ header{padding:9px 3%;gap:7px}
   <div class="heroTiles">
     <div class="heroTile" onclick="filterProducts('إطارات متحركة',this)"><span class="tileIcon">👑</span><b>إطارات متحركة</b></div>
     <div class="heroTile" onclick="filterProducts('إطارات ثابتة',this)"><span class="tileIcon">🖼️</span><b>إطارات ثابتة</b></div>
+    <div class="heroTile" onclick="filterProducts('تصاميم حسب الطلب',this)"><span class="tileIcon">👑</span><b>تصاميم حسب الطلب</b></div>
     <div class="heroTile" onclick="filterProducts('فيديوهات',this)"><span class="tileIcon">🎬</span><b>فيديوهات</b></div>
     <div class="heroTile" onclick="filterProducts('دخوليات مشاهير',this)"><span class="tileIcon">🚪</span><b>دخوليات مشاهير</b></div>
     <div class="heroTile" onclick="filterProducts('مؤثرات',this)"><span class="tileIcon">✨</span><b>مؤثرات</b></div>
@@ -196,6 +202,7 @@ header{padding:9px 3%;gap:7px}
     <button class="filter active" onclick="filterProducts('all',this)">الكل</button>
     <button class="filter" onclick="filterProducts('إطارات متحركة',this)">👑 إطارات متحركة</button>
     <button class="filter" onclick="filterProducts('إطارات ثابتة',this)">🖼️ إطارات ثابتة</button>
+    <button class="filter" onclick="filterProducts('تصاميم حسب الطلب',this)">👑 تصاميم حسب الطلب</button>
     <button class="filter" onclick="filterProducts('فيديوهات',this)">🎬 فيديوهات</button>
     <button class="filter" onclick="filterProducts('دخوليات مشاهير',this)">🚪 دخوليات مشاهير</button>
     <button class="filter" onclick="filterProducts('مؤثرات',this)">✨ مؤثرات</button>
@@ -271,7 +278,7 @@ function renderProducts(list=items){
     const gallery = p.id === 5 ? royalVipGallery : (Array.isArray(p.gallery) ? p.gallery : []);
     const imageGallery = gallery.length ? `
       <div class="royalGallery">
-        <div class="royalGalleryTitle">✨ محتويات مجموعة Royal VIP — 8 صور</div>
+        <div class="royalGalleryTitle">${p.id===6?"✨ بنرات تصاميم حسب الطلب":"✨ محتويات مجموعة Royal VIP — 8 صور"}</div>
         <div class="royalGalleryGrid">
           ${gallery.map((src,index)=>`
             <a class="royalGalleryItem" href="${src}" target="_blank" rel="noopener">
@@ -284,8 +291,8 @@ function renderProducts(list=items){
 
     return `
     <article class="card">
-      <div class="productVisual ${p.id===5 ? "royalCoverVisual" : ""}">
-        ${p.type==="video"&&p.media?`<div class="videoPreview" onclick="openVideoModal(${p.id})"><div class="productSprite sprite${p.imagePos??0}"></div><span class="videoPreviewPlay">▶</span><span class="videoPreviewLabel">🎬 مشاهدة</span></div>`:p.type==="image"&&p.media?`<div class="videoPreview"><img src="${p.media}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;padding:8px"></div>`:`<div class="pic">${p.icon||"✨"}</div>`}
+      <div class="productVisual ${p.id===5 ? "royalCoverVisual" : ""} ${p.id===6 ? "customDesignCover" : ""}">
+        ${p.id===6?`<div class="customCrown">👑</div><strong>تصاميم حسب الطلب</strong><span>بنرات خاصة • لمستك • هويتك</span>`:p.type==="video"&&p.media?`<div class="videoPreview" onclick="openVideoModal(${p.id})"><div class="productSprite sprite${p.imagePos??0}"></div><span class="videoPreviewPlay">▶</span><span class="videoPreviewLabel">🎬 مشاهدة</span></div>`:p.type==="image"&&p.media?`<div class="videoPreview"><img src="${p.media}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;padding:8px"></div>`:`<div class="pic">${p.icon||"✨"}</div>`}
       </div>
       ${imageGallery}
       <div class="info">
