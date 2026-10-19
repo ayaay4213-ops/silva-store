@@ -83,5 +83,29 @@
     "media": "",
     "imagePos": null,
     "gallery": []
+  },
+  {
+    "id": 7,
+    "icon": "🦁",
+    "name": "دخولية ملكية — The Honored",
+    "description": "فيديو دخولية جاهز بطابع ملكي فاخر",
+    "price": 10,
+    "size": "",
+    "category": "فيديوهات",
+    "type": "video",
+    "media": "./The_Honored1_pindown.io_1792420848.mp4",
+    "imagePos": null
+  },
+  {
+    "id": 8,
+    "icon": "👑",
+    "name": "دخولية ملكية — Kmonu",
+    "description": "فيديو دخولية جاهز لإطلالة مميزة وفخمة",
+    "price": 10,
+    "size": "",
+    "category": "فيديوهات",
+    "type": "video",
+    "media": "./kmonu2338_pindown.io_1792420965.mp4",
+    "imagePos": null
   }
 ]
