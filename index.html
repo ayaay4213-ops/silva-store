@@ -292,7 +292,7 @@ function renderProducts(list=items){
     return `
     <article class="card">
       <div class="productVisual ${p.id===5 ? "royalCoverVisual" : ""} ${p.id===6 ? "customDesignCover" : ""}">
-        ${p.id===6?`<div class="customCrown">👑</div><strong>تصاميم حسب الطلب</strong><span>بنرات خاصة • لمستك • هويتك</span>`:p.type==="video"&&p.media?`<div class="videoPreview" onclick="openVideoModal(${p.id})"><div class="productSprite sprite${p.imagePos??0}"></div><span class="videoPreviewPlay">▶</span><span class="videoPreviewLabel">🎬 مشاهدة</span></div>`:p.type==="image"&&p.media?`<div class="videoPreview"><img src="${p.media}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;padding:8px"></div>`:`<div class="pic">${p.icon||"✨"}</div>`}
+        ${p.id===6?`<img src="./products/file_000000002d0c81f4b1444ee5f6db8772.png" alt="غلاف تصاميم حسب الطلب" style="width:100%;height:100%;object-fit:cover;display:block">`:p.type==="video"&&p.media?`<div class="videoPreview" onclick="openVideoModal(${p.id})"><div class="productSprite sprite${p.imagePos??0}"></div><span class="videoPreviewPlay">▶</span><span class="videoPreviewLabel">🎬 مشاهدة</span></div>`:p.type==="image"&&p.media?`<div class="videoPreview"><img src="${p.media}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;padding:8px"></div>`:`<div class="pic">${p.icon||"✨"}</div>`}
       </div>
       ${imageGallery}
       <div class="info">
