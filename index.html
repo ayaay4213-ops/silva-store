@@ -68,6 +68,25 @@ header{position:sticky;top:0;z-index:50;min-height:68px;padding:10px 4%;display:
 .videoPreview{width:100%;height:100%;position:relative;cursor:pointer;background:rgba(8,9,12,.35);overflow:hidden}
 .videoPreviewPlay{position:absolute;inset:0;display:grid;place-items:center;font-size:42px;text-shadow:0 4px 20px #000;background:radial-gradient(circle,rgba(210,160,35,.25),transparent 55%)}
 .videoPreviewLabel{position:absolute;bottom:10px;right:10px;padding:6px 9px;border-radius:9px;background:rgba(11,10,8,.78);border:1px solid #80652f;font-size:11px;font-weight:900}
+
+/* SILVA ready entrance videos: animated royal lion feature */
+.lionTileIcon{filter:drop-shadow(0 0 8px #f6c85e);animation:lionPulse 2.8s ease-in-out infinite}
+.entranceShowcase{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:18px;margin:16px 0 4px;padding:20px 18px;min-height:148px;border:1px solid rgba(255,211,103,.9);border-radius:22px;background:radial-gradient(ellipse at 22% 50%,rgba(126,50,161,.38),transparent 48%),linear-gradient(120deg,rgba(5,5,9,.92),rgba(31,14,39,.91),rgba(7,7,10,.94));box-shadow:0 0 22px #b8873540,inset 0 0 24px #d9a83b12;cursor:pointer;text-align:right}
+.entranceShowcase:before{content:"";position:absolute;inset:-45%;z-index:-1;background:linear-gradient(115deg,transparent 42%,rgba(255,231,157,.16) 49%,transparent 56%);transform:translateX(-55%);animation:goldSweep 5s ease-in-out infinite}
+.entranceShowcase:after{content:"✦  ·  ✧  ·  ✦";position:absolute;left:14px;top:13px;color:#f5d889;letter-spacing:7px;opacity:.75;animation:starTwinkle 3s ease-in-out infinite}
+.entranceLion{flex:0 0 auto;font-size:clamp(62px,12vw,94px);line-height:1;filter:drop-shadow(0 0 10px #ffca54) drop-shadow(0 0 24px #9b53c7);animation:lionFloat 3.4s ease-in-out infinite}
+.entranceCopy{min-width:0;position:relative;z-index:1}
+.entranceEyebrow{color:#f5d889;font-size:11px;font-weight:900;letter-spacing:2px;margin-bottom:6px}
+.entranceCopy h3{margin:0;color:#fff1c5;font-size:clamp(19px,4.2vw,29px);text-shadow:0 0 14px #d7a84377}
+.entranceCopy p{margin:7px 0 0;color:#eee2ff;font-size:13px;line-height:1.7}
+.entrancePill{display:inline-block;margin-top:10px;padding:7px 13px;border:1px solid #e9c76d;border-radius:99px;color:#fff0bd;background:#6f4a171f;font-size:12px;font-weight:900;box-shadow:0 0 12px #e5bd4a26}
+@keyframes lionFloat{0%,100%{transform:translateY(2px) scale(1) rotate(-2deg)}50%{transform:translateY(-7px) scale(1.045) rotate(2deg)}}
+@keyframes lionPulse{0%,100%{filter:drop-shadow(0 0 6px #f6c85e)}50%{filter:drop-shadow(0 0 15px #f6c85e) drop-shadow(0 0 8px #a25bdb)}}
+@keyframes goldSweep{0%,20%{transform:translateX(-65%)}75%,100%{transform:translateX(65%)}}
+@keyframes starTwinkle{0%,100%{opacity:.42}50%{opacity:1}}
+@media(max-width:480px){.entranceShowcase{gap:11px;padding:18px 12px;min-height:132px;border-radius:17px}.entranceLion{font-size:62px}.entranceCopy p{font-size:11px}.entranceEyebrow{font-size:9px}.entrancePill{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.lionTileIcon,.entranceShowcase:before,.entranceShowcase:after,.entranceLion{animation:none}}
+
 .pic{height:100%;display:grid;place-items:center;font-size:60px}
 .info{padding:16px;background:transparent}
 .info h3{margin:0 0 7px;font-size:19px;text-shadow:0 1px 4px #000}
@@ -174,12 +193,22 @@ header{padding:9px 3%;gap:7px}
     <div class="heroTile" onclick="filterProducts('إطارات متحركة',this)"><span class="tileIcon">👑</span><b>إطارات متحركة</b></div>
     <div class="heroTile" onclick="filterProducts('إطارات ثابتة',this)"><span class="tileIcon">🖼️</span><b>إطارات ثابتة</b></div>
     <div class="heroTile" onclick="filterProducts('تصاميم حسب الطلب',this)"><span class="tileIcon">👑</span><b>تصاميم حسب الطلب</b></div>
-    <div class="heroTile" onclick="filterProducts('فيديوهات',this)"><span class="tileIcon">🎬</span><b>فيديوهات</b></div>
+    <div class="heroTile" onclick="filterProducts('فيديوهات',this)"><span class="tileIcon lionTileIcon">🦁</span><b>فيديوهات دخوليات جاهزة</b></div>
     <div class="heroTile" onclick="filterProducts('دخوليات مشاهير',this)"><span class="tileIcon">🚪</span><b>دخوليات مشاهير</b></div>
     <div class="heroTile" onclick="filterProducts('مؤثرات',this)"><span class="tileIcon">✨</span><b>مؤثرات</b></div>
     <div class="heroTile" onclick="filterProducts('هدايا رقمية',this)"><span class="tileIcon">🎁</span><b>هدايا رقمية</b></div>
     <div class="heroTile" onclick="filterProducts('ملفات 3D',this)"><span class="tileIcon">🧊</span><b>ملفات ثلاثية الأبعاد</b></div>
   </div>
+
+  <button class="entranceShowcase" type="button" onclick="filterProducts('فيديوهات',null);document.getElementById('products').scrollIntoView({behavior:'smooth'})" aria-label="تصفح فيديوهات الدخوليات الجاهزة">
+    <span class="entranceLion" aria-hidden="true">🦁</span>
+    <span class="entranceCopy">
+      <span class="entranceEyebrow">SILVA ROYAL COLLECTION</span>
+      <h3>فيديوهات دخوليات جاهزة</h3>
+      <p>تأثيرات فخمة • لمعان ذهبي • حضور ملكي</p>
+      <span class="entrancePill">اكتشفي المجموعة ✦</span>
+    </span>
+  </button>
 
   <div class="heroStrip">
     <div class="stripItem">⭐ الأكثر مبيعًا</div>
@@ -203,7 +232,7 @@ header{padding:9px 3%;gap:7px}
     <button class="filter" onclick="filterProducts('إطارات متحركة',this)">👑 إطارات متحركة</button>
     <button class="filter" onclick="filterProducts('إطارات ثابتة',this)">🖼️ إطارات ثابتة</button>
     <button class="filter" onclick="filterProducts('تصاميم حسب الطلب',this)">👑 تصاميم حسب الطلب</button>
-    <button class="filter" onclick="filterProducts('فيديوهات',this)">🎬 فيديوهات</button>
+    <button class="filter" onclick="filterProducts('فيديوهات',this)">🦁 فيديوهات دخوليات جاهزة</button>
     <button class="filter" onclick="filterProducts('دخوليات مشاهير',this)">🚪 دخوليات مشاهير</button>
     <button class="filter" onclick="filterProducts('مؤثرات',this)">✨ مؤثرات</button>
     <button class="filter" onclick="filterProducts('هدايا رقمية',this)">🎁 هدايا رقمية</button>
