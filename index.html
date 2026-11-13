@@ -383,6 +383,33 @@ footer a{color:#d8bd86!important}
   .info{padding:11px}
 }
 
+
+/* Final polish: consistent premium surfaces, keyboard focus and compact mobile grid */
+.customDesignCover{
+  background:radial-gradient(ellipse at 50% 12%,#fffdf8 0,#f0e7d7 58%,#dfd1b9 100%);
+  border-bottom:1px solid #d7c4a0;
+}
+.customDesignCover:before{
+  border-color:#b89455;
+  box-shadow:inset 0 0 22px #b8945518,0 0 16px #b8945522;
+}
+.customDesignCover strong{color:#3a3023;text-shadow:none}
+.customDesignCover span{color:#77664c;text-shadow:none}
+.customDesignCover .customCrown{filter:drop-shadow(0 2px 5px #b8945555)}
+button:focus-visible,a:focus-visible{
+  outline:3px solid #b89455;
+  outline-offset:3px;
+}
+.filter,.add,.cart,.checkout,.btn,.heroTile,.entranceShowcase{
+  transition:background-color .2s ease,color .2s ease,border-color .2s ease,transform .2s ease,box-shadow .2s ease;
+}
+@media(min-width:391px) and (max-width:700px){
+  .products{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media(max-width:390px){
+  .products{grid-template-columns:1fr;}
+}
+
 </style>
 </head>
 <body>
