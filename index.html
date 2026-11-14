@@ -691,8 +691,8 @@ function renderProducts(list=items, categoryLabel=""){
         <div class="royalGalleryGrid">
           ${gallery.map((src,index)=>`
             <div class="royalGalleryItem">
-              <img src="${src}" alt="${p.id===5?"Royal VIP — التصميم":"تصميم"} ${index+1}" loading="lazy">
-              <span>${p.id===5?"تصميم":"عنصر"} ${index+1}</span>
+              <img src="${src}" alt="${p.name} — التصميم ${index+1}" loading="lazy">
+              <span>${p.name} — التصميم ${index+1}</span>
               <button class="add galleryAdd" type="button" onclick="add(${p.id},${index})">أضف هذا التصميم للسلة</button>
             </div>
           `).join("")}
@@ -785,7 +785,7 @@ function updateCart(){
     if(!p)return "";
     const sub=(Number(p.price)||0)*i.qty;
     total+=sub;
-    const itemName=i.designIndex===null||i.designIndex===undefined?p.name:`Royal VIP — التصميم ${i.designIndex+1}`;
+    const itemName=i.designIndex===null||i.designIndex===undefined?p.name:`${p.name} — التصميم ${i.designIndex+1}`;
     return`<div class="cartItem">
       <strong>${p.icon||"✨"} ${itemName}</strong>
       <div class="itemPrice">${p.price>0?"$"+p.price.toFixed(2)+" للقطعة":"السعر حسب الطلب"}</div>
@@ -826,7 +826,7 @@ function checkout(){
     if(!p)return;
     const sub=(Number(p.price)||0)*i.qty;
     total+=sub;
-    const itemName=i.designIndex===null||i.designIndex===undefined?p.name:`Royal VIP — التصميم ${i.designIndex+1}`;
+    const itemName=i.designIndex===null||i.designIndex===undefined?p.name:`${p.name} — التصميم ${i.designIndex+1}`;
     lines.push(`• ${itemName} × ${i.qty} = ${p.price>0?"$"+sub.toFixed(2):"حسب الطلب"}`);
   });
 
