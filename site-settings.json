@@ -1,16 +1,16 @@
 {
-"storeName": "SILVA",
-"tagline": "متجرك الرقمي الراقي",
-"heroDescription": "اكتشف مجموعة مختارة من المنتجات الرقمية المميزة المصممة لإضافة لمسة احترافية وإبداعية إلى مشاريعك.",
-"whatsapp": "213795455075",
-"theme": "custom",
-"heroImage": "./Picsart_26-10-09_18-20-36-786.png",
-"backgroundImage": "./Picsart_26-10-09_18-20-21-118.png",
-"colors": {
-"accent": "#ffbf75",
-"accentLight": "#f5d889",
-"background": "#100c18",
-"card": "#00000066" 
-"text": "#ffffff"
-}
+  "storeName": "LUNÉRA STUDIO",
+  "tagline": "استوديو التصميم الرقمي الراقي",
+  "heroDescription": "اكتشفي تصاميم رقمية وخدمات إبداعية بلمسة أنيقة واحترافية من LUNÉRA STUDIO.",
+  "whatsapp": "213795455075",
+  "theme": "custom",
+  "heroImage": "./Picsart_26-10-09_18-20-36-786.png",
+  "backgroundImage": "./Picsart_26-10-09_18-20-21-118.png",
+  "colors": {
+    "accent": "#d6b36a",
+    "accentLight": "#f1dfb2",
+    "background": "#171513",
+    "card": "#00000066",
+    "text": "#ffffff"
+  }
 }
