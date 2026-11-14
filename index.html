@@ -62,6 +62,7 @@ header{position:sticky;top:0;z-index:50;min-height:68px;padding:10px 4%;display:
 .royalGalleryItem{min-width:0;display:block;text-decoration:none;color:#f5d889;background:rgba(18,14,11,.7);border:1px solid #b18a4a;border-radius:12px;overflow:hidden;text-align:center}
 .royalGalleryItem img{display:block;width:100%;height:155px;object-fit:contain;background:rgba(5,5,8,.4);padding:5px}
 .royalGalleryItem span{display:block;padding:7px 3px;font-size:11px;font-weight:800}
+.royalGalleryItem .galleryAdd{width:calc(100% - 12px);margin:0 6px 8px;padding:9px 5px;border-radius:9px;font-size:11px}
 @media(max-width:390px){.royalCoverVisual{height:200px}.royalGallery{padding:8px}.royalGalleryGrid{gap:6px}.royalGalleryItem img{height:125px}}
 .productSprite{position:absolute;inset:0;background-image:url('./products/silva-sprite.jpg');background-size:200% 200%;background-repeat:no-repeat}
 .sprite0{background-position:0 0}.sprite1{background-position:100% 0}.sprite2{background-position:0 100%}.sprite3{background-position:100% 100%}
@@ -689,10 +690,11 @@ function renderProducts(list=items, categoryLabel=""){
         <div class="royalGalleryTitle">✨ ${galleryTitle}</div>
         <div class="royalGalleryGrid">
           ${gallery.map((src,index)=>`
-            <a class="royalGalleryItem" href="${src}" target="_blank" rel="noopener">
-              <img src="${src}" alt="${p.name} — صورة ${index+1}" loading="lazy">
-              <span>عرض الصورة ${index+1}</span>
-            </a>
+            <div class="royalGalleryItem">
+              <img src="${src}" alt="${p.id===5?"Royal VIP — التصميم":"تصميم"} ${index+1}" loading="lazy">
+              <span>${p.id===5?"تصميم":"عنصر"} ${index+1}</span>
+              <button class="add galleryAdd" type="button" onclick="add(${p.id},${index})">أضف هذا التصميم للسلة</button>
+            </div>
           `).join("")}
         </div>
       </div>` : "";
@@ -706,8 +708,8 @@ function renderProducts(list=items, categoryLabel=""){
         <h3>${p.name}</h3>
         <p>${p.description||""}${p.size?`<br>📐 الحجم: ${p.size}`:""}</p>
         ${imageGallery}
-        <div class="price">${p.price>0?"$"+p.price.toFixed(2):"حسب الطلب"}</div>
-        <button class="add" onclick="add(${p.id})">أضف للسلة</button>
+        ${p.id===5?"":`<div class="price">${p.price>0?"$"+p.price.toFixed(2):"حسب الطلب"}</div>
+        <button class="add" onclick="add(${p.id})">أضف للسلة</button>`}
       </div>
     </article>`;
   }).join("");
@@ -746,23 +748,23 @@ function filterProducts(category,button){
   if(category!=="all") document.getElementById("products").scrollIntoView({behavior:"smooth",block:"start"});
 }
 
-function add(id){
-  const f=cart.find(x=>x.id===id);
-  f?f.qty++:cart.push({id,qty:1});
+function add(id,designIndex=null){
+  const f=cart.find(x=>x.id===id&&x.designIndex===designIndex);
+  f?f.qty++:cart.push({id,designIndex,qty:1});
   updateCart();
-  show("تمت إضافة المنتج إلى السلة ✓");
+  show(designIndex===null?"تمت إضافة المنتج إلى السلة ✓":"تمت إضافة التصميم وحده إلى السلة ✓");
 }
 
-function changeQty(id,value){
-  const x=cart.find(i=>i.id===id);
+function changeQty(id,value,designIndex=null){
+  const x=cart.find(i=>i.id===id&&i.designIndex===designIndex);
   if(!x)return;
   x.qty+=value;
-  if(x.qty<=0)cart=cart.filter(i=>i.id!==id);
+  if(x.qty<=0)cart=cart.filter(i=>!(i.id===id&&i.designIndex===designIndex));
   updateCart();
 }
 
-function removeItem(id){
-  cart=cart.filter(i=>i.id!==id);
+function removeItem(id,designIndex=null){
+  cart=cart.filter(i=>!(i.id===id&&i.designIndex===designIndex));
   updateCart();
 }
 
@@ -783,14 +785,15 @@ function updateCart(){
     if(!p)return "";
     const sub=(Number(p.price)||0)*i.qty;
     total+=sub;
+    const itemName=i.designIndex===null||i.designIndex===undefined?p.name:`Royal VIP — التصميم ${i.designIndex+1}`;
     return`<div class="cartItem">
-      <strong>${p.icon||"✨"} ${p.name}</strong>
+      <strong>${p.icon||"✨"} ${itemName}</strong>
       <div class="itemPrice">${p.price>0?"$"+p.price.toFixed(2)+" للقطعة":"السعر حسب الطلب"}</div>
       <div class="controls">
-        <button onclick="changeQty(${p.id},-1)">−</button>
+        <button onclick="changeQty(${p.id},-1,${i.designIndex??"null"})">−</button>
         <span>${i.qty}</span>
-        <button onclick="changeQty(${p.id},1)">+</button>
-        <button class="remove" onclick="removeItem(${p.id})">حذف</button>
+        <button onclick="changeQty(${p.id},1,${i.designIndex??"null"})">+</button>
+        <button class="remove" onclick="removeItem(${p.id},${i.designIndex??"null"})">حذف</button>
       </div>
     </div>`;
   }).join("");
@@ -823,7 +826,8 @@ function checkout(){
     if(!p)return;
     const sub=(Number(p.price)||0)*i.qty;
     total+=sub;
-    lines.push(`• ${p.name} × ${i.qty} = ${p.price>0?"$"+sub.toFixed(2):"حسب الطلب"}`);
+    const itemName=i.designIndex===null||i.designIndex===undefined?p.name:`Royal VIP — التصميم ${i.designIndex+1}`;
+    lines.push(`• ${itemName} × ${i.qty} = ${p.price>0?"$"+sub.toFixed(2):"حسب الطلب"}`);
   });
 
   lines.push("","💰 المجموع: $"+total.toFixed(2),"","أريد إتمام هذا الطلب.");
