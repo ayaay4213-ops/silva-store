@@ -820,3 +820,40 @@ loadProducts();
 </script>
 </body>
 </html>
+
+/* SILVA final centered layout correction */
+html,body{width:100%;min-width:0;max-width:100%;overflow-x:hidden}
+body{margin:0!important;padding:0!important}
+body>header,body>.hero,body>#products,body>footer{width:100%;max-width:100%;margin-left:auto!important;margin-right:auto!important}
+header{display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap}
+.topActions{display:flex;align-items:center;justify-content:flex-end;min-width:0}
+.hero{display:block;box-sizing:border-box}
+.heroFrame,.heroContent,.heroTiles,.entranceShowcase,.heroStrip{margin-left:auto!important;margin-right:auto!important}
+.heroTiles{display:grid;width:100%;max-width:1100px;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.entranceShowcase{display:flex;width:100%;max-width:1100px;box-sizing:border-box}
+.heroStrip{display:grid;width:100%;max-width:1100px;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+#products{display:block;box-sizing:border-box}
+#products>.title,#products>.filters{width:100%;box-sizing:border-box}
+.products{display:grid;width:100%;box-sizing:border-box;margin:0 auto!important;justify-content:center;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),260px));}
+.card{width:100%;min-width:0;max-width:100%;margin:0}
+.productVisual img,.card img{max-width:100%;height:auto;object-fit:contain}
+footer{text-align:center;box-sizing:border-box}
+@media(max-width:700px){
+ body>header{padding:10px 4%;gap:8px}
+ body>.hero{padding-left:4%;padding-right:4%}
+ .heroFrame{width:100%;margin-inline:auto}
+ .heroContent{width:100%;max-width:100%}
+ .heroTiles{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .entranceShowcase{width:100%;max-width:100%;gap:10px}
+ .heroStrip{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #products>.title,#products>.filters{padding-left:4%;padding-right:4%}
+ .products{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:12px 4% 42px}
+ .card{min-width:0}
+}
+@media(max-width:360px){
+ .products{gap:7px;padding-left:3%;padding-right:3%}
+ .info{padding:8px}
+ .info h3{font-size:13px}
+ .info p{font-size:10px}
+ .add{font-size:10px;padding:8px 4px}
+}
