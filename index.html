@@ -500,6 +500,17 @@ img,video{max-width:100%}
 }
 
 
+
+/* Consistent in-category product layout across every store section */
+.categoryProductsHeading{grid-column:1/-1;display:flex;align-items:center;gap:12px;justify-content:space-between;padding:14px 16px;margin:0 0 8px;border:1px solid #c9a96e55;border-radius:14px;background:#eae5df;color:#3d3c3a}
+.categoryProductsHeading div{display:flex;flex-direction:column;gap:4px}
+.categoryProductsHeading strong{font-size:18px}
+.categoryProductsHeading small{font-size:12px;color:#5a5855}
+.categoryProductsHeading button{border:1px solid #c9a96e;border-radius:20px;background:#3d3c3a;color:#fff;padding:9px 13px;font-weight:700;white-space:nowrap}
+.royalGallery{width:100%;margin-top:12px}
+.royalGalleryGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.royalGalleryItem img{width:100%;height:145px;object-fit:contain}
+@media(max-width:390px){.categoryProductsHeading strong{font-size:16px}.royalGalleryItem img{height:120px}}
 </style>
 </head>
 <body>
@@ -627,7 +638,7 @@ async function loadProducts(){
   }
 }
 
-function renderProducts(list=items){
+function renderProducts(list=items, categoryLabel=""){
   const royalVipGallery = [
     "./products/file_00000000dab881f48060e98f73e80c14.png",
     "./products/file_00000000d84081f4bb77929d94833490.png",
@@ -639,7 +650,12 @@ function renderProducts(list=items){
     "./products/file_0000000069e881f4844ea2ec9f0172c5.png"
   ];
 
-  document.getElementById("productList").innerHTML=list.map(p=>{
+  const sectionHeading = categoryLabel ? `
+    <div class="categoryProductsHeading">
+      <button type="button" onclick="filterProducts('all',document.querySelector('.filter'))">‹ كل الأقسام</button>
+      <div><strong>${categoryLabel}</strong><small>${list.length} منتجات داخل القسم</small></div>
+    </div>` : "";
+  document.getElementById("productList").innerHTML=sectionHeading+list.map(p=>{
     const gallery = p.id === 5 ? royalVipGallery : (Array.isArray(p.gallery) ? p.gallery : []);
     const galleryTitle = p.id===6 ? "بنرات التصاميم" : p.id===5 ? "محتويات مجموعة Royal VIP" : "تصاميم المنتج";
     const imageGallery = gallery.length ? `
@@ -698,7 +714,10 @@ function closeVideoModal(e){
 function filterProducts(category,button){
   document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));
   if(button&&button.classList.contains("filter"))button.classList.add("active");
-  renderProducts(category==="all"?items:items.filter(p=>p.category===category));
+  const selected=category==="all"?items:items.filter(p=>p.category===category);
+  const label=category==="all"?"":category;
+  renderProducts(selected,label);
+  if(category!=="all") document.getElementById("products").scrollIntoView({behavior:"smooth",block:"start"});
 }
 
 function add(id){
