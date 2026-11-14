@@ -499,6 +499,21 @@ img,video{max-width:100%}
  .add{font-size:11px;padding:9px 5px}
 }
 
+
+/* Product designs stay tucked inside each product until requested */
+.galleryToggle{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  width:100%;margin:14px 0 0;padding:11px 14px;
+  border:1px solid var(--silva-gold,#C9A96E);border-radius:12px;
+  background:var(--silva-cream,#EAE5DF);color:var(--silva-charcoal,#3D3C3A);
+  font:700 14px Arial,Tahoma,sans-serif;cursor:pointer;
+}
+.galleryToggle small{font-size:11px;opacity:.75}
+.royalGallery[hidden]{display:none!important}
+.royalGallery{margin-top:10px;border:1px solid var(--silva-divider,#D5CEC4);border-radius:14px;overflow:hidden}
+.royalGalleryGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.royalGalleryItem img{height:145px}
+@media(max-width:390px){.royalGalleryItem img{height:115px}}
 </style>
 </head>
 <body>
@@ -640,9 +655,11 @@ function renderProducts(list=items){
 
   document.getElementById("productList").innerHTML=list.map(p=>{
     const gallery = p.id === 5 ? royalVipGallery : (Array.isArray(p.gallery) ? p.gallery : []);
+    const galleryTitle = p.id===6 ? "بنرات التصاميم" : p.id===5 ? "محتويات مجموعة Royal VIP" : "تصاميم المنتج";
     const imageGallery = gallery.length ? `
-      <div class="royalGallery">
-        <div class="royalGalleryTitle">${p.id===6?"✨ بنرات تصاميم حسب الطلب":"✨ محتويات مجموعة Royal VIP — 8 صور"}</div>
+      <button class="galleryToggle" type="button" aria-expanded="false" onclick="toggleProductGallery(this)">عرض التصاميم <span>＋</span> <small>(${gallery.length})</small></button>
+      <div class="royalGallery" hidden>
+        <div class="royalGalleryTitle">✨ ${galleryTitle}</div>
         <div class="royalGalleryGrid">
           ${gallery.map((src,index)=>`
             <a class="royalGalleryItem" href="${src}" target="_blank" rel="noopener">
@@ -658,15 +675,25 @@ function renderProducts(list=items){
       <div class="productVisual ${p.id===5 ? "royalCoverVisual" : ""} ${p.id===6 ? "customDesignCover" : ""}">
         ${p.id===6?`<img src="./products/file_000000002d0c81f4b1444ee5f6db8772.png" alt="غلاف تصاميم حسب الطلب" style="width:100%;height:100%;object-fit:cover;display:block">`:p.type==="video"&&p.media?`<div class="videoPreview" onclick="openVideoModal(${p.id})"><div class="productSprite sprite${p.imagePos??0}"></div><span class="videoPreviewPlay">▶</span><span class="videoPreviewLabel">🎬 مشاهدة</span></div>`:p.type==="image"&&p.media?`<div class="videoPreview"><img src="${p.media}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;padding:8px"></div>`:`<div class="pic">${p.icon||"✨"}</div>`}
       </div>
-      ${imageGallery}
       <div class="info">
         <h3>${p.name}</h3>
         <p>${p.description||""}${p.size?`<br>📐 الحجم: ${p.size}`:""}</p>
+        ${imageGallery}
         <div class="price">${p.price>0?"$"+p.price.toFixed(2):"حسب الطلب"}</div>
         <button class="add" onclick="add(${p.id})">أضف للسلة</button>
       </div>
     </article>`;
   }).join("");
+}
+
+function toggleProductGallery(button){
+  const gallery=button.nextElementSibling;
+  if(!gallery)return;
+  const opening=gallery.hidden;
+  gallery.hidden=!opening;
+  button.setAttribute("aria-expanded",String(opening));
+  button.querySelector("span").textContent=opening?"－":"＋";
+  button.firstChild.textContent=opening?"إخفاء التصاميم ":"عرض التصاميم ";
 }
 
 function openVideoModal(id){
