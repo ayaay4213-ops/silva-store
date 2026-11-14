@@ -652,11 +652,20 @@ async function loadProducts(){
 function renderProducts(list=items, categoryLabel=""){
   // Landing view: show category cards first. Products appear only after entering a category.
   if(!categoryLabel){
-    const categories=[...new Set(items.map(p=>p.category).filter(Boolean))];
+    const categories=[...new Set([
+      ...items.map(p=>p.category).filter(Boolean),
+      "إعلانات تجارية",
+      "دعوات زفاف",
+      "تصاميم مدرسية",
+      "تصاميم منتجات",
+      "تصاميم سوشيال ميديا",
+      "شعارات وهوية بصرية",
+      "بوسترات ولافتات",
+      "تصاميم مخصصة"
+    ])];
     document.getElementById("productList").innerHTML=categories.map(category=>{
       const products=items.filter(p=>p.category===category);
-      const icons={"إطارات متحركة":"👑","إطارات ثابتة":"🖼️","تصاميم حسب الطلب":"✨","فيديوهات":"🎬","دخوليات مشاهير":"🚪","مؤثرات":"💫","هدايا رقمية":"🎁","ملفات 3D":"🧊"};
-      const sample=products.find(p=>p.type==="image"&&p.media);
+      const icons={"إطارات متحركة":"👑","إطارات ثابتة":"🖼️","تصاميم حسب الطلب":"✨","فيديوهات":"🎬","دخوليات مشاهير":"🚪","مؤثرات":"💫","هدايا رقمية":"🎁","ملفات 3D":"🧊","إعلانات تجارية":"📢","دعوات زفاف":"💍","تصاميم مدرسية":"📚","تصاميم منتجات":"🛍️","تصاميم سوشيال ميديا":"📱","شعارات وهوية بصرية":"✒️","بوسترات ولافتات":"🖼️","تصاميم مخصصة":"✨"};
       return `<button class="categoryEntry" type="button" onclick="filterProducts('${category.replace(/'/g,"\\'")}',null)">
         <span class="categoryEntryIcon">${icons[category]||"✦"}</span>
         <span class="categoryEntryName">${category}</span>
@@ -682,6 +691,10 @@ function renderProducts(list=items, categoryLabel=""){
       <button type="button" onclick="filterProducts('all',document.querySelector('.filter'))">‹ كل الأقسام</button>
       <div><strong>${categoryLabel}</strong><small>${list.length} منتجات داخل القسم</small></div>
     </div>` : "";
+  if(!list.length){
+    document.getElementById("productList").innerHTML=sectionHeading+`<div class="categoryEmptyState">هذا القسم جاهز لاستقبال تصاميمه قريبًا. ستظهر التصاميم هنا ويمكن إضافة كل تصميم إلى السلة بشكل مستقل.</div>`;
+    return;
+  }
   document.getElementById("productList").innerHTML=sectionHeading+list.map(p=>{
     const gallery = p.id === 5 ? royalVipGallery : (Array.isArray(p.gallery) ? p.gallery : []);
     const galleryTitle = p.id===6 ? "بنرات التصاميم" : p.id===5 ? "محتويات مجموعة Royal VIP" : "تصاميم المنتج";
@@ -877,6 +890,21 @@ loadProducts();
 </script>
 </body>
 </html>
+
+/* Added customer-requested design categories */
+.categoryEmptyState{
+  grid-column:1/-1;
+  width:min(100%,760px);
+  margin:18px auto 36px;
+  padding:28px 22px;
+  text-align:center;
+  color:#5b5144;
+  background:#e3ded6;
+  border:1px solid #b89455;
+  border-radius:18px;
+  line-height:1.9;
+  box-shadow:0 10px 24px rgba(42,34,22,.07);
+}
 
 /* SILVA final centered layout correction */
 html,body{width:100%;min-width:0;max-width:100%;overflow-x:hidden}
