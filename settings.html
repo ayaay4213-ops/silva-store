@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Silva Studio | لوحة تخصيص المتجر</title>
+<title>LUNÉRA STUDIO | لوحة تخصيص المتجر</title>
 <style>
 :root{--bg:#0e0a13;--panel:#1a1422;--line:#3a2b49;--accent:#bd78ff;--txt:#fff}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0,#342047,var(--bg) 50%);font-family:Arial,Tahoma,sans-serif;color:var(--txt)}
@@ -14,7 +14,7 @@ main{max-width:1200px;margin:26px auto;padding:0 16px}.intro{margin-bottom:22px}
 </style>
 </head>
 <body>
-<header><div class="logo">SILVA <span>STUDIO</span></div><div class="pill">لوحة تخصيص الواجهة</div></header>
+<header><div class="logo">LUNÉRA <span>STUDIO</span></div><div class="pill">لوحة تخصيص الواجهة</div></header>
 <main>
 <section class="intro"><h1>غيّري واجهة متجرك بنفسك</h1><p>اختاري الألوان وارْفعي صورة من هاتفك وشاهدي المعاينة مباشرة قبل تنزيل إعداداتك.</p></section>
 <div class="layout">
@@ -25,7 +25,7 @@ main{max-width:1200px;margin:26px auto;padding:0 16px}.intro{margin-bottom:22px}
 <div class="field"><label for="accentLight">لون العناوين</label><input id="accentLight" type="color" value="#f5d889"></div>
 <div class="field"><label for="bg">خلفية المتجر</label><input id="bg" type="color" value="#100c18"></div>
 <div class="field"><label for="card">خلفية البطاقات</label><input id="card" type="color" value="#21172e"></div>
-<div class="field full"><label for="heroFile">صورة الواجهة الرئيسية (من الهاتف)</label><input id="heroFile" type="file" accept="image/jpeg,image/png,image/webp"><small>يفضّل JPG أو WebP. سيتم تنزيل الصورة باسم silva-custom-hero.jpg.</small></div>
+<div class="field full"><label for="heroFile">صورة الواجهة الرئيسية (من الهاتف)</label><input id="heroFile" type="file" accept="image/jpeg,image/png,image/webp"><small>يفضّل JPG أو WebP. سيتم تنزيل الصورة باسم lunera-custom-hero.jpg.</small></div>
 <div class="field full"><label for="bgFile">صورة خلفية المتجر (اختياري، من الهاتف)</label><input id="bgFile" type="file" accept="image/jpeg,image/png,image/webp"><small>إذا تركتِها فارغة، تُستخدم صورة الواجهة كخلفية.</small></div>
 </div>
 <div class="actions"><button class="btn primary" id="downloadSettings">تنزيل إعدادات التصميم</button><button class="btn secondary" id="reset">إرجاع الألوان الأصلية</button></div>
@@ -36,7 +36,7 @@ main{max-width:1200px;margin:26px auto;padding:0 16px}.intro{margin-bottom:22px}
 <section class="panel">
 <h2>◉ معاينة مباشرة</h2>
 <div class="preview">
-<div class="previewHero" id="previewHero"><h3>SILVA</h3></div>
+<div class="previewHero" id="previewHero"><h3>LUNÉRA STUDIO</h3></div>
 <div class="previewBody" id="previewBody">
 <div class="previewCard" id="previewCard"><b>متجرك الرقمي الراقي</b><p style="color:#cfc4da;font-size:13px;line-height:1.7">اختيارات رقمية مميزة لك</p><div class="previewButton" id="previewButton">تصفح المنتجات</div></div>
 <div class="previewCard" id="previewProduct"><b>🎁 هدايا رقمية</b><p style="color:#cfc4da;font-size:13px">تصاميم رقمية أنيقة ومميزة</p></div>
@@ -48,15 +48,15 @@ main{max-width:1200px;margin:26px auto;padding:0 16px}.intro{margin-bottom:22px}
 </main>
 <script>
 const $=id=>document.getElementById(id);
-let heroData="",bgData="",heroName="silva-custom-hero.jpg",bgName="silva-custom-background.jpg";
-function paint(){const a=$("accent").value,al=$("accentLight").value,b=$("bg").value,c=$("card").value;document.documentElement.style.setProperty("--accent",a);$("previewHero").style.backgroundImage="linear-gradient(0deg,#0008,transparent),url('"+(heroData||"./silva-new-hero.jpg")+"')";$("previewHero").style.backgroundColor=b;$("previewBody").style.background=b;$("previewCard").style.background=c;$("previewProduct").style.background=c;$("previewButton").style.background=a;$("previewButton").style.color="#17101e";$("previewHero").style.borderBottom="3px solid "+a;$("previewHero").querySelector("h3").style.color=al;$("status").textContent="تم تحديث المعاينة. نزّلي الإعدادات لحفظ اختياراتك."}
+let heroData="",bgData="",heroName="silva-custom-hero.jpg",bgName="lunera-custom-background.jpg";
+function paint(){const a=$("accent").value,al=$("accentLight").value,b=$("bg").value,c=$("card").value;document.documentElement.style.setProperty("--accent",a);$("previewHero").style.backgroundImage="linear-gradient(0deg,#0008,transparent),url('"+(heroData||"./lunera-new-hero.jpg")+"')";$("previewHero").style.backgroundColor=b;$("previewBody").style.background=b;$("previewCard").style.background=c;$("previewProduct").style.background=c;$("previewButton").style.background=a;$("previewButton").style.color="#17101e";$("previewHero").style.borderBottom="3px solid "+a;$("previewHero").querySelector("h3").style.color=al;$("status").textContent="تم تحديث المعاينة. نزّلي الإعدادات لحفظ اختياراتك."}
 ["accent","accentLight","bg","card"].forEach(id=>$(id).addEventListener("input",paint));
 function readFile(input,which){const file=input.files&&input.files[0];if(!file)return;if(!/^image\/(jpeg|png|webp)$/.test(file.type)){input.value="";$("status").textContent="اختاري صورة JPG أو PNG أو WebP.";return}if(file.size>8*1024*1024){input.value="";$("status").textContent="حجم الصورة أكبر من 8 ميغابايت. اختاري صورة أصغر.";return}const reader=new FileReader();reader.onload=()=>{if(which==="hero")heroData=reader.result;else bgData=reader.result;paint();if(which==="bg"&&bgData)$("previewBody").style.backgroundImage="linear-gradient(#100b1588,#100b1588),url('"+bgData+"')"};reader.readAsDataURL(file)}
 $("heroFile").addEventListener("change",()=>readFile($("heroFile"),"hero"));$("bgFile").addEventListener("change",()=>readFile($("bgFile"),"bg"));
 function saveBlob(blob,name){const url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1200)}
 function downloadImage(data,name){if(!data){$("status").textContent="اختاري صورة من الهاتف أولًا.";return}fetch(data).then(r=>r.blob()).then(b=>saveBlob(b,name))}
 $("downloadHero").onclick=()=>downloadImage(heroData,heroName);$("downloadBg").onclick=()=>downloadImage(bgData,bgName);
-$("downloadSettings").onclick=()=>{const settings={storeName:"SILVA",tagline:"متجرك الرقمي الراقي",heroDescription:"اكتشف مجموعة مختارة من المنتجات الرقمية المميزة المصممة لإضافة لمسة احترافية وإبداعية إلى مشاريعك.",whatsapp:"213795455075",theme:"custom",heroImage:heroData?"./"+heroName:"./silva-new-hero.jpg",backgroundImage:bgData?"./"+bgName:(heroData?"./"+heroName:"./silva-new-hero.jpg"),colors:{accent:$("accent").value,accentLight:$("accentLight").value,background:$("bg").value,card:$("card").value,text:"#ffffff"}};saveBlob(new Blob([JSON.stringify(settings,null,2)],{type:"application/json;charset=utf-8"}),"site-settings.json");$("status").textContent="تم تنزيل site-settings.json. ارفعي الصور المختارة أيضًا إلى مستودع الموقع."};
+$("downloadSettings").onclick=()=>{const settings={storeName:"LUNÉRA STUDIO",tagline:"متجرك الرقمي الراقي",heroDescription:"اكتشف مجموعة مختارة من المنتجات الرقمية المميزة المصممة لإضافة لمسة احترافية وإبداعية إلى مشاريعك.",whatsapp:"213795455075",theme:"custom",heroImage:heroData?"./"+heroName:"./silva-new-hero.jpg",backgroundImage:bgData?"./"+bgName:(heroData?"./"+heroName:"./silva-new-hero.jpg"),colors:{accent:$("accent").value,accentLight:$("accentLight").value,background:$("bg").value,card:$("card").value,text:"#ffffff"}};saveBlob(new Blob([JSON.stringify(settings,null,2)],{type:"application/json;charset=utf-8"}),"site-settings.json");$("status").textContent="تم تنزيل site-settings.json. ارفعي الصور المختارة أيضًا إلى مستودع الموقع."};
 $("reset").onclick=()=>{$("accent").value="#bd78ff";$("accentLight").value="#f5d889";$("bg").value="#100c18";$("card").value="#21172e";heroData="";bgData="";$("heroFile").value="";$("bgFile").value="";paint();$("previewBody").style.backgroundImage="none"};
 paint();
 </script>
