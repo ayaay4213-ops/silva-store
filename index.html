@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SILVA | متجرك الرقمي الراقي</title>
+<title>LUNÉRA STUDIO | متجرك الرقمي الراقي</title>
 <style>
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -526,7 +526,7 @@ img,video{max-width:100%}
 </head>
 <body>
 <header>
-  <div class="logo" id="storeLogo">SILVA</div>
+  <div class="logo" id="storeLogo">LUNÉRA STUDIO</div>
   <nav class="topActions" aria-label="روابط المتجر">
     <button class="cart" onclick="openCart()">🛒 السلة <span id="count">0</span></button>
   </nav>
@@ -536,12 +536,12 @@ img,video{max-width:100%}
 
 <section class="hero">
   <div class="heroFrame">
-    <div class="heroBrand">👑 SILVA<small>More Than a Store ... It's a Digital World</small></div>
+    <div class="heroBrand">LUNÉRA STUDIO<small>More Than a Store ... It's a Digital World</small></div>
   </div>
 
   <div class="heroContent">
     <span class="badge">✦ متجر رقمي مميز</span>
-    <h1 id="heroName">SILVA</h1>
+    <h1 id="heroName">LUNÉRA STUDIO</h1>
     <h2 id="heroTagline">متجرك الرقمي الراقي</h2>
     <p id="heroDescription">اكتشف مجموعة مختارة من المنتجات الرقمية المميزة المصممة لإضافة لمسة احترافية وإبداعية إلى مشاريعك.</p>
     <a class="btn" href="#products">تصفح المنتجات</a>
@@ -561,7 +561,7 @@ img,video{max-width:100%}
   <button class="entranceShowcase" type="button" onclick="filterProducts('فيديوهات',null);document.getElementById('products').scrollIntoView({behavior:'smooth'})" aria-label="تصفح فيديوهات الدخوليات الجاهزة">
     <span class="entranceLion" aria-hidden="true">🦁</span>
     <span class="entranceCopy">
-      <span class="entranceEyebrow">SILVA ROYAL COLLECTION</span>
+      <span class="entranceEyebrow">LUNÉRA STUDIO COLLECTION</span>
       <h3>فيديوهات دخوليات جاهزة</h3>
       <p>تأثيرات فخمة • لمعان ذهبي • حضور ملكي</p>
       <span class="entrancePill">اكتشفي المجموعة ✦</span>
@@ -601,7 +601,7 @@ img,video{max-width:100%}
 </section>
 
 <footer>
-  <span id="footerText">SILVA © 2026 — متجرك الرقمي الراقي</span>
+  <span id="footerText">LUNÉRA STUDIO © 2026 — متجرك الرقمي الراقي</span>
   <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:14px">
     <a href="./products-admin.html" style="color:#f5d889">إدارة المنتجات</a>
     <a href="./settings.html" style="color:#f5d889">تخصيص الواجهة والخلفية</a>
@@ -831,7 +831,7 @@ function checkout(){
     return;
   }
 
-  let lines=["🛍️ طلب جديد من متجر SILVA","","📦 المنتجات:"];
+  let lines=["🛍️ طلب جديد من متجر LUNÉRA STUDIO","","📦 المنتجات:"];
   let total=0;
 
   cart.forEach(i=>{
@@ -873,12 +873,12 @@ async function loadStoreSettings(){
       root.style.setProperty("--silva-gold",s.colors.accent||"#B99A68");
     }
 
-    document.title=(s.storeName||"SILVA")+" | "+(s.tagline||"متجرك الرقمي الراقي");
-    document.getElementById("storeLogo").textContent=s.storeName||"SILVA";
-    document.getElementById("heroName").textContent=s.storeName||"SILVA";
+    document.title=(s.storeName||"LUNÉRA STUDIO")+" | "+(s.tagline||"متجرك الرقمي الراقي");
+    document.getElementById("storeLogo").textContent=s.storeName||"LUNÉRA STUDIO";
+    document.getElementById("heroName").textContent=s.storeName||"LUNÉRA STUDIO";
     document.getElementById("heroTagline").textContent=s.tagline||"متجرك الرقمي الراقي";
     document.getElementById("heroDescription").textContent=s.heroDescription||"";
-    document.getElementById("footerText").textContent=(s.storeName||"SILVA")+" © 2026 — "+(s.tagline||"متجرك الرقمي الراقي");
+    document.getElementById("footerText").textContent=(s.storeName||"LUNÉRA STUDIO")+" © 2026 — "+(s.tagline||"متجرك الرقمي الراقي");
   }catch(e){
     window.SILVA_SETTINGS={whatsapp:"213795455075"};
     console.warn("تعذر تحميل إعدادات المتجر:",e);
