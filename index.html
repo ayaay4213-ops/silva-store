@@ -500,20 +500,6 @@ img,video{max-width:100%}
 }
 
 
-/* Product designs stay tucked inside each product until requested */
-.galleryToggle{
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  width:100%;margin:14px 0 0;padding:11px 14px;
-  border:1px solid var(--silva-gold,#C9A96E);border-radius:12px;
-  background:var(--silva-cream,#EAE5DF);color:var(--silva-charcoal,#3D3C3A);
-  font:700 14px Arial,Tahoma,sans-serif;cursor:pointer;
-}
-.galleryToggle small{font-size:11px;opacity:.75}
-.royalGallery[hidden]{display:none!important}
-.royalGallery{margin-top:10px;border:1px solid var(--silva-divider,#D5CEC4);border-radius:14px;overflow:hidden}
-.royalGalleryGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
-.royalGalleryItem img{height:145px}
-@media(max-width:390px){.royalGalleryItem img{height:115px}}
 </style>
 </head>
 <body>
@@ -657,8 +643,7 @@ function renderProducts(list=items){
     const gallery = p.id === 5 ? royalVipGallery : (Array.isArray(p.gallery) ? p.gallery : []);
     const galleryTitle = p.id===6 ? "بنرات التصاميم" : p.id===5 ? "محتويات مجموعة Royal VIP" : "تصاميم المنتج";
     const imageGallery = gallery.length ? `
-      <button class="galleryToggle" type="button" aria-expanded="false" onclick="toggleProductGallery(this)">عرض التصاميم <span>＋</span> <small>(${gallery.length})</small></button>
-      <div class="royalGallery" hidden>
+      <div class="royalGallery">
         <div class="royalGalleryTitle">✨ ${galleryTitle}</div>
         <div class="royalGalleryGrid">
           ${gallery.map((src,index)=>`
@@ -684,16 +669,6 @@ function renderProducts(list=items){
       </div>
     </article>`;
   }).join("");
-}
-
-function toggleProductGallery(button){
-  const gallery=button.nextElementSibling;
-  if(!gallery)return;
-  const opening=gallery.hidden;
-  gallery.hidden=!opening;
-  button.setAttribute("aria-expanded",String(opening));
-  button.querySelector("span").textContent=opening?"－":"＋";
-  button.firstChild.textContent=opening?"إخفاء التصاميم ":"عرض التصاميم ";
 }
 
 function openVideoModal(id){
