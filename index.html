@@ -953,6 +953,12 @@ async function loadStoreSettings(){
     document.getElementById("heroName").textContent=s.storeName||"LUNÉRA STUDIO";
     document.getElementById("heroTagline").textContent=s.tagline||"متجرك الرقمي الراقي";
     document.getElementById("heroDescription").textContent=s.heroDescription||"";
+    const heroFrame=document.querySelector(".heroFrame");
+    if(heroFrame && s.heroImage){
+      heroFrame.style.backgroundImage='url("'+s.heroImage.replace(/["\\]/g,"")+'")';
+      heroFrame.style.backgroundSize="cover";
+      heroFrame.style.backgroundPosition="center";
+    }
     document.getElementById("footerText").textContent=(s.storeName||"LUNÉRA STUDIO")+" © 2026 — "+(s.tagline||"متجرك الرقمي الراقي");
   }catch(e){
     window.SILVA_SETTINGS={whatsapp:"213795455075"};
