@@ -62,6 +62,7 @@ header{position:sticky;top:0;z-index:50;min-height:68px;padding:10px 4%;display:
 .royalGalleryItem{min-width:0;display:block;text-decoration:none;color:#f5d889;background:rgba(18,14,11,.7);border:1px solid #b18a4a;border-radius:12px;overflow:hidden;text-align:center}
 .royalGalleryItem img{display:block;width:100%;height:155px;object-fit:contain;background:rgba(5,5,8,.4);padding:5px}
 .royalGalleryItem span{display:block;padding:7px 3px;font-size:11px;font-weight:800}
+.royalGalleryItem .galleryAdd{width:calc(100% - 12px);margin:0 6px 8px;padding:9px 5px;border-radius:9px;font-size:11px}
 @media(max-width:390px){.royalCoverVisual{height:200px}.royalGallery{padding:8px}.royalGalleryGrid{gap:6px}.royalGalleryItem img{height:125px}}
 .productSprite{position:absolute;inset:0;background-image:url('./products/silva-sprite.jpg');background-size:200% 200%;background-repeat:no-repeat}
 .sprite0{background-position:0 0}.sprite1{background-position:100% 0}.sprite2{background-position:0 100%}.sprite3{background-position:100% 100%}
@@ -164,6 +165,363 @@ header{padding:9px 3%;gap:7px}
 .hero p{font-size:13px}
 .products{grid-template-columns:1fr}
 }
+
+/* SILVA PREMIUM EDITORIAL REDESIGN — visual layer only */
+:root{
+  --gold:#b89455;
+  --gold2:#d8bd86;
+  --ink:#24211d;
+  --panel:#fffdf9;
+}
+body{
+  color:var(--ink);
+  background:#f7f4ee;
+  font-family:Arial,Tahoma,sans-serif;
+}
+body:before,body:after{display:none}
+header{
+  min-height:76px;
+  padding:12px 5%;
+  background:rgba(250,248,243,.96);
+  border-bottom:1px solid #e7dfd2;
+  box-shadow:0 5px 22px rgba(50,40,25,.05);
+  backdrop-filter:blur(16px);
+}
+.logo{
+  color:#24211d;
+  font-size:30px;
+  letter-spacing:3px;
+  text-shadow:none;
+}
+.cart{
+  border:1px solid #b89455;
+  background:#24211d;
+  color:#fffaf0;
+  border-radius:999px;
+  padding:11px 19px;
+  box-shadow:0 7px 18px rgba(36,33,29,.12);
+}
+.controlLink{
+  border:1px solid #d6c7aa;
+  background:#fffdf9;
+  color:#4b4030;
+}
+.topMarks{display:none}
+.hero{
+  max-width:1440px;
+  padding:18px 4.5% 36px;
+}
+.heroFrame{
+  height:clamp(270px,43vw,520px);
+  border:1px solid #d9c9a9;
+  border-radius:5px 5px 24px 24px;
+  background-color:#e8dfd0;
+  background-size:cover;
+  background-position:center;
+  box-shadow:0 18px 45px rgba(42,34,22,.12);
+}
+.heroFrame:before{
+  background:linear-gradient(90deg,rgba(20,17,13,.04),rgba(20,17,13,.02) 48%,rgba(20,17,13,.34));
+}
+.heroFrame:after{
+  background:linear-gradient(0deg,rgba(20,17,13,.24),transparent 55%);
+}
+.heroBrand{color:#fff8e9;text-shadow:0 2px 14px #0008}
+.heroBrand small{color:#fffaf2}
+.heroContent{
+  max-width:780px;
+  margin:24px auto 18px;
+  padding:28px 24px;
+  background:#fffdf9;
+  border:1px solid #e8dfd1;
+  border-radius:20px;
+  box-shadow:0 14px 38px rgba(42,34,22,.07);
+}
+.badge{
+  background:#f5efe4;
+  border:1px solid #d9c8a7;
+  color:#82683d;
+}
+.hero h1{
+  color:#24211d;
+  text-shadow:none;
+  letter-spacing:2px;
+}
+.hero h2{color:#66563f}
+.hero p{
+  color:#70695f;
+  text-shadow:none;
+}
+.btn{
+  background:#24211d;
+  color:#fffaf0;
+  border:1px solid #b89455;
+  border-radius:999px;
+  box-shadow:0 8px 20px rgba(36,33,29,.12);
+}
+.heroTile{
+  min-height:118px;
+  background:#fffdf9;
+  border:1px solid #e5dccd;
+  box-shadow:0 9px 24px rgba(42,34,22,.06);
+}
+.heroTile .tileIcon{filter:none}
+.heroTile b{
+  background:#f4efe6;
+  color:#3d352a;
+  border-top:1px solid #e6ddce;
+}
+.heroTile:hover{border-color:#b89455}
+.entranceShowcase{
+  border:1px solid #c7ad7b;
+  background:radial-gradient(ellipse at 22% 50%,rgba(184,148,85,.24),transparent 48%),linear-gradient(120deg,#24211d,#3a3024,#24211d);
+  box-shadow:0 12px 28px rgba(42,34,22,.12);
+}
+.entranceCopy h3{color:#fff4dc}
+.entranceCopy p{color:#eee2ce}
+.entrancePill{border-color:#d8bd86;color:#f7e8c9}
+.heroStrip{max-width:900px}
+.stripItem{
+  border:1px solid #e4dac8;
+  background:#fffdf9;
+  color:#74603c;
+}
+.title{
+  padding:34px 6% 10px;
+}
+.title h2{color:#24211d;text-shadow:none}
+.title p{color:#777066;text-shadow:none}
+.filters{padding-top:14px}
+.filter{
+  border:1px solid #ded4c3;
+  background:#fffdf9;
+  color:#4c453b;
+  box-shadow:0 4px 12px rgba(42,34,22,.04);
+}
+.filter.active{
+  background:#24211d;
+  color:#fffaf0;
+  border-color:#b89455;
+}
+.products{
+  max-width:1440px;
+  margin:0 auto;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:20px;
+  padding-top:14px;
+}
+.card{
+  background:#fffdf9;
+  border:1px solid #e8dfd1;
+  border-radius:18px;
+  box-shadow:0 12px 30px rgba(42,34,22,.07);
+  backdrop-filter:none;
+}
+.card:hover{
+  transform:translateY(-5px);
+  border-color:#c8ad7b;
+  box-shadow:0 18px 36px rgba(42,34,22,.11);
+}
+.productVisual{background:#f1ece3}
+.info{background:#fffdf9}
+.info h3{color:#28241f;text-shadow:none}
+.info p{color:#746e64;text-shadow:none}
+.price{color:#98743b;text-shadow:none}
+.add{
+  border:1px solid #b89455;
+  background:#24211d;
+  color:#fffaf0;
+  border-radius:999px;
+}
+.royalGallery{
+  background:#f7f3eb;
+  border-top:1px solid #e3d8c5;
+}
+.royalGalleryTitle{color:#82683d}
+.royalGalleryItem{
+  color:#5c4a2d;
+  background:#fffdf9;
+  border-color:#e3d8c5;
+}
+.royalGalleryItem img{background:#f4efe6}
+footer{
+  background:#24211d;
+  border-top:1px solid #b89455;
+  color:#eee6d8;
+}
+footer a{color:#d8bd86!important}
+.cartBox{
+  background:#fbf8f1;
+  color:#29251f;
+  border-left:1px solid #d9c9a9;
+}
+.cartHead{border-bottom:1px solid #e4dac8}
+.cartHead h2{color:#29251f}
+.close{background:#24211d;border-color:#b89455}
+.empty{color:#81786b}
+.cartItem{background:#fffdf9;border-color:#e5dccd}
+.cartItem strong{color:#29251f}
+.itemPrice{color:#8c6a36}
+.controls button{background:#eee6d8;color:#29251f}
+.remove{background:#f3e3e2!important;color:#8b3030!important}
+.total{background:#f3eee5;border-top:1px solid #e0d5c3}
+.totalRow{color:#29251f}
+.checkout{background:#24211d;color:#fffaf0;border:1px solid #b89455}
+#msg{background:#24211d;color:#fffaf0}
+.videoModalBox{background:#171512;border-color:#b89455}
+@media(max-width:700px){
+  header{padding:10px 4%}
+  .logo{font-size:24px;letter-spacing:2px}
+  .hero{padding:12px 3% 24px}
+  .heroFrame{height:260px;border-radius:4px 4px 18px 18px}
+  .heroContent{padding:22px 15px;margin:16px auto 12px}
+  .hero h1{font-size:34px}
+  .products{gap:12px}
+}
+@media(max-width:390px){
+  .products{grid-template-columns:1fr 1fr}
+  .productVisual{height:145px}
+  .info{padding:11px}
+}
+
+
+/* Final polish: consistent premium surfaces, keyboard focus and compact mobile grid */
+.customDesignCover{
+  background:radial-gradient(ellipse at 50% 12%,#fffdf8 0,#f0e7d7 58%,#dfd1b9 100%);
+  border-bottom:1px solid #d7c4a0;
+}
+.customDesignCover:before{
+  border-color:#b89455;
+  box-shadow:inset 0 0 22px #b8945518,0 0 16px #b8945522;
+}
+.customDesignCover strong{color:#3a3023;text-shadow:none}
+.customDesignCover span{color:#77664c;text-shadow:none}
+.customDesignCover .customCrown{filter:drop-shadow(0 2px 5px #b8945555)}
+button:focus-visible,a:focus-visible{
+  outline:3px solid #b89455;
+  outline-offset:3px;
+}
+.filter,.add,.cart,.checkout,.btn,.heroTile,.entranceShowcase{
+  transition:background-color .2s ease,color .2s ease,border-color .2s ease,transform .2s ease,box-shadow .2s ease;
+}
+@media(min-width:391px) and (max-width:700px){
+  .products{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media(max-width:390px){
+  .products{grid-template-columns:1fr;}
+}
+
+
+
+/* SILVA SAND EDITORIAL PALETTE + MOBILE ALIGNMENT FIX */
+:root{
+  --silva-sand:#B8B4AE;
+  --silva-cream:#B8B4AE;
+  --silva-ivory:#C8C3BC;
+  --silva-divider:#918A80;
+  --silva-charcoal:#3D3C3A;
+  --silva-text:#44413E;
+  --silva-gold:#B99A68;
+  --gold:var(--silva-gold);
+  --gold2:#DCC69F;
+  --ink:var(--silva-charcoal);
+  --panel:var(--silva-ivory);
+}
+html,body{width:100%;max-width:100%;overflow-x:clip}
+body{margin:0;color:var(--silva-text);background:var(--silva-cream);font-family:Arial,Tahoma,sans-serif}
+header{
+ width:100%;max-width:100%;min-width:0;box-sizing:border-box;
+ background:var(--silva-sand);border-bottom:1px solid var(--silva-divider);
+ box-shadow:0 3px 14px rgba(61,60,58,.07);backdrop-filter:none;
+}
+.logo{color:var(--silva-charcoal);text-shadow:none}
+.cart{background:var(--silva-charcoal);color:var(--silva-ivory);border:1px solid var(--silva-gold);box-shadow:none}
+.controlLink{background:var(--silva-ivory);color:var(--silva-charcoal);border-color:var(--silva-divider)}
+.hero{width:100%;max-width:1440px;margin-inline:auto;min-width:0}
+.heroFrame{width:100%;max-width:100%;background-color:var(--silva-sand);border-color:var(--silva-gold)}
+.heroContent{background:var(--silva-ivory);border:1px solid var(--silva-divider);color:var(--silva-charcoal);box-shadow:0 10px 28px rgba(61,60,58,.07)}
+.badge{background:var(--silva-cream);color:var(--silva-charcoal);border-color:var(--silva-divider)}
+.hero h1,.hero h2{color:var(--silva-charcoal);text-shadow:none}
+.hero p{color:var(--silva-text);text-shadow:none}
+.btn,.filter.active,.add{background:var(--silva-charcoal);color:var(--silva-ivory);border-color:var(--silva-gold)}
+.heroTile{background:var(--silva-ivory);border-color:var(--silva-divider);box-shadow:0 6px 18px rgba(61,60,58,.06)}
+.heroTile b{background:var(--silva-cream);color:var(--silva-charcoal);border-top-color:var(--silva-divider)}
+.stripItem{background:var(--silva-ivory);color:var(--silva-text);border-color:var(--silva-divider)}
+.title{width:100%;max-width:1440px;margin-inline:auto;border-bottom:1px solid var(--silva-divider)}
+.title h2{color:var(--silva-charcoal);text-shadow:none}
+.title p{color:var(--silva-text);text-shadow:none}
+.filters{width:100%;max-width:1440px;margin-inline:auto}
+.filter{background:var(--silva-ivory);color:var(--silva-text);border-color:var(--silva-divider);box-shadow:none}
+.products{width:100%;max-width:1440px;margin-inline:auto;background:var(--silva-cream)}
+.card{background:var(--silva-ivory);border-color:var(--silva-divider);box-shadow:0 8px 22px rgba(61,60,58,.06)}
+.productVisual{background:var(--silva-cream)}
+.info{background:var(--silva-ivory)}
+.info h3{color:var(--silva-charcoal);text-shadow:none}
+.info p{color:var(--silva-text);text-shadow:none}
+.price{color:#987B4D;text-shadow:none}
+.royalGallery{background:var(--silva-cream);border-top-color:var(--silva-divider)}
+.royalGalleryTitle{color:#8C7046}
+.royalGalleryItem{background:var(--silva-ivory);color:var(--silva-charcoal);border-color:var(--silva-divider)}
+.royalGalleryItem img{background:var(--silva-cream)}
+.entranceShowcase{background:linear-gradient(115deg,#3D3C3A,#62594D 52%,#3D3C3A);border-color:var(--silva-gold)}
+.entranceCopy h3{color:#F6F4F1}
+.entranceCopy p{color:#EAE5DF}
+footer{background:var(--silva-charcoal);color:var(--silva-ivory);border-top:1px solid var(--silva-gold)}
+.cartBox{background:var(--silva-ivory);color:var(--silva-charcoal);border-left-color:var(--silva-divider)}
+.cartHead,.total{border-color:var(--silva-divider)}
+.cartHead h2,.cartItem strong,.totalRow{color:var(--silva-charcoal)}
+.cartItem{background:var(--silva-cream);border-color:var(--silva-divider)}
+.itemPrice{color:#8C7046}
+.controls button{background:var(--silva-divider);color:var(--silva-charcoal)}
+.videoModalBox{background:var(--silva-ivory);border-color:var(--silva-gold)}
+.videoModalTitle{color:var(--silva-charcoal)}
+#msg{background:var(--silva-ivory);color:var(--silva-charcoal);border:1px solid var(--silva-divider)}
+/* Prevent any section from widening the phone viewport or sticking to one side */
+*,*::before,*::after{box-sizing:border-box}
+img,video{max-width:100%}
+.heroTiles,.heroStrip,.products,.filters{min-width:0}
+.heroTile,.card,.stripItem{min-width:0}
+@media(max-width:700px){
+ header{width:100%;padding:9px 4%;gap:8px}
+ .hero{width:100%;padding-left:4%;padding-right:4%}
+ .heroFrame{width:100%;height:clamp(220px,68vw,290px)}
+ .heroContent{width:100%;max-width:100%;padding:20px 14px}
+ .heroTiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .title,.filters{padding-left:4%;padding-right:4%}
+ .products{grid-template-columns:repeat(2,minmax(0,1fr));padding-left:4%;padding-right:4%}
+ .card{width:100%;max-width:100%}
+}
+@media(max-width:390px){
+ .products{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .productVisual{height:132px}
+ .info{padding:9px}
+ .info h3{font-size:14px}
+ .info p{font-size:11px}
+ .add{font-size:11px;padding:9px 5px}
+}
+
+
+
+/* Category-first navigation: enter a section before choosing products */
+.categoryEntry{min-width:0;min-height:154px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;text-align:center;border:1px solid var(--silva-gold);border-radius:18px;background:linear-gradient(145deg,var(--silva-ivory),var(--silva-cream));color:var(--silva-charcoal);box-shadow:0 10px 26px rgba(35,30,24,.10);cursor:pointer;font-family:inherit;transition:transform .2s,border-color .2s}
+.categoryEntry:active{transform:scale(.98)}
+.categoryEntryIcon{font-size:36px;line-height:1.2}
+.categoryEntryName{font-size:16px;font-weight:900}
+.categoryEntryCount{font-size:12px;color:var(--silva-text)}
+.categoryEntryAction{margin-top:3px;padding:7px 13px;border-radius:99px;background:var(--silva-charcoal);color:#fff;font-size:12px;font-weight:800}
+#products>.filters{display:none}
+@media(max-width:390px){.categoryEntry{min-height:135px;padding:14px 7px}.categoryEntryName{font-size:14px}.categoryEntryIcon{font-size:31px}}
+
+/* Consistent in-category product layout across every store section */
+.categoryProductsHeading{grid-column:1/-1;display:flex;align-items:center;gap:12px;justify-content:space-between;padding:14px 16px;margin:0 0 8px;border:1px solid var(--silva-gold);border-radius:14px;background:var(--silva-ivory);color:var(--silva-charcoal)}
+.categoryProductsHeading div{display:flex;flex-direction:column;gap:4px}
+.categoryProductsHeading strong{font-size:18px}
+.categoryProductsHeading small{font-size:12px;color:var(--silva-text)}
+.categoryProductsHeading button{border:1px solid var(--silva-gold);border-radius:20px;background:var(--silva-charcoal);color:#fff;padding:9px 13px;font-weight:700;white-space:nowrap}
+.royalGallery{width:100%;margin-top:12px}
+.royalGalleryGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.royalGalleryItem img{width:100%;height:145px;object-fit:contain}
+@media(max-width:390px){.categoryProductsHeading strong{font-size:16px}.royalGalleryItem img{height:120px}}
 </style>
 </head>
 <body>
@@ -291,7 +649,32 @@ async function loadProducts(){
   }
 }
 
-function renderProducts(list=items){
+function renderProducts(list=items, categoryLabel=""){
+  // Landing view: show category cards first. Products appear only after entering a category.
+  if(!categoryLabel){
+    const categories=[...new Set([
+      ...items.map(p=>p.category).filter(Boolean),
+      "إعلانات تجارية",
+      "دعوات زفاف",
+      "تصاميم مدرسية",
+      "تصاميم منتجات",
+      "تصاميم سوشيال ميديا",
+      "شعارات وهوية بصرية",
+      "بوسترات ولافتات",
+      "تصاميم مخصصة"
+    ])];
+    document.getElementById("productList").innerHTML=categories.map(category=>{
+      const products=items.filter(p=>p.category===category);
+      const icons={"إطارات متحركة":"👑","إطارات ثابتة":"🖼️","تصاميم حسب الطلب":"✨","فيديوهات":"🎬","دخوليات مشاهير":"🚪","مؤثرات":"💫","هدايا رقمية":"🎁","ملفات 3D":"🧊","إعلانات تجارية":"📢","دعوات زفاف":"💍","تصاميم مدرسية":"📚","تصاميم منتجات":"🛍️","تصاميم سوشيال ميديا":"📱","شعارات وهوية بصرية":"✒️","بوسترات ولافتات":"🖼️","تصاميم مخصصة":"✨"};
+      return `<button class="categoryEntry" type="button" onclick="filterProducts('${category.replace(/'/g,"\\'")}',null)">
+        <span class="categoryEntryIcon">${icons[category]||"✦"}</span>
+        <span class="categoryEntryName">${category}</span>
+        <span class="categoryEntryCount">${products.length} منتجات</span>
+        <span class="categoryEntryAction">ادخلي للقسم ←</span>
+      </button>`;
+    }).join("");
+    return;
+  }
   const royalVipGallery = [
     "./products/file_00000000dab881f48060e98f73e80c14.png",
     "./products/file_00000000d84081f4bb77929d94833490.png",
@@ -303,17 +686,28 @@ function renderProducts(list=items){
     "./products/file_0000000069e881f4844ea2ec9f0172c5.png"
   ];
 
-  document.getElementById("productList").innerHTML=list.map(p=>{
+  const sectionHeading = categoryLabel ? `
+    <div class="categoryProductsHeading">
+      <button type="button" onclick="filterProducts('all',document.querySelector('.filter'))">‹ كل الأقسام</button>
+      <div><strong>${categoryLabel}</strong><small>${list.length} منتجات داخل القسم</small></div>
+    </div>` : "";
+  if(!list.length){
+    document.getElementById("productList").innerHTML=sectionHeading+`<div class="categoryEmptyState">هذا القسم جاهز لاستقبال تصاميمه قريبًا. ستظهر التصاميم هنا ويمكن إضافة كل تصميم إلى السلة بشكل مستقل.</div>`;
+    return;
+  }
+  document.getElementById("productList").innerHTML=sectionHeading+list.map(p=>{
     const gallery = p.id === 5 ? royalVipGallery : (Array.isArray(p.gallery) ? p.gallery : []);
+    const galleryTitle = p.id===6 ? "بنرات التصاميم" : p.id===5 ? "محتويات مجموعة Royal VIP" : "تصاميم المنتج";
     const imageGallery = gallery.length ? `
       <div class="royalGallery">
-        <div class="royalGalleryTitle">${p.id===6?"✨ بنرات تصاميم حسب الطلب":"✨ محتويات مجموعة Royal VIP — 8 صور"}</div>
+        <div class="royalGalleryTitle">✨ ${galleryTitle}</div>
         <div class="royalGalleryGrid">
           ${gallery.map((src,index)=>`
-            <a class="royalGalleryItem" href="${src}" target="_blank" rel="noopener">
-              <img src="${src}" alt="${p.name} — صورة ${index+1}" loading="lazy">
-              <span>عرض الصورة ${index+1}</span>
-            </a>
+            <div class="royalGalleryItem">
+              <img src="${src}" alt="${p.name} — التصميم ${index+1}" loading="lazy">
+              <span>${p.name} — التصميم ${index+1}</span>
+              <button class="add galleryAdd" type="button" onclick="add(${p.id},${index})">أضف هذا التصميم للسلة</button>
+            </div>
           `).join("")}
         </div>
       </div>` : "";
@@ -323,12 +717,12 @@ function renderProducts(list=items){
       <div class="productVisual ${p.id===5 ? "royalCoverVisual" : ""} ${p.id===6 ? "customDesignCover" : ""}">
         ${p.id===6?`<img src="./products/file_000000002d0c81f4b1444ee5f6db8772.png" alt="غلاف تصاميم حسب الطلب" style="width:100%;height:100%;object-fit:cover;display:block">`:p.type==="video"&&p.media?`<div class="videoPreview" onclick="openVideoModal(${p.id})"><div class="productSprite sprite${p.imagePos??0}"></div><span class="videoPreviewPlay">▶</span><span class="videoPreviewLabel">🎬 مشاهدة</span></div>`:p.type==="image"&&p.media?`<div class="videoPreview"><img src="${p.media}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;padding:8px"></div>`:`<div class="pic">${p.icon||"✨"}</div>`}
       </div>
-      ${imageGallery}
       <div class="info">
         <h3>${p.name}</h3>
         <p>${p.description||""}${p.size?`<br>📐 الحجم: ${p.size}`:""}</p>
-        <div class="price">${p.price>0?"$"+p.price.toFixed(2):"حسب الطلب"}</div>
-        <button class="add" onclick="add(${p.id})">أضف للسلة</button>
+        ${imageGallery}
+        ${p.id===5?"":`<div class="price">${p.price>0?"$"+p.price.toFixed(2):"حسب الطلب"}</div>
+        <button class="add" onclick="add(${p.id})">أضف للسلة</button>`}
       </div>
     </article>`;
   }).join("");
@@ -361,26 +755,29 @@ function closeVideoModal(e){
 function filterProducts(category,button){
   document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));
   if(button&&button.classList.contains("filter"))button.classList.add("active");
-  renderProducts(category==="all"?items:items.filter(p=>p.category===category));
+  const selected=category==="all"?items:items.filter(p=>p.category===category);
+  const label=category==="all"?"":category;
+  renderProducts(selected,label);
+  if(category!=="all") document.getElementById("products").scrollIntoView({behavior:"smooth",block:"start"});
 }
 
-function add(id){
-  const f=cart.find(x=>x.id===id);
-  f?f.qty++:cart.push({id,qty:1});
+function add(id,designIndex=null){
+  const f=cart.find(x=>x.id===id&&x.designIndex===designIndex);
+  f?f.qty++:cart.push({id,designIndex,qty:1});
   updateCart();
-  show("تمت إضافة المنتج إلى السلة ✓");
+  show(designIndex===null?"تمت إضافة المنتج إلى السلة ✓":"تمت إضافة التصميم وحده إلى السلة ✓");
 }
 
-function changeQty(id,value){
-  const x=cart.find(i=>i.id===id);
+function changeQty(id,value,designIndex=null){
+  const x=cart.find(i=>i.id===id&&i.designIndex===designIndex);
   if(!x)return;
   x.qty+=value;
-  if(x.qty<=0)cart=cart.filter(i=>i.id!==id);
+  if(x.qty<=0)cart=cart.filter(i=>!(i.id===id&&i.designIndex===designIndex));
   updateCart();
 }
 
-function removeItem(id){
-  cart=cart.filter(i=>i.id!==id);
+function removeItem(id,designIndex=null){
+  cart=cart.filter(i=>!(i.id===id&&i.designIndex===designIndex));
   updateCart();
 }
 
@@ -401,14 +798,15 @@ function updateCart(){
     if(!p)return "";
     const sub=(Number(p.price)||0)*i.qty;
     total+=sub;
+    const itemName=i.designIndex===null||i.designIndex===undefined?p.name:`${p.name} — التصميم ${i.designIndex+1}`;
     return`<div class="cartItem">
-      <strong>${p.icon||"✨"} ${p.name}</strong>
+      <strong>${p.icon||"✨"} ${itemName}</strong>
       <div class="itemPrice">${p.price>0?"$"+p.price.toFixed(2)+" للقطعة":"السعر حسب الطلب"}</div>
       <div class="controls">
-        <button onclick="changeQty(${p.id},-1)">−</button>
+        <button onclick="changeQty(${p.id},-1,${i.designIndex??"null"})">−</button>
         <span>${i.qty}</span>
-        <button onclick="changeQty(${p.id},1)">+</button>
-        <button class="remove" onclick="removeItem(${p.id})">حذف</button>
+        <button onclick="changeQty(${p.id},1,${i.designIndex??"null"})">+</button>
+        <button class="remove" onclick="removeItem(${p.id},${i.designIndex??"null"})">حذف</button>
       </div>
     </div>`;
   }).join("");
@@ -441,7 +839,8 @@ function checkout(){
     if(!p)return;
     const sub=(Number(p.price)||0)*i.qty;
     total+=sub;
-    lines.push(`• ${p.name} × ${i.qty} = ${p.price>0?"$"+sub.toFixed(2):"حسب الطلب"}`);
+    const itemName=i.designIndex===null||i.designIndex===undefined?p.name:`${p.name} — التصميم ${i.designIndex+1}`;
+    lines.push(`• ${itemName} × ${i.qty} = ${p.price>0?"$"+sub.toFixed(2):"حسب الطلب"}`);
   });
 
   lines.push("","💰 المجموع: $"+total.toFixed(2),"","أريد إتمام هذا الطلب.");
@@ -466,6 +865,12 @@ async function loadStoreSettings(){
     if(s.colors){
       document.documentElement.style.setProperty("--gold",s.colors.accent||"#d8b35a");
       document.documentElement.style.setProperty("--gold2",s.colors.accentLight||"#f5d889");
+      const root=document.documentElement;
+      root.style.setProperty("--silva-sand",s.colors.background||"#B8B4AE");
+      root.style.setProperty("--silva-cream",s.colors.background||"#B8B4AE");
+      root.style.setProperty("--silva-ivory",s.colors.card||"#C8C3BC");
+      root.style.setProperty("--silva-text",s.colors.text||"#44413E");
+      root.style.setProperty("--silva-gold",s.colors.accent||"#B99A68");
     }
 
     document.title=(s.storeName||"SILVA")+" | "+(s.tagline||"متجرك الرقمي الراقي");
@@ -485,3 +890,55 @@ loadProducts();
 </script>
 </body>
 </html>
+
+/* Added customer-requested design categories */
+.categoryEmptyState{
+  grid-column:1/-1;
+  width:min(100%,760px);
+  margin:18px auto 36px;
+  padding:28px 22px;
+  text-align:center;
+  color:#5b5144;
+  background:#e3ded6;
+  border:1px solid #b89455;
+  border-radius:18px;
+  line-height:1.9;
+  box-shadow:0 10px 24px rgba(42,34,22,.07);
+}
+
+/* SILVA final centered layout correction */
+html,body{width:100%;min-width:0;max-width:100%;overflow-x:hidden}
+body{margin:0!important;padding:0!important}
+body>header,body>.hero,body>#products,body>footer{width:100%;max-width:100%;margin-left:auto!important;margin-right:auto!important}
+header{display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap}
+.topActions{display:flex;align-items:center;justify-content:flex-end;min-width:0}
+.hero{display:block;box-sizing:border-box}
+.heroFrame,.heroContent,.heroTiles,.entranceShowcase,.heroStrip{margin-left:auto!important;margin-right:auto!important}
+.heroTiles{display:grid;width:100%;max-width:1100px;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.entranceShowcase{display:flex;width:100%;max-width:1100px;box-sizing:border-box}
+.heroStrip{display:grid;width:100%;max-width:1100px;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+#products{display:block;box-sizing:border-box}
+#products>.title,#products>.filters{width:100%;box-sizing:border-box}
+.products{display:grid;width:100%;box-sizing:border-box;margin:0 auto!important;justify-content:center;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),260px));}
+.card{width:100%;min-width:0;max-width:100%;margin:0}
+.productVisual img,.card img{max-width:100%;height:auto;object-fit:contain}
+footer{text-align:center;box-sizing:border-box}
+@media(max-width:700px){
+ body>header{padding:10px 4%;gap:8px}
+ body>.hero{padding-left:4%;padding-right:4%}
+ .heroFrame{width:100%;margin-inline:auto}
+ .heroContent{width:100%;max-width:100%}
+ .heroTiles{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .entranceShowcase{width:100%;max-width:100%;gap:10px}
+ .heroStrip{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #products>.title,#products>.filters{padding-left:4%;padding-right:4%}
+ .products{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:12px 4% 42px}
+ .card{min-width:0}
+}
+@media(max-width:360px){
+ .products{gap:7px;padding-left:3%;padding-right:3%}
+ .info{padding:8px}
+ .info h3{font-size:13px}
+ .info p{font-size:10px}
+ .add{font-size:10px;padding:8px 4px}
+}
