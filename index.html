@@ -414,13 +414,13 @@ button:focus-visible,a:focus-visible{
 
 /* SILVA SAND EDITORIAL PALETTE + MOBILE ALIGNMENT FIX */
 :root{
-  --silva-sand:#C8C0B4;
-  --silva-cream:#EAE5DF;
-  --silva-ivory:#F6F4F1;
-  --silva-divider:#D5CEC4;
+  --silva-sand:#B8B4AE;
+  --silva-cream:#B8B4AE;
+  --silva-ivory:#C8C3BC;
+  --silva-divider:#918A80;
   --silva-charcoal:#3D3C3A;
-  --silva-text:#5A5855;
-  --silva-gold:#C9A96E;
+  --silva-text:#44413E;
+  --silva-gold:#B99A68;
   --gold:var(--silva-gold);
   --gold2:#DCC69F;
   --ink:var(--silva-charcoal);
@@ -502,11 +502,11 @@ img,video{max-width:100%}
 
 
 /* Consistent in-category product layout across every store section */
-.categoryProductsHeading{grid-column:1/-1;display:flex;align-items:center;gap:12px;justify-content:space-between;padding:14px 16px;margin:0 0 8px;border:1px solid #c9a96e55;border-radius:14px;background:#eae5df;color:#3d3c3a}
+.categoryProductsHeading{grid-column:1/-1;display:flex;align-items:center;gap:12px;justify-content:space-between;padding:14px 16px;margin:0 0 8px;border:1px solid var(--silva-gold);border-radius:14px;background:var(--silva-ivory);color:var(--silva-charcoal)}
 .categoryProductsHeading div{display:flex;flex-direction:column;gap:4px}
 .categoryProductsHeading strong{font-size:18px}
-.categoryProductsHeading small{font-size:12px;color:#5a5855}
-.categoryProductsHeading button{border:1px solid #c9a96e;border-radius:20px;background:#3d3c3a;color:#fff;padding:9px 13px;font-weight:700;white-space:nowrap}
+.categoryProductsHeading small{font-size:12px;color:var(--silva-text)}
+.categoryProductsHeading button{border:1px solid var(--silva-gold);border-radius:20px;background:var(--silva-charcoal);color:#fff;padding:9px 13px;font-weight:700;white-space:nowrap}
 .royalGallery{width:100%;margin-top:12px}
 .royalGalleryGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
 .royalGalleryItem img{width:100%;height:145px;object-fit:contain}
@@ -822,6 +822,12 @@ async function loadStoreSettings(){
     if(s.colors){
       document.documentElement.style.setProperty("--gold",s.colors.accent||"#d8b35a");
       document.documentElement.style.setProperty("--gold2",s.colors.accentLight||"#f5d889");
+      const root=document.documentElement;
+      root.style.setProperty("--silva-sand",s.colors.background||"#B8B4AE");
+      root.style.setProperty("--silva-cream",s.colors.background||"#B8B4AE");
+      root.style.setProperty("--silva-ivory",s.colors.card||"#C8C3BC");
+      root.style.setProperty("--silva-text",s.colors.text||"#44413E");
+      root.style.setProperty("--silva-gold",s.colors.accent||"#B99A68");
     }
 
     document.title=(s.storeName||"SILVA")+" | "+(s.tagline||"متجرك الرقمي الراقي");
