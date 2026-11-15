@@ -7,10 +7,10 @@
   "heroImage": "./lunera-studio-homepage.png.png",
   "backgroundImage": "./Picsart_26-10-09_18-20-21-118.png",
   "colors": {
-    "accent": "#BFA06A",
-    "accentLight": "#DCC38F",
-    "background": "#77736C",
-    "card": "#918A80",
+    "accent": "#B89455",
+    "accentLight": "#D8BD86",
+    "background": "#625F59",
+    "card": "#817A70",
     "text": "#F4F0E8"
   }
 }
