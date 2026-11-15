@@ -768,7 +768,21 @@ footer{background:#202123!important;color:#F4F0E8!important;border-top:1px solid
   line-height:1.45!important;
   text-align:center!important;
 }
-.categoryEntryCount,.categoryEntryAction{display:none!important}
+.categoryEntryCount{display:none!important}
+.categoryEntryAction{
+  display:block!important;
+  padding:3px 2px 0!important;
+  margin:0 0 8px!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#98743b!important;
+  font-size:11px!important;
+  font-weight:700!important;
+  line-height:1.4!important;
+  text-align:center!important;
+  box-shadow:none!important;
+}
 
 </style>
 <style>
@@ -917,7 +931,7 @@ function renderProducts(list=items, categoryLabel=""){
         ${categoryVisual}
         <span class="categoryEntryName">${category}</span>
         <span class="categoryEntryCount">${products.length} منتجات</span>
-        <span class="categoryEntryAction">ادخلي للقسم ←</span>
+        <span class="categoryEntryAction">تصفحي القسم ←</span>
       </button>`;
     }).join("");
     return;
