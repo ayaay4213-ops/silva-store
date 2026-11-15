@@ -659,6 +659,68 @@ footer{background:#514E49!important;color:#F4F0E8!important;border-top-color:#B8
  .products{gap:10px!important}
 }
 
+
+/* LUNÉRA STUDIO — final mobile-first graphite / greige / champagne refinement */
+html,body{background:#292A2C!important;color:#F4F0E8!important}
+body{background-color:#292A2C!important}
+header{background:#292A2C!important;border-bottom:1px solid #68635B!important}
+.logo{color:#F4F0E8!important}
+.hero{padding-top:10px!important;padding-bottom:12px!important}
+.heroFrame{
+  background-color:#625F59!important;
+  border:1px solid #B89455!important;
+  box-shadow:0 10px 26px rgba(0,0,0,.22)!important;
+  margin-bottom:0!important;
+}
+.heroContent{
+  width:100%!important;
+  max-width:100%!important;
+  min-height:0!important;
+  margin:8px auto 8px!important;
+  padding:12px 10px!important;
+  display:flex!important;
+  flex-direction:row!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:8px 16px!important;
+  text-align:center!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+}
+.heroContent .badge{order:0;margin:0;background:#3A3B3D!important;border:1px solid #B89455!important;color:#F4F0E8!important}
+.heroContent h1{order:1;margin:0!important;color:#F4F0E8!important;line-height:1.15!important}
+.heroContent h2{order:2;margin:0!important;color:#D8BD86!important}
+.heroContent p{order:3;flex:1 1 100%;max-width:760px;margin:0 auto!important;color:#F4F0E8!important;line-height:1.55!important}
+.heroContent .btn{order:4;margin:2px 0 0!important}
+.heroTiles,.entranceShowcase,.heroStrip,.topMarks{display:none!important}
+.title{padding:18px 5% 8px!important;border-bottom-color:#68635B!important}
+.title h2,.title p,.info h3,.info p{color:#F4F0E8!important}
+.filters{padding-top:8px!important;padding-bottom:10px!important}
+.filter{background:#3A3B3D!important;color:#F4F0E8!important;border-color:#68635B!important}
+.filter.active,.btn,.add,.cart{background:#202123!important;color:#F4F0E8!important;border-color:#B89455!important}
+.products{gap:12px!important;padding-top:8px!important}
+.card,.categoryEntry,.categoryProductsHeading{background:#3A3B3D!important;color:#F4F0E8!important;border-color:#B89455!important}
+.info{background:transparent!important}
+.productVisual,.royalGallery,.royalGalleryItem img{background:#292A2C!important}
+.royalGalleryItem{background:#3A3B3D!important;color:#F4F0E8!important;border-color:#68635B!important}
+.price,.itemPrice,.royalGalleryTitle{color:#D8BD86!important}
+.stripItem{background:#3A3B3D!important;color:#F4F0E8!important;border-color:#68635B!important}
+footer{background:#202123!important;color:#F4F0E8!important;border-top:1px solid #B89455!important}
+@media(max-width:700px){
+ .hero{padding:8px 3% 8px!important}
+ .heroFrame{aspect-ratio:2.05/1!important;height:auto!important;border-radius:12px!important}
+ .heroContent{gap:7px 10px!important;padding:7px 4px!important;margin:5px auto 6px!important}
+ .heroContent h1{font-size:clamp(25px,7vw,34px)!important}
+ .heroContent h2{font-size:17px!important}
+ .heroContent p{font-size:13px!important;line-height:1.5!important}
+ .heroContent .btn{padding:9px 18px!important;font-size:13px!important}
+ .title{padding:12px 4% 6px!important}
+ .products{gap:9px!important;padding-top:6px!important}
+}
+
 </style>
 </head>
 <body>
@@ -684,34 +746,11 @@ footer{background:#514E49!important;color:#F4F0E8!important;border-top-color:#B8
     <a class="btn" href="#products">تصفح المنتجات</a>
   </div>
 
-  <div class="heroTiles">
-    <div class="heroTile" onclick="filterProducts('إطارات متحركة',this)"><span class="tileIcon">👑</span><b>إطارات متحركة</b></div>
-    <div class="heroTile" onclick="filterProducts('إطارات ثابتة',this)"><span class="tileIcon">🖼️</span><b>إطارات ثابتة</b></div>
-    <div class="heroTile" onclick="filterProducts('تصاميم حسب الطلب',this)"><span class="tileIcon">👑</span><b>تصاميم حسب الطلب</b></div>
-    <div class="heroTile" onclick="filterProducts('فيديوهات',this)"><span class="tileIcon lionTileIcon">🦁</span><b>فيديوهات دخوليات جاهزة</b></div>
-    <div class="heroTile" onclick="filterProducts('دخوليات مشاهير',this)"><span class="tileIcon">🚪</span><b>دخوليات مشاهير</b></div>
-    <div class="heroTile" onclick="filterProducts('مؤثرات',this)"><span class="tileIcon">✨</span><b>مؤثرات</b></div>
-    <div class="heroTile" onclick="filterProducts('هدايا رقمية',this)"><span class="tileIcon">🎁</span><b>هدايا رقمية</b></div>
-    <div class="heroTile" onclick="filterProducts('ملفات 3D',this)"><span class="tileIcon">🧊</span><b>ملفات ثلاثية الأبعاد</b></div>
-  </div>
 
-  <button class="entranceShowcase" type="button" onclick="filterProducts('فيديوهات',null);document.getElementById('products').scrollIntoView({behavior:'smooth'})" aria-label="تصفح فيديوهات الدخوليات الجاهزة">
-    <span class="entranceLion" aria-hidden="true">🦁</span>
-    <span class="entranceCopy">
-      <span class="entranceEyebrow">LUNÉRA STUDIO COLLECTION</span>
-      <h3>فيديوهات دخوليات جاهزة</h3>
-      <p>تأثيرات فخمة • لمعان ذهبي • حضور ملكي</p>
-      <span class="entrancePill">اكتشفي المجموعة ✦</span>
-    </span>
-  </button>
 
-  <div class="heroStrip">
-    <div class="stripItem">⭐ الأكثر مبيعًا</div>
-    <div class="stripItem">✨ جديد</div>
-    <div class="stripItem">💎 خدمات مميزة</div>
-    <div class="stripItem">🔥 عروض خاصة</div>
-    <div class="stripItem">🔒 دفع آمن</div>
-  </div>
+
+
+
 </section>
 
 <section id="products">
