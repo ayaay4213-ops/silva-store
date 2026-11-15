@@ -722,6 +722,15 @@ footer{background:#202123!important;color:#F4F0E8!important;border-top:1px solid
 }
 
 </style>
+<style>
+/* Category cover images — LUNÉRA STUDIO */
+.categoryEntry{padding:0;overflow:hidden;gap:0;}
+.categoryEntryImage{display:block;width:100%;aspect-ratio:1.78/1;object-fit:cover;object-position:center;}
+.categoryEntryName{padding:10px 8px 0;}
+.categoryEntryCount{padding:0 8px;}
+.categoryEntryAction{margin:2px 0 12px;}
+@media(max-width:390px){.categoryEntryImage{aspect-ratio:1.62/1}.categoryEntryName{font-size:13px;padding-top:8px}}
+</style>
 </head>
 <body>
 <header>
@@ -842,8 +851,21 @@ function renderProducts(list=items, categoryLabel=""){
     document.getElementById("productList").innerHTML=categories.map(category=>{
       const products=items.filter(p=>p.category===category);
       const icons={"إطارات متحركة":"👑","إطارات ثابتة":"🖼️","تصاميم حسب الطلب":"✨","فيديوهات":"🎬","دخوليات مشاهير":"🚪","مؤثرات":"💫","هدايا رقمية":"🎁","ملفات 3D":"🧊","إعلانات تجارية":"📢","دعوات زفاف":"💍","تصاميم مدرسية":"📚","تصاميم منتجات":"🛍️","تصاميم سوشيال ميديا":"📱","شعارات وهوية بصرية":"✒️","بوسترات ولافتات":"🖼️","تصاميم مخصصة":"✨"};
+      const categoryImages={
+        "دعوات زفاف":"./Picsart_26-11-15_02-26-45-935.jpg",
+        "إعلانات تجارية":"./Picsart_26-11-15_02-28-13-271.jpg",
+        "تصاميم مدرسية":"./Picsart_26-11-15_02-28-37-508.jpg",
+        "تصاميم منتجات":"./Picsart_26-11-15_02-28-57-912.jpg",
+        "تصاميم سوشيال ميديا":"./Picsart_26-11-15_02-29-32-876.jpg",
+        "شعارات وهوية بصرية":"./Picsart_26-11-15_02-30-02-380.jpg",
+        "بوسترات ولافتات":"./Picsart_26-11-15_02-30-23-602.jpg",
+        "تصاميم مخصصة":"./Picsart_26-11-15_02-30-49-547.jpg"
+      };
+      const categoryVisual=categoryImages[category]
+        ? `<img class="categoryEntryImage" src="${categoryImages[category]}" alt="${category}" loading="lazy">`
+        : `<span class="categoryEntryIcon">${icons[category]||"✦"}</span>`;
       return `<button class="categoryEntry" type="button" onclick="filterProducts('${category.replace(/'/g,"\\'")}',null)">
-        <span class="categoryEntryIcon">${icons[category]||"✦"}</span>
+        ${categoryVisual}
         <span class="categoryEntryName">${category}</span>
         <span class="categoryEntryCount">${products.length} منتجات</span>
         <span class="categoryEntryAction">ادخلي للقسم ←</span>
