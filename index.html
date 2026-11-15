@@ -956,8 +956,9 @@ async function loadStoreSettings(){
     const heroFrame=document.querySelector(".heroFrame");
     if(heroFrame && s.heroImage){
       heroFrame.style.backgroundImage='url("'+s.heroImage.replace(/["\\]/g,"")+'")';
-      heroFrame.style.backgroundSize="cover";
+      heroFrame.style.backgroundSize="contain";
       heroFrame.style.backgroundPosition="center";
+      heroFrame.style.backgroundRepeat="no-repeat";
     }
     document.getElementById("footerText").textContent=(s.storeName||"LUNÉRA STUDIO")+" © 2026 — "+(s.tagline||"متجرك الرقمي الراقي");
   }catch(e){
